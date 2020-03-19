@@ -1,0 +1,3035 @@
+\ **TMS/X for Central Bank of Jordan**
+
+    **User Guide**
+
+**TMS/X for Real Time Gross Settlement and Automated Clearing House of
+Central Bank of Jordan **
+
+**CMA Small Systems AB
+**
+
+Document information
+
++------------------+--------------------------------------------------------+
+| Project name:    | Central Bank of Jordan TMS/X Router for RTGS and ACH   |
++------------------+--------------------------------------------------------+
+| Document name:   | User Guide                                             |
++------------------+--------------------------------------------------------+
+
+Version history (in the reversed order)
+
++-----------+---------------+--------------------+---------------------------------------+
+| Version   | Date          | Authors            | Comments                              |
++-----------+---------------+--------------------+---------------------------------------+
+| 002       | 17-Dec-2018   | Mariya Shatskaya   | The following descriptions added:     |
+|           |               |                    |                                       |
+|           |               |                    | -  Resend transaction action,         |
+|           |               |                    |                                       |
+|           |               |                    | -  Institution debit transfer form,   |
+|           |               |                    |                                       |
+|           |               |                    | -  Incomplete payments menu item,     |
+|           |               |                    |                                       |
+|           |               |                    | -  Reconciliation menu item,          |
+|           |               |                    |                                       |
+|           |               |                    | -  Custom reports menu item.          |
+|           |               |                    |                                       |
+|           |               |                    | Mandate management updated.           |
++-----------+---------------+--------------------+---------------------------------------+
+| 001       | 14-Mar-2018   | Mariya Shatskaya   | Initial version                       |
++-----------+---------------+--------------------+---------------------------------------+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+|  Copyright CMA Small Systems AB – 2018                                                                                                                                                                                          |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| No part of this publication may be reproduced, stored in a retrieval system or transmitted in any form or any means, electronic, photo static, recorded or otherwise without prior written permission of CMA Small Systems AB.   |
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+**
+**
+
+\ **Table of contents**
+
+1 Introduction 6
+
+1.1 Review of the TMS/X functionality 6
+
+1.2 Workstation requirements and settings 6
+
+1.2.1 Workstation requirements 6
+
+1.2.2 Browser proxy-server settings 6
+
+1.2.3 ActiveX component installing and setting 6
+
+1.2.4 Adding to Trusted Sites 7
+
+1.2.5 Using only TLS 1.1 and TLS 1.2 7
+
+1.2.6 Disable compatibility view 7
+
+1.3 Starting the TMS/X application 7
+
+1.3.1 Connect to the TMS/X 9
+
+1.4 User Role Hierarchy and Allocation 9
+
+2 Summary of the TMS/X interface 10
+
+2.1 Working page organization 10
+
+2.2 The TMS/X main menu 10
+
+2.3 Informational bar 11
+
+2.4 The TMS/X tables 11
+
+2.4.1 TMS/X table layout 11
+
+2.4.2 Displaying/hiding table's columns 13
+
+2.4.3 Filters in tables 14
+
+2.5 Viewing/editing table record details 15
+
+2.6 Printing table data 16
+
+2.7 Copying table data 16
+
+2.8 Exporting table data 17
+
+3 Main tables and actions 19
+
+3.1 User session operations 19
+
+3.1.1 Logging out 19
+
+3.1.2 Changing own user password 19
+
+3.2 Dictionaries 20
+
+3.2.1 Correspondents 20
+
+3.2.2 Currencies 21
+
+3.2.3 Participant accounts 21
+
+3.2.4 Priorities 22
+
+3.2.5 Reject reasons 22
+
+3.2.6 Transaction type codes 22
+
+3.2.7 Limit types 23
+
+3.2.8 Positions 23
+
+3.3 The Capture menu 24
+
+3.3.1 Instruction input forms – common aspects 24
+
+3.3.1.1 Mandatory, optional and non-editable fields in the forms 25
+
+3.3.1.2 Validating instruction’s fields by the TMS/X 25
+
+3.3.1.3 Using instruction templates 26
+
+3.3.1.4 Cloning transactions 27
+
+3.3.2 Direct debit 27
+
+3.3.3 Direct credit 29
+
+3.3.4 Direct debit with mandate 30
+
+3.3.5 New mandate 32
+
+3.3.6 Institution transfer 33
+
+3.3.7 Single customer credit transfer 34
+
+3.3.8 Multiple customer credit transfer 35
+
+3.3.9 Institution debit transfer 37
+
+3.3.10 Free format message 38
+
+3.3.11 Import 39
+
+3.4 The Monitoring menu 40
+
+3.4.1 Monitoring transactions 40
+
+3.4.2 Monitoring mandates 42
+
+3.4.3 Payment search 43
+
+3.4.4 Incomplete payments 46
+
+3.4.5 Processing transactions 47
+
+3.4.5.1 Authorization: basic principles 47
+
+3.4.5.2 Making authorization actions 47
+
+3.4.5.3 Authorizing transaction 48
+
+3.4.5.4 Declining Transaction 49
+
+3.4.5.5 Editing transaction 50
+
+3.4.5.1 Remove payments from the batch 51
+
+3.4.5.2 Reopen batch 51
+
+3.4.5.3 Close batch 52
+
+3.4.5.4 Returning transaction to repeated authorization 53
+
+3.4.5.5 Deleting transaction 54
+
+3.4.5.6 Sending transaction to the Central node 54
+
+3.4.5.7 Payment cancellation in RTGS 55
+
+3.4.5.8 Payment cancellation in ACH 56
+
+3.4.5.9 Changing priority 58
+
+3.4.5.10 Return transaction 59
+
+3.4.6 Message audit 60
+
+3.4.6.1 Saving message in a file 61
+
+3.4.6.2 Printing a message 61
+
+3.4.7 Reconciliation 61
+
+3.4.8 Send queue 62
+
+3.5 Custom reports 64
+
+Introduction
+============
+
+Review of the TMS/X functionality
+---------------------------------
+
+The TMS/X application is used in order to prepare and send cash
+operations to the RTGS and ACH for processing.
+
+The TMS/X also allows users to monitor:
+
+-  processing of transactions and requests, have been sent to the
+   Central node,
+
+-  reports on transactions and message exchange;
+
+-  other information, related to the bank operations.
+
+Workstation requirements and settings
+-------------------------------------
+
+Workstation requirements
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Before starting to work with the Web interface system, make sure that
+your computer has been installed Microsoft Internet Explorer 10.0 or
+higher. The Java script should be enabled in web-browser settings. A
+client PC should have at least 512 MB of RAM and at least 1 GB free
+space on a hard drive.
+
+Browser proxy-server settings
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+If you operate via a proxy-server, find out its address and the port
+number from your system administrator. Set the received information in
+the correspondent fields of the IE “Tools” - “Internet Options” window
+("Connection" – "LAN Settings" – "Proxy server"). If the proxy server
+will not be used, then no additional settings are required.
+
+ActiveX component installing and setting
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+No special installation procedures are required at the participant’s
+site, but **when a user connects to the system the first time, the user
+should allow installing ActiveX component** (in case user is going to
+sign and send transactions via TMS/X GUI manually). Web interface
+workplace is built on thin technologies and uses the standard browser
+for viewing its GUI.
+
+To run genuine Windows validation, you have to install an ActiveX
+control. The Internet Explorer might not be configured to download
+ActiveX controls for security reasons, or you might have declined to
+install the ActiveX control when the Internet Explorer prompted you to
+download, install, or run the control. Do the following actions:
+
+-  Open the Internet Explorer;
+
+-  Click the **Tools** menu, and then click the **Internet Options**;
+
+-  On the ‘Security’ tab (trusted sites), click the Custom level button;
+
+-  Scroll down the Security Settings list until you see the ‘ActiveX
+   controls and plug-ins’;
+
+-  For Automatic prompting for the ActiveX controls, click Enable;
+
+-  Scroll down to the ‘Download signed ActiveX controls’ and click
+   Enable or Prompt;
+
+-  Scroll down to the ‘Run ActiveX controls and plug-ins’ and click the
+   Enable or Prompt;
+
+-  Scroll down to the ‘Script ActiveX controls, marked safe for
+   scripting’ and click the Enable or Prompt;
+
+-  Click the OK button and then click the OK again. (You may need to
+   restart your computer.).
+
+Adding to Trusted Sites
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Add the URL
+`https://<server>:<port>/portal/ <https://localhost:8743/portal/>`__ to
+trusted sites, where:
+
+-  <port> - TCP port for SSL connection to the TMS/X;
+
+-  <server> - name or ip address of the TMS/X server.
+
+To do this, follow the steps:
+
+-  In the Internet Explorer, click **Tools > Internet Options**, and
+   then click the ‘Security’ tab;
+
+-  In the ’Select a Web content’ zone s box, click **Trusted Sites** >
+   **Sites** to specify its current security setting;
+
+-  In the ‘Add this Web site to the zone’ box, type the URL of the TMS/X
+   site, and then click the Add button
+
+Click the OK button two times to accept the changes and return to the
+Internet Explorer.
+
+Using only TLS 1.1 and TLS 1.2
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case you have to only use the TLS 1.1 and TLS 1.2, make the following
+setting:
+
+-  Left-click the gear icon;
+
+-  Select “Internet options” from the dropdown menu;
+
+-  Click the “Advanced” tab, scroll down and deselect “SSL 2.0” “SSL
+   3.0” and “TLS 1.0”;
+
+-  Select “TLS 1.1” and “TLS 1.2”;
+
+-  Click the OK button to accept your changes (it should take effect
+   immediately, but you may need to refresh your browser).
+
+Disable compatibility view
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In case you are using the IE 11version:
+
+-  Press the ‘Alt’ key on your keyboard, this will make a menu bar
+   appear;
+
+-  Click on the **Tools** menu tab;
+
+-  Select the **Compatibility View settings** option;
+
+-  Uncheck the "Display intranet sites in Compatibility View" option.
+
+Starting the TMS/X application
+------------------------------
+
+The workplace is accessible via a standard link in a web-browser address
+line (the URL-address depends on the system’s configuration and shall be
+issued by the system administrator):
+
+**http://<hostname>:<port>/portal**
+
+where:
+
+-  <hostname> - a name or IP address of the host, where the web server
+   is installed;
+
+-  <port> is a port number.
+
+Example 1: https://prism-client:8080/portal
+
+Example 2: https://10.1.28.164:8080/portal
+
+In order to launch the TMS/X application, call up the Microsoft Internet
+Explorer, specify the URL-address of the program and then click the
+"Enter" key:
+
+|image0|
+
+A login form will be displayed:
+
+|image1|
+
+Each user shall be assigned a unique login and password for a
+registration on the TMS/X server (this is provided by the system
+administrator). Fill in fields of the form by your credentials and press
+the Sign in button. After the entered data was successfully verified,
+the user will get access to available options of the system, according
+to his(her) role, and the starting page will be opened:
+
+|image2|
+
+Connect to the TMS/X
+~~~~~~~~~~~~~~~~~~~~
+
+In order to close a communication session for the current user, click
+the username in the header of the TMS/X window and choose the ‘Logout’
+command from the drop down menu:
+
+|image3|
+
+A login form will pop up again, where you can enter another user’s login
+and password (e.g., to make authorization actions that were unavailable
+for the previously connected user).
+
+The TMS/X server may interrupt current user connection due to some
+situations (e.g., in the case of long period of yours inactivity). In
+such cases, the TMS/X page will be blanked and the alert will pop up:
+
+|image4|
+
+Try to login once more and in the case of a failure, contact to the
+system administrator or supporting team.
+
+User Role Hierarchy and Allocation 
+-----------------------------------
+
+The TMS/X Workplace supports the following allocation of the user roles
+(each role defines set of access rights (permissions) to monitoring data
+and making operations):
+
+-  System Administrator – gives the permission to dictionaries,
+   authorization profiles and switchover management;
+
+-  Security administrator – gives the permission to create user access
+   and authorities’ management tasks;
+
+-  Security officer – gives the permission to approve user access and
+   authorities’ management tasks;
+
+-  Operator – gives the permission create, edit and make transactions
+   and transaction requests;
+
+-  Controller – gives the permission to authorize transaction and
+   transaction requests.
+
+The TMS/X administrator may assign one or several roles from the list to
+any user.
+
+Each of the TMS/X users connects to the TMS/X by using his own login and
+password. After the user is connected, the TMS/X identifies the user’s
+role(s), which are definitely associated with the user credentials in
+the system. The contents of the TMS/X pages and menus will correspond to
+the identified user role.
+
+Summary of the TMS/X interface
+==============================
+
+Working page organization
+-------------------------
+
+The application screen of the TMS/X consists of the following main
+elements:
+
+|image5|
+
+-  Logo and horizontal main menu bar at the header;
+
+-  Screen body that usually reflects currently opened table or object
+   detail form;
+
+-  Information bar that is located in the footer
+
+The TMS/X main menu
+-------------------
+
+The TMS/X main menu is a horizontal bar at the top of the application
+page. The main menu contains top-level items that correspond to separate
+application’s sections. The top-level items may contain sub-items that
+are opened automatically, when you click the parent menu item. Each
+sub-item itself may contain one or few sub-items, etc. (multi-level
+hierarchy):
+
+|image6|
+
+The user’s main menu contains the following submenus:
+
+-  **TMS/X** – closes currently opened page and returns to the home
+   blank page;
+
+-  **Capture** – allows users to create a new operation (instruction) of
+   selected type. See the section 0 below for details;
+
+-  **Monitoring** – allows users to monitor base objects and operations
+   (such as transactions and messages) registered in the Central node
+   system. See the section 3.3.2 below for details;
+
+-  **Dictionary** - displays dictionaries of correspondents, accounts,
+   operation types and other accessory data that are used in payment
+   preparation and processing. Operators can view, and Administrators
+   can manage the dictionaries. See the section 3.2 below for details;
+
+-  **Reports** – allows users to view and print custom reports on
+   monitoring transactions and user activity. See the section 3.5 below;
+
+-  **User tools** (shown as the user name’s icon with a drop down menu
+   |image7|) – allows user to login on/off and change their password
+   (See the section 3.1 below for details). Also displays the user login
+   information.
+
+Informational bar
+-----------------
+
+The following information is indicated at the bottom of the TMS/X page:
+
+|image8|
+
+-  The workplace registered name;
+
+-  The workplace software current version and copyrights;
+
+-  The name of current period and date of the business day (to see more
+   details about a schedule of the day, just click the period name
+   hyperlink. The schedule will be displayed in a separate window):
+
+|image9|
+
+-  The signs of active/inactive connection (to see more details, just
+   click the sign hyperlink):
+
+    |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML1bcb1e9.PNG|
+
+    |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML16d81f2.PNG|
+
+The TMS/X tables
+----------------
+
+TMS/X table layout
+~~~~~~~~~~~~~~~~~~
+
+The following interface elements present in the TMS/X tables
+(dependently on the table data, some of them may be absent in a concrete
+table):
+
+|image12|
+
+-  A name of the opened table,
+
+-  The table’s toolbar with the buttons for calling actions, which will
+   affect the table or manipulate its record. The toolbar is placed just
+   above the table. The number of buttons may be various for specific
+   tables (some buttons may absent in some tables). Typical actions are:
+
+    |image13| - refreshes the table data (some tables (Transactions,
+    Sustem events, etc.) are refreshed automatically and user can
+    refresh other tables manually anytime via pressing the button);
+
+    |image14| - adds a new record into the table (correspondent entry
+    form will be opened in a separate window);
+
+    |image15|- pops up a context menu (see the description of its items
+    in sections 2.4.2, 2.8 and 2.7 below):
+
+    |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML846440.PNG|
+
+    |image17|- closes the table and returns to the home page of the
+    TMS/X.
+
+The row local toolbar with icons of actions, which only affect the
+record, may be displayed in the last column of the table:
+
+|image18|
+
+Description of such actions will be given in sections, referred to
+concrete tables.
+
+-  Line of table header contains a set of descriptive names of the
+   table's columns. You can sort the table's data in both ascending and
+   descending order. Use the down-arrow icon, which becomes visible when
+   the mouse pointer is over a column name: |image19|. You can also sort
+   the table by the column's data by simply clicking on a column header.
+   When the table is sorted by the column's data, it is indicated by an
+   up-arrow (|image20|) or down-arrow (|image21|) in the column header.
+
+-  The selected line is highlighted with a light grey color in the
+   table.
+
+-  When the screen window cannot hold the entire table, the scrollbar(s)
+   will be displayed to make table data scrolling available.
+
+-  Use the Search field for fast searching records in large tables. Type
+   any fragment of value, which you intend to find among the table
+   records, in the field. The table will immediately be filtered, so
+   that the records, containing the specified fragment in their columns,
+   will only remain:
+
+|image22|
+
+To return to the full table, just clear the Search field.
+
+Displaying/hiding table's columns
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+You can display or hide any table column, depending on what information
+is more important. Call the table context menu and press the Column
+visibility button from there:
+
+|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTMLef9a6f.PNG|
+
+A list of the table column’s names will drop down:
+
+|image24|
+
+Click the column names in the list, which are not to be displayed (their
+background color will change from blue to white):
+
+|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTMLf79a11.PNG|
+
+Selected columns will immediately abandon the table:
+
+|image26|
+
+To return the hidden columns into the table, call the ‘Column
+visibility’ option again and click the names of the hidden columns once
+more (their background color will change to blue):
+
+|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTMLf79a11.PNG| |image28|
+
+Selected columns will immediately appear in the table.
+
+Filters in tables
+~~~~~~~~~~~~~~~~~
+
+You can apply filtering to the data, displayed in the most of the
+tables. When the filtering options are available, the filter bar is
+placed above the table. To set the filter, click the bar. Fill in the
+necessary fields in the pop-up filter dialog box, then press the Filter
+button inside:
+
+|image29|
+
+The table will be updated, so that only the records, which meet the
+criteria, will remain. If filter field is a list, you can specify any
+numbers of possible values from it in some filters:
+
+|image30|
+
+The content of the filter depends on the table’s matter.
+
+Viewing/editing table record details 
+-------------------------------------
+
+If the row record in the opened table has one or more fields that are
+colored in blue, it means that you can view or edit the data from the
+record in a separate form by simply clicking the hyperlink:
+
+|image31|
+
+A special multi-tab form with details of the record will pop-up, where
+you can view or edit them:
+
+|image32|
+
+Printing table data
+-------------------
+
+To print the content of any table, call the table context menu and press
+the Print button from there.
+
+The printing page layout and standard printer manager dialog box will be
+shown in a separate window. Make settings there and press its own Print
+button to send the page to the selected printer.
+
+Copying table data
+------------------
+
+To copy a content of any table into a clipboard, call the table context
+menu and press the Copy button from there. The information message will
+be shown:
+
+|image33|
+
+Then you can paste the clipboard content into any textual editor or
+other application, supporting OLE-technology
+
+Exporting table data
+--------------------
+
+To convert the content of any table to the MS Excel file, call the table
+context menu and press the Excel button from there:
+
+|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML1e24092.PNG|
+
+Confirm the operation in the pop up message box by pressing the Open or
+Save button inside it. The name of the file will be generated
+automatically, but you can change it by choosing the Save As option
+instead of the Save.
+
+Specify new file name and location and press the Save button in the
+pop-up standard dialog box.
+
+The table data will be opened or saved in the correspondent
+application’s format:
+
+|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML1f2214f.PNG|
+
+Then you can edit the file by using standard tools of the application
+(e.g., in order to prepare a report).
+
+*Note:* I\ *n the case a filtering was applied to the table, the
+filtered data will only be exported, but not the whole table.*
+
+Main tables and actions
+=======================
+
+User session operations
+-----------------------
+
+The login form appears on the screen automatically every time the TMS/X
+is started (see the section 1.3.1). When the user is logged-on, the
+following session operations are available from the separate menu that
+will pop-up, as the user clicks its name in the TMS/X main menu:
+
+|image36|
+
+The Session menu contains the following items:
+
+-  **Logout** — logs off the user from the TMS/X and suggest new
+   session;
+
+-  **Change password** — allows changing user's password (availability
+   of the item depends on whether this functionality is provided in the
+   current version of the software and cryptography settings).
+
+Logging out 
+~~~~~~~~~~~~
+
+The process of logging out of the software just invokes the logout
+function and redirects you to the login page, where you can enter
+credential of another user (e.g., in order to make an authorization of
+entered payment).
+
+Changing own user password
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Changing user’s password might be disabled depending on user's
+permissions and cryptographic methods that are used in the current
+version of the TMS/X.
+
+When this option is able, call the **Session** > **Change password**
+menu item. The dialog form will open:
+
+|image37|
+
+To change the password, type in your old password, the new one and
+retype the new password once again, in the correspondent fields of the
+form. The new password should be complex enough (from a security
+viewpoint); otherwise, the TMS/X wouldn't accept it. Then press the
+Change button to confirm the action. In the case of mistake, the error
+message will be issued:
+
+|image38|
+
+Close the message box and try to fill in the fields of the password
+changing form correctly. In case of success, you will immediately be
+redirected to the login page. Enter your login and **new** password, as
+usual:
+
+|image39|
+
+After successful connection, the TMS/X will inform you about new
+password’s validity term:
+
+|image40|
+
+Dictionaries 
+-------------
+
+Call the **Dictionary** item of the main menu to get a list of the TMS/X
+dictionary:
+
+|image41|
+
+Choose the necessary item from drop down list. Details of the
+dictionaries are described below in correspondent sections.
+
+Correspondents
+~~~~~~~~~~~~~~
+
+Call the **Dictionary > Correspondents** item to open the table of
+participants (institutions) registered the in the Central node:
+
+|image42|
+
+The table contains the following columns:
+
+-  **ID** – system internal identifier of the correspondent;
+
+-  **BIC** – bank identification code (BIC) of the correspondent;
+
+-  **Name** – name of the correspondent;
+
+-  **Head office** – name of the correspondents’ head office;
+
+-  **Code** – internal 6-symbols code of the correspondent (if exists);
+
+-  **TIN –** tax identification number of the correspondent (if exists);
+
+-  **SWIFT –** a flag (Yes/No) that defines, whether the correspondent
+   is registered in the SWIFT BIC Directory;
+
+-  **Type –** code of the correspondent type (the DP – direct
+   participant is default);
+
+-  **Modification date** – date and time, when the record was created or
+   last modified.
+
+Currencies
+~~~~~~~~~~
+
+Call the **Dictionary > Currencies** menu item to open the table with a
+list and attributes of currencies:
+
+|image43|
+
+The table contains the following columns:
+
+-  **Code** – system code of the currency;
+
+-  **Name** – system name of the currency;
+
+-  **Decimal digits** – number of decimal digits in amount values that
+   are expressed in the currency;
+
+Participant accounts
+~~~~~~~~~~~~~~~~~~~~
+
+Call the **Dictionary > Participant Accounts** item to open the table of
+accounts, registered in the in the Central node:
+
+|image44|
+
+The table contains the following columns:
+
+-  **ID** – system internal (numeric) identifier of the account;
+
+-  **Code** - code of the account;
+
+-  **Correspondent** - name of the correspondent of the participant, the
+   account is referred to;
+
+-  **Type** - a type of the account;
+
+-  **Currency** - code of the currency (ISO) of the account;
+
+-  **BIC** – bank identification code (BIC) of the participant the
+   account belongs to
+
+-  **Corr Account** - code of the correspondent account (if exists);
+
+-  **Modification date** – date and time, when the record was created or
+   last modified.
+
+Priorities
+~~~~~~~~~~
+
+Call the **Dictionary > Priorities** item to open the table of
+priorities that are registered in the in the Central node:
+
+|image45|
+
+The table contains the following columns:
+
+-  **Name** – name of the group, the priority is included into;
+
+-  **Value –** number of the priority;
+
+-  **Modification date** – date and time, when the record was created or
+   last modified.
+
+Reject reasons
+~~~~~~~~~~~~~~
+
+Call the **Dictionary > Reject reasons** menu item to open the table
+with a list of rejection reasons that are registered in the Central
+node:
+
+|image46|
+
+The table contains the following columns:
+
+-  **Code** – rejection reason code;
+
+-  **Description** – rejection reason description.
+
+Transaction type codes
+~~~~~~~~~~~~~~~~~~~~~~
+
+Call the **Dictionary > Transaction type codes** item to open the table
+of priorities that are registered in the Central node:
+
+|image47|
+
+The table contains the following columns:
+
+-  **Code** – transaction type code;
+
+-  **Name** – transaction type code name;
+
+-  **Subsystem** – subsystem (RTGS or ACH) TTC used.
+
+Limit types
+~~~~~~~~~~~
+
+Call the **Dictionary > Limit types** item to open the table of limits
+that are set in the Central node:
+
+|image48|
+
+Positions
+~~~~~~~~~
+
+Call the **Dictionary > Positions** menu item allows to open the table
+of Bank’s accounts to request account reports:
+
+|image49|
+
+The table contains the following columns:
+
+-  **Account code** – number of account;
+
+-  **Currency** – account currency;
+
+-  **Type** – account type.
+
+To get access to account details and related reports and actions click
+the blue link of the account code.
+
+|image50|
+
+Following actions with Settlement account available on corresponding
+buttons:
+
+-  **Get account**– to send request for account report click the button
+   and confirm sending;
+
+-  **Get customer account** – to send request for balance report click
+   the button and confirm sending;
+
+-  **Get customer statement** – to send request for statement report
+   click the button and confirm sending;
+
+-  **Get reservations** – to send limit request click the button and
+   confirm sending;
+
+-  **Modify reservations** – to send request for set limit click the
+   button and confirm sending.
+
+Following actions with Clearing account available on corresponding
+buttons on **Position** form:
+
+-  **Get Debit Cap** – to send request for the last value of debit cup
+   click the button and confirm sending;
+
+-  **Set Debit Cap** – to send request for to defining a value of debit
+   cup click the button and confirm sending:
+
+-  **Get account** – to send request for account report click the button
+   and confirm sending.
+
+Select the report in the table and click the ID hyperlink to get access
+to the report, message details and related objects. The report
+**Details** tab will be opened in a separate window (the message type,
+direction and reference will be put into the header of the window):
+
+|image51|
+
+For the description of other tabs see the section 3.4.5 Message audit.
+
+The Capture menu
+----------------
+
+Instruction input forms – common aspects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Every Instruction type has its own input form that will pop-up, once you
+select it among the items of the TMS/X **Capture** menu:
+
+|image52|
+
+You have to fill in all the required fields in the form with appropriate
+values, and then choose the following action that shall be completed.
+Pay attention to the following points:
+
+Mandatory, optional and non-editable fields in the forms
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Some fields of the forms might be pre-filled with the context default
+values; you can correct them if it is necessary.
+
+If the value is disabled for editing, it is displayed as faded to gray.
+
+Mandatory fields of any form are marked with red asterisks \* in front
+of their names:
+
+    |image53|
+
+You can’t save an instruction, if at least one of the mandatory fields
+is empty or incorrect (see the section 3.3.1.2).
+
+Most of the fields on any forms are lists. To get the whole list for a
+choice, click the symbol at the end of the field:
+
+|image54|
+
+Validating instruction’s fields by the TMS/X
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+In the cases some fields of the form were filled in with incorrect
+values, the TMS/X prevents the payment from saving and issues local
+alert message below each incorrect field:
+
+|image55|
+
+In such situation, you have to control the fields that are empty or
+incorrect and edit them, then try to press the Create button again.
+
+Using instruction templates 
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can use the current payment instruction as a template. Click the
+‘Template’ icon in the right upper corner of the form:
+
+|image56|
+
+The Template saving dialog box will pop up:
+
+|image57|
+
+Enter the unique name of the new template in the correspondent field and
+press the Save button. A pop-up message at the top of the form will
+indicate the successful result:
+
+|image58|
+
+In future, you can use any saved template in order to quickly create a
+new instruction of the same type: Click the ‘Template’ icon on the form
+and select the necessary name from a drop down list:
+
+|image59|
+
+The fields of the form will be automatically filled in by the values,
+taken from the chosen template:
+
+|image60|
+
+Cloning transactions
+^^^^^^^^^^^^^^^^^^^^
+
+Another way to create a new transfer is cloning the existing one (e.g.,
+in cases you are to create several unified transfers). A document that
+has been created, will be used as a template for a new one.
+
+Login to the TMS/X as the user with the Operator role. Open the
+**Transactions** monitoring table, choose the source document in there
+and click its Reference hyperlink. Call the context menu from the opened
+transaction’s detail form and choose the Clone option from there:
+
+|image61|
+
+The entry form of correspondent transaction type will be opened, where
+fields has been already filled in by attributes of the source
+transaction (except the ‘Reference’ fields, that will be regenerated
+automatically to be unique). Control values in all the fields and
+correct the necessary ones. Press the Create button then. New
+transaction will be saved in the table, where you can make further
+authorization/sending actions and monitor the transfer processing.
+
+|image62|
+
+Details of instruction’s creating are described below in the next
+following sections (correspondently to each type).
+
+Direct debit 
+~~~~~~~~~~~~~
+
+Login as a user, who was granted the Operator (Maker) role. Choose the
+**Direct debit** instruction item in the **Capture** menu.
+
+The following entry form of instruction will be opened:
+
+|image63|
+
+The form has the following fields:
+
+-  **Reference** – (TRN), unique reference of transaction (the Sender's
+   own reference number);
+
+-  **Operation code** – bank operation code of the transaction;
+
+-  **Amount / Currency** — amount of the payment / code of the currency
+   (the JOD is default);
+
+-  **Value date** — the date of the day, when the payment is to be
+   settled;
+
+*Credit area* (details of crediting part):
+
+-  **Beneficiary customer name / Account / Address** - the name,
+   account’s code and address of the beneficiary customer (the
+   beneficiary party, which will be paid);
+
+*Debit area* (details of debiting part):
+
+-  **Bank-Debtor** – the bank identification code of bank-debitor;
+
+-  **Debtor customer name / Account / Address** – the name, account’s
+       code and address of the debtor customer (who is ordering the
+       transaction);
+
+*Transaction details*:
+
+-  **Document No / Document date** – the number and date of original
+   document;
+
+-  **Transaction type** — type code of transaction;
+
+-  **Remittance information** — additional information, referred to
+   payment.
+
+Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its |image64| icon:
+
+|image65|
+
+The instruction will be added to the **Transactions** table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the ACH
+
+*Note:* *To create several instructions of the same type one by one,
+mark option ‘Create another’ at the bottom of instruction entry form:*
+
+|image66|
+
+*After creation of first instruction the entry form will stay opened and
+blank for the creating next one. Unmark this option while inputting the
+last instruction to finish the chain. This option is available on all
+instruction input forms.*
+
+Direct credit 
+~~~~~~~~~~~~~~
+
+Login as a user, who was granted the Operator (Maker) role. Choose the
+**Direct credit DNS** instruction item in the **Capture** menu.
+
+The following entry form of instruction will be opened:
+
+|image67|
+
+The form has the following fields:
+
+-  **Reference** – (TRN), unique reference of transaction (the Sender's
+   own reference number);
+
+-  **Amount / Currency** — amount of the payment / code of the currency
+   (the JOD is default);
+
+-  **Value date** — the date of the day, when the payment is to be
+   settled;
+
+-  **Instructed amount / Currency** – instructed amount of the payment /
+   code of the currency (the JOD is default);
+
+-  **Exchange rate** – exchange rate;
+
+*Debit area* (details of debiting part):
+
+-  **Bank-Debtor** – the bank identification code of bank-debtor;
+
+-  **Ordering customer name / Account / Address** – the name , account’s
+       code and address of the debtor customer (who is ordering the
+       transaction);
+
+*Credit area* (details of crediting part):
+
+-  **Beneficiary bank** – the bank identification code of beneficiary
+   bank;
+
+-  **Beneficiary customer name / Account / Address** - the name,
+   account’s code and address of the beneficiary customer (the
+   beneficiary party, which will be paid);
+
+*Transaction details*:
+
+-  **Document No / Document date** – the number and date of original
+   document;
+
+-  **Transaction type** — type code of transaction;
+
+-  **Remittance information** — additional information, referred to
+   payment;
+
+-  **Charge bearer** – a code that defines, which party will bear the
+   charges for the transaction (BEN, OUR or SHA);
+
+-  **Charge amount / Currency** - charge amount / code of the currency
+   (the JOD is default);
+
+-  **Regulatory reporting** – regulatory reporting, referred to the
+   payment;
+
+-  **Instruction for next agent** — instruction for the next agent,
+   referred to the payment;
+
+-  **Service type** — Service Type Identifier
+
+-  **UETR** — Unique End-to-end Transaction Reference.
+
+Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its |image68| icon:
+
+|image69|
+
+The instruction will be added to the **Transactions** table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the ACH.
+
+Direct debit with mandate
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Login as a user, who was granted the Operator (Maker) role. Choose the
+**Direct debit with mandate** instruction item in the **Capture** menu.
+
+The following entry form of instruction will be opened:
+
+|image70|
+
+The form has the following fields:
+
+-  **Mandate reference** – the list of active mandates for the
+   Bank-Debtor specified;
+
+-  **Reference** – (TRN), unique reference of transaction (the Sender's
+   own reference number);
+
+-  **Amount / Currency** — amount of the payment / code of the currency
+   (the JOD is default);
+
+-  **Priority** — the priority group and number of priority of the
+   payment;
+
+-  **Value date** — the date of the day, when the payment is to be
+   settled;
+
+*Credit area* (details of crediting part):
+
+-  **Beneficiary customer name / Account / Address** - the name,
+   account’s code and address of the beneficiary customer (the
+   beneficiary party, which will be paid);
+
+*Debit area* (details of debiting part):
+
+-  **Bank-Debtor** – the bank identification code of bank-debitor;
+
+-  **Debtor customer name / Account / Address** – the name, account’s
+       code and address of the debtor customer (who is ordering the
+       transaction);
+
+*Transaction details*:
+
+-  **Document No / Document date** – the number and date of original
+   document;
+
+-  **Transaction type** — type code of transaction;
+
+-  **Remittance information** — additional information, referred to
+   payment.
+
+Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its |image71| icon:
+
+|image72|
+
+The instruction will be added to the **Transactions** table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the ACH.
+
+New mandate
+~~~~~~~~~~~
+
+Login as a user, who was granted the Operator (Maker) role. Choose the
+**New mandate** instruction item in the **Capture** menu.
+
+The following entry form of instruction will be opened:
+
+|image73|
+
+The form has the following fields:
+
+-  **Reference** - (TRN), unique reference of mandate (the Sender's own
+   reference number);
+
+-  **Valid from** - the start date of validity of mandate;
+
+-  **Valid to** - the end date of validity of mandate (disable if
+   ‘Untimely’ is marked);
+
+-  **Type** - One-off – mandate is used only for 1 payment; mandate will
+   expire after first payment will be sent to ACH. Recurrent – used for
+   multiple payments;
+
+-  **Untimely** - termless validity of mandate (available only for
+   recurrent mandates);
+
+-  **Currency** - the code of the currency (the JOD is default) of the
+   mandate;
+
+-  **Maximum amount per instruction** - the maximum amount of payment
+   per instruction;
+
+-  **Payee name** – payee customer name;
+
+-  **Payee bank** - not editable, filled automatically by CBJ:
+
+-  **Payee account** – account of the payee’s customer;
+
+-  **Payer name** – payer customer name;
+
+-  **Payer bank** – payer bank identification code;
+
+-  **Payer account** – account of the payer.
+
+Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the mandate. After creation of mandate
+view mandate form is opened. The ‘Mandate’ tab of the form displays
+mandate details.
+
+The mandate will be added to the **Issued mandates** table, where you
+can make further authorization/sending actions and monitor the mandate
+processing in the ACH.
+
+Institution transfer
+~~~~~~~~~~~~~~~~~~~~
+
+Login as a user, who was granted the Operator (Maker) role. Choose the
+**Institution transfer** instruction item in the **Capture** menu.
+
+The following entry form of instruction will be opened:
+
+|image74|
+
+The form has the following fields (in expanded mode):
+
+-  **Reference** – (TRN), unique reference of transaction (the Sender's
+   own reference number);
+
+-  **Related reference** – reference number of the related transaction
+   (for links, the NONREF is default);
+
+-  **Amount / Currency** — the amount of the payment and the code of the
+   currency (the BHD is default);
+
+-  **Value date** — the date of the day, when the payment is to be
+   settled;
+
+-  **Priority** —the priority group and number of priority of the
+   payment;
+
+*Debit area* (details of debiting part):
+
+-  **Ordering Institution / Account** – the bank identification code and
+   account’s code ordering institution;
+
+*Credit area* - details of crediting part:
+
+-  **Beneficiary institution** / **Account** - the identification and
+   account’s code of the creditor (the Beneficiary party, which will be
+   paid);
+
+-  **Account with institution** / **Account** (optional) - the bank
+   identification code and account’s code of the member, who will pay to
+   or credit the Beneficiary;
+
+-  **Receiver’s correspondent** (optional) – the bank identification
+   code of the Receiver’s branch or another financial institution, where
+   the funds will be made available to the Receiver;
+
+*Details area*:
+
+-  **Transaction type -** type code of transaction;
+
+-  **Instruction for next agent** — instruction for the next agent,
+   referred to the payment.
+
+Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its |image75| icon:
+
+|image76|
+
+The instruction will be added to the **Transactions** table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the RTGS.
+
+Single customer credit transfer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Login as a user, who was granted the Operator (Maker) role. Choose the
+**Single customer credit transfer** instruction item in the **Capture**
+menu.
+
+The following entry form of instruction will be opened:
+
+|image77|
+
+The form has the following fields (in expanded mode):
+
+-  **Reference** – (TRN), unique reference of transaction (the Sender's
+   own reference number);
+
+-  **Priority** — the priority group and number of priority of the
+   payment;
+
+-  **Amount / Currency** — amount of the payment / code of the currency
+   (the JOD is default);
+
+-  **Value date** — the date of the day, when the payment is to be
+   settled;
+
+-  **Instructed Amount / Currency** - amount and currency code of the
+   instruction (provided for informational purposes and has to be
+   transported unchanged);
+
+-  **Exchange Rate** – the value of the exchange rate, used to convert
+   the instructed amount;
+
+*Debit area* (details of debiting part):
+
+-  **Bank-Debtor** – the bank identification code of bank-debtor;
+
+-  **Ordering customer / Account / Address** – identification and
+   account’s code and address of the ordering customer (who is ordering
+   the transaction);
+
+*Credit area* - details of crediting part:
+
+-  **Beneficiary bank** – the bank identification code of beneficiary
+   bank;
+
+-  **Beneficiary customer** / **Account** / **Address** - the
+   identification and account’s code and the address of the creditor
+   (the Beneficiary party, which will be paid);
+
+*Sender to receiver information area*:
+
+-  **Transaction type -** type code of transaction;
+
+-  **Instruction for next agent** — instruction for the next agent,
+   referred to the payment;
+
+-  **Charge bearer** – a code that defines, which party will bear the
+   charges for the transaction (BEN, OUR or SHA);
+
+-  **Charge** **amount charge** – amount and code of the currency of the
+   transaction charges, dedicated by the Sender (in the case of OUR or
+   SHA), or dedicated by the Receiver (in the case of BEN);
+
+-  **Remittance information** — additional information, referred to
+   payment.
+
+Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its |image78| icon:
+
+|image79|
+
+The instruction will be added to the **Transactions** table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the RTGS.
+
+Multiple customer credit transfer
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Login as a user, who was granted the Operator (Maker) role. Choose the
+**Multiple customer credit** **transfer** instruction item in the
+**Capture** menu (Participants can construct the transfer to send a
+batch of customer’s transfers).
+
+The following entry form of instruction will be opened:
+
+|image80|
+
+This form has the following fields (in expanded mode):
+
+-  **Batch reference** - (TRN) reference number of the whole transaction
+   (the Sender's own reference number);
+
+-  **Reference** – (TRN), unique reference of transaction (the Sender's
+   own reference number);
+
+-  **Batch amount** / **Currency** — amount and code of the currency of
+   the whole batch payment (sum of all instruction’s amounts,
+   informational field, automatically calculated and updated each time a
+   new instruction is added);
+
+-  **Amount / Currency** — amount of the payment / code of the currency
+   (the JOD is default);
+
+-  **Value date** — the date of the day, when the payment is to be
+   settled;
+
+-  **Priority** — the priority group and number of priority of the
+   payment;
+
+*Debit area* (details of debiting part):
+
+-  **Bank-Debtor** – the bank identification code of bank-debtor;
+
+-  **Ordering customer / Account / Address** – identification and
+   account’s code and address of the ordering customer (who is ordering
+   the transaction);
+
+*Credit area* - details of crediting part:
+
+-  **Beneficiary bank** – the bank identification code of beneficiary
+   bank;
+
+-  **Beneficiary customer** / **Account** / **Address** - the
+   identification and account’s code and the address of the creditor
+   (the Beneficiary party, which will be paid);
+
+*Sender to receiver information area*:
+
+-  **Transaction type** - type code of transaction;
+
+-  **Instruction for next agent** — instruction for the next agent,
+   referred to the payment;
+
+-  **Charge bearer** – a code that defines, which party will bear the
+   charges for the transaction (BEN, OUR or SHA);
+
+-  **Remittance information** — additional information, referred to
+   payment.
+
+Fill in all the mandatory fields of the form with attributes of the
+batch and first instruction, click on the Create another button to add
+next instruction. The form stays opened with the same batch attributes
+(the Reference, Value date and Priority), the reference of the new
+instruction will be generated automatically and other fields will be
+cleared, so you can enter attributes of the second instruction in the
+same way. After the last instruction is ready click the Finish button.
+
+Close the informational message box by pressing its |image81| icon:
+
+|image82|
+
+The transfer will be added to the **Transactions** table, where you can
+make further authorization/sending actions and monitor its processing in
+the RTGS.
+
+Institution debit transfer
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Login as a user, who was granted the Operator (Maker) role. Choose the
+**Institution debit transfer** instruction item in the **Capture** menu.
+
+The following entry form of instruction will be opened:
+
+|image83|
+
+The form has the following fields (in expanded mode):
+
+-  **Sender** – the identification code of the Sender of transaction;
+
+-  **Receiver** - the identification code of the Receiver of
+   transaction;
+
+-  **Reference** – (TRN), unique reference of transaction (the Sender's
+   own reference number);
+
+-  **Priority** —the priority group and number of priority of the
+   payment;
+
+-  **Sender information** — additional information, referred to the
+   payment, from the Sender to the Beneficiary;
+
+-  **Related reference** – reference number of the related transaction
+   (for links, the NONREF is default);
+
+-  **Value date** — the date of the day, when the payment is to be
+   settled;
+
+-  **Amount / Currency** — the amount of the payment and the code of the
+   currency (the BHD is default);
+
+*Debit area* - details of debiting part:
+
+-  **Beneficiary institution** / **Account** - the identification and
+   account’s code of the creditor (the Beneficiary party, which will be
+   paid);
+
+-  **Account with institution** / **Account** - the bank identification
+   code and account’s code of the member, who will pay to or credit the
+   Beneficiary;
+
+-  **Transaction type -** type code of transaction;
+
+*Credit* *area* (details of crediting part):
+
+-  **Debit** **Institution / Account** – the bank identification code
+   and account’s of code debit institution.
+
+Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its |image84| icon:
+
+|image85|
+
+The instruction will be added to the **Transactions** table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the RTGS.
+
+Free format message
+~~~~~~~~~~~~~~~~~~~
+
+Login as the user, who was granted the Operator (Maker) role. Choose the
+**Free format message (MTn99)** item in the Capture menu to create
+messages to ACH or RTGS accordingly.
+
+The following instruction entry form will be opened:
+
+|image86|
+
+The form has the following fields:
+
+-  **Reference** – reference number of the message. Unique reference
+   number is generated automatically and could be changed by user;
+
+-  **Related reference** – reference of related message;
+
+-  **Message type** – the type of the free format message;
+
+-  **Receiver BIC** - the identification code of the Receiver;
+
+-  **Message text** – text of the message.
+
+Fill in all the mandatory fields of the form and press the Create button
+to send the message. The created message will appear in Monitoring/Send
+queue menu item (see the section 3.4.6).
+
+Import
+~~~~~~
+
+Login as a user, who has authority to import payment from file. Choose
+the **Import (multiple direct format)** item in the **Capture** menu.
+The following import form will be opened:
+
+|image87|
+
+To load payment from file click button ‘Choose file’, choose files and
+click Open in standard browser pop up dialog box. The file chosen will
+appear on the screen. Click button Import to load all the files in the
+list. Successfully loaded payment will appear in the Transactions table
+(see Monitoring transactions).
+
+The Monitoring menu
+-------------------
+
+Use the **Monitoring** items of the TMS/X main menu for the following
+purposes:
+
+-  to search transactions;
+
+-  to monitor transactions that were created and sent;
+
+-  to make authorization/sending actions with created transactions;
+
+-  to monitor received transactions;
+
+-  to monitor message workflow.
+
+|image88|
+
+Monitoring transactions
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Call the **Monitoring > Transactions** item of the TMS/X main menu to
+open a table of transactions:
+
+|image89|
+
+The table has a set of the following fields:
+
+-  **Reference** – reference number of the transaction (is a hyperlink);
+
+-  **Operation** – code of bank operation referred to the payment to be
+   searched;
+
+-  **Instrument** – ISIN code of the instrument, involved in the
+   transaction;
+
+-  **Quantity -** total quantity of the instrument to be transferred;
+
+-  **Value date** – value date of the transaction;
+
+-  **Settlement date** – date of the transaction settlement;
+
+-  **Amount** – amount of the transaction;
+
+-  **Currency** – code of currency, the transaction amount is nominated
+   in;
+
+-  **Dr Bank** – BIC code of the Debtor’s Bank;
+
+-  **Cr Bank** – BIC code of the Creditor’s Bank;
+
+-  **Local** — current status of the payment the transaction in the
+   TMS/X;
+
+-  **Reconciliation** — current status of the payment transaction that
+   was received from the Central node;
+
+-  **Priority** – number of priority, assigned to the transaction by the
+   Sender;
+
+-  **TTC** – transaction type code;
+
+-  **Via** – code of the channel, the transaction was initiated;
+
+-  **Dr Bank Account** – code of the account in the Debtor Bank;
+
+-  **Debtor** – code/name of the Debtor;
+
+-  **Cr Bank Account** – code of the account in the Creditor’s Bank;
+
+-  **Creditor** – code/name of the Creditor;
+
+-  **Rem. info** — remittance information, additional information,
+   referred to payment;
+
+-  **Description** – brief textual information, referred to the result
+   of the transaction processing;
+
+-  **Create date** – date and time, when the transaction was created;
+
+-  **Modification time** – date and time, when the record was created or
+   last modified.
+
+Use the table filtering option to quickly find a particular transaction
+(see the section 2.4.3).
+
+Select the transaction in the table and click the Reference hyperlink to
+get access to the transaction details and related actions. The
+transaction details form will be opened in a separate window:
+
+|image90|
+
+The form has 3 tabs:
+
+-  The **Details** tab displays set of fields with the transaction
+       attributes, which are the same, as these ones on the
+       correspondent transaction entry forms;
+
+-  The **Requests** tab displays list and attributes of query messages,
+       which are related to the transaction (if there were no one, the
+       list will be empty):
+
+-  The **Audit** tab displays list and attributes of processing steps
+       that the transaction has passed in the TMS/X:
+
+At the bottom of the form, there is a toolbar with buttons for further
+possible actions (described in the next following sections). Current
+local status of the transaction is displayed in the begginning of the
+bottom line.
+
+Monitoring mandates
+~~~~~~~~~~~~~~~~~~~
+
+Call the **Monitoring > Issued mandates** item of the TMS/X main menu to
+open a table of issued mandates:
+
+|image91|
+
+The table has a set of the following fields:
+
+-  **Reference** - (TRN), unique reference of mandate (the Sender's own
+   reference number);
+
+-  **Currency** - the code of the currency of the mandate;
+
+-  **Maximum amount per instruction** - the maximum amount of payment
+   per instruction;
+
+-  **Collection amount** – collection amount of payments in the mandate;
+
+-  **Number of payments** – number of payments in the mandate;
+
+-  **Payer account** – account of the payer;
+
+-  **Payer bank** – payer bank identification code;
+
+-  **Payee account** – account of the payee’s customer;
+
+-  **Payee bank** - not editable, filled automatically by GIB:
+
+-  **Type** – mandate type;
+
+-  **Frequency** – frequency of payments;
+
+-  **Valid from** - the start date of validity of mandate;
+
+-  **Valid to** - the end date of validity of mandate (disable if
+   ‘Untimely’ is marked);
+
+-  **Status** – mandate status;
+
+-  **Description** – status description;
+
+-  **Create date** – date and time, when the transaction was created;
+
+-  **Modification time** – date and time, when the record was created or
+   last modified.
+
+Call the **Monitoring > Received mandates** item of the TMS/X main menu
+to open a table of received mandates.
+
+Select the mandate in the table and click the Reference hyperlink to get
+access to the mandate details and related actions. The mandate details
+form will be opened in a separate window:
+
+|image92|
+
+The form has 3 tabs:
+
+-  The **Mandate** tab displays set of fields with the mandate
+       attributes, which are the same, as these ones on the
+       correspondent mandate entry forms;
+
+-  The **Audit** tab displays list and attributes of processing steps
+       that the mandate has passed in the TMS/X;
+
+-  The **Images** tab display the list of mandate images attached;
+
+-  The **Payments** tab display the list of payments created based on
+       mandate.
+
+At the bottom of the form, there is a toolbar with buttons for further
+possible actions. Current local status of the mandate is displayed in
+the begginning of the bottom line.
+
+In order to approve issued mandate, choose the necessary document in the
+list and click the Reference hyperlink. Press the Authorize button at
+the bottom of the opened form. TMS/X will send request ACH for
+authorization of mandate. After receiving authorization from ACH TMS/X
+will change status of mandate to ‘Active’.
+
+In order to cancel active mandate, choose the necessary document in the
+list and click the Reference hyperlink. Press the Cancel button at the
+bottom of the opened form. The request for mandate cancellation will be
+created and send to ACH after approval. After receiving receipt from ACH
+TMS/X will change status of mandate to ‘Cancelled’.
+
+In order to approve or reject received mandate, choose the necessary
+document in **Received mandates** list and click the Reference
+hyperlink. Press the Accept or Reject button at the bottom of the opened
+form. The request for mandate approving will be created and send to ACH
+after verification. After receiving receipt from ACH TMS/X will change
+status of mandate accordingly.
+
+Payment search
+~~~~~~~~~~~~~~
+
+Call the **Monitoring > Payment search** item of the TMS/X main menu to
+open payment search table for fast finding of particular payment:
+
+|image93|
+
+The table has the following columns:
+
+-  **Reference** – transaction reference number (is hyperlink to open
+   the payment view form);
+
+-  **Type** – type of the payment;
+
+-  **Amount** – amount of payment;
+
+-  **Value date** – date of the payment creation;
+
+-  **Status** – current status of the payment;
+
+-  **Bank-Debtor** – BIC of the payment debtor bank;
+
+-  **Debtor account** – account of the debitor of the payment;
+
+-  **Debtor name** – name of the debitor of the payment;
+
+-  **Beneficiary bank** – BIC of the payment creditor bank;
+
+-  **Creditor account** – account of the creditor of the payment;
+
+-  **Creditor name** – name of the creditor of the payment;
+
+-  **Remit Info** - remittance information, referred to the payment.
+
+To open the payment instruction filter window click filter line under
+the table name:
+
+|image94|
+
+The filter panel has a set of the following optional fields:
+
+-  **Transaction reference** - payment reference number to be searched;
+
+-  **Bank operation** - code of bank operation referred to the payment
+   to be searched (selected from the list of bank operation codes
+   registered);
+
+-  **Value date from … to** - range of value dates where the payments
+   will be searched;
+
+-  **Amount from … to** - range of amounts where the payments will be
+   searched;
+
+-  **Mandate reference -** mandate reference number to be searched;
+
+-  **Currency** - currency where the payments will be searched;
+
+-  **Sender BIC** - BIC of the sender to be searched (selected from the
+   list of correspondents registered in Central node);
+
+-  **Receiver BIC** - BIC of the receiver to be searched (selected from
+   the list of correspondents registered in Central node);
+
+-  **Modification date/time from … to** – range of modification
+   date/time where the payments will be searched;
+
+-  **Document No** – the number of original document to be searched;
+
+*Debit / Credit area* (details of debiting / crediting part to be
+searched):
+
+-  **Institution identifier** – the bank identification code to be
+   searched;
+
+-  **Account** – the account’s code of the debtor / creditor bank to be
+       searched;
+
+-  **Sub Account** – the sub account’s code of the debtor / creditor
+       bank to be searched;
+
+-  **Account -** account’s code of debtor / creditor customer to be
+       searched;
+
+-  **Name** - the name of debtor / creditor customer to be searched;
+
+*Instruction additional information area*:
+
+-  **Remittance information** - remittance textual information in the
+   payment to be searched;
+
+-  **Regulatory reporting** - information for reporting to regulatory in
+   the payment to be searched;
+
+-  **Transaction type** - code of the transaction type of the payment to
+   be searched (selected from the list of transaction type codes
+   registered in Central node);
+
+-  **VAT** – VAT condition used in search;
+
+-  **VAT/Related reference** - reference number to be searched.
+
+Fill in the necessary fields in the filter form to define a criteria for
+a search and then press the button Filter to apply it. The table will be
+refreshed so that only records that match filter criteria will remain.
+
+Incomplete payments
+~~~~~~~~~~~~~~~~~~~
+
+Call the **Payments > Incomplete payments** item of the TMS/X main menu
+to open a table of outgoing payments that has not belonged to a certain
+batch. Such records in the table may be:
+
+-  outgoing payments failed validations of TMS/X (for example, payments
+       having past value date);
+
+-  payments excluded manually from the outgoing batch by batch Reviewer;
+
+-  outgoing payments waiting inclusion into the batch;
+
+-  violated outgoing payments.
+
+|image95|
+
+The table has the following columns:
+
+-  **Id** – system internal numeric identifier of the payment;
+
+-  **Reference** – payment reference number;
+
+-  **Type** – type of the payment;
+
+-  **Amount** – amount of the payment;
+
+-  **Date** – date of the payment creation;
+
+-  **Currency code** – code of the payment currency;
+
+-  **Creditor account** – IBAN of the creditor of the payment;
+
+-  **Creditor name** – name of the creditor of the payment;
+
+-  **Debtor account** – IBAN of the debtor of the payment;
+
+-  **Debtor name** – name of the debtor of the payment;
+
+-  **Remit Info** - remittance information, referred to the payment;
+
+-  **Value date** – date when the payment is to be settled;
+
+-  **AML status** – current AML status of the payment.
+
+In order to remove incomplete payment from processing, choose the
+necessary document in the list and click its Reference hyperlink. Call
+the context menu from the opened transaction’s detail form and choose
+the Delete option from there:
+
+|image96|
+
+The payment will abandon the Incomplete payments table.
+
+In order to correct incomplete payment and return it into processing,
+choose the necessary document in the list and click its Reference
+hyperlink. Call the context menu from the opened transaction’s detail
+form and choose the Edit option from there. The edit form of
+correspondent transaction type will be opened. Correct the values in the
+necessary fields and press the Save button then.
+
+The payment will abandon the **Incomplete payments** table and will be
+added to the **Transactions** table, where you can make further
+authorization/sending actions and monitor the transfer processing.
+
+Processing transactions
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Authorization: basic principles
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Authorization in the TMS/X can be applied to a particular type of
+documents. The authorization itself is a procedure that assumes
+specified actions from user(s), other than the user, who created the
+document. Dependently on settings, which are provided by the TMS/X
+Administrator (described in the separate TMS/X Administrator Guide,
+supplied by the CMA), the authorization procedure may be either applied
+or not to the particular documents (or their types) and its rules may
+flexibly be changed.
+
+All the authorization actions are made by approvers. An approver in the
+TMS/X is a person (user) who has an authority to authenticate and/or
+change the document. To be an approver, such user(s) must own at least
+one of the corresponded roles that is also managed by the TMS/X
+Administrator.
+
+Making authorization actions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+After the document is issued by user-maker and saved in the TMS/X local
+database, the TMS/X tries to pick up an authorization profile, which
+would be applied to the document (based on appropriate settings, have
+been done by the Administrator). In the case the profile is found, local
+status of the document changes from “Created” to “Waiting for
+Authorization”, and users-approvers can make the following authorization
+actions:
+
+-  Approve the document. The Approver checks the document attributes via
+       popping up the view form and calls the ‘Approve’ command,
+       provided (s)he didn’t notice any kind of mistakes. The document
+       will move to the next processing step (is ready to be sent);
+
+-  Decline the document. In the case any errors were found, the Approver
+       user calls the ‘Decline’ command. The document will move back to
+       the previous step for repairing.
+
+The both actions are logged in the document processing audit.
+
+Authorizing transaction
+^^^^^^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user with the Approver (Controller) role. Open
+the **Transactions** monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Waiting Authorization’.
+
+Check the transaction attributes and press the Authorize button at the
+bottom of the opened form:
+
+|image97|
+
+Confirm the action by entering your comment to the action and pressing
+the Authorize button once more in the pop-up dialog box:
+
+|image98|
+
+The local status of the transaction in the table will change to
+‘Authorized’ (you can monitor it both in the base table and in the
+‘Audit’ tab of the transaction detail’s form):
+
+|image99|
+
+The toolbar on the form will be updated, so that new buttons for further
+actions will appear in there (authorized transaction can be sent to the
+Central node).
+
+Declining Transaction
+^^^^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user with the Approver (Controller) role. Open
+the **Transactions** monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Waiting Authorization’. Check the transaction attributes and
+in the case of any error(s), press the Decline button at the bottom of
+the opened form:
+
+|image100|
+
+Confirm the action by entering your comment to the action and pressing
+the Decline button one more time in the pop-up dialog box:
+
+|image101|
+
+The local status of the transaction in the table will change to the
+‘Auth declined’ (you can monitor it both in the base table and in the
+‘Audit’ tab of the transaction detail’s form):
+
+|image102|
+
+The toolbar on the form will be updated, so that new buttons for further
+actions will appear in there. You can edit the transfer and then move it
+to the ‘Authorization’ step again, or delete it (see the next following
+sections below).
+
+Editing transaction
+^^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user with the Operator role. Open the
+**Transactions** monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Auth declined’). Press the Edit button at the bottom of the
+opened form:
+
+|image103|
+
+The transaction detail form will be refreshed, so that its fields become
+editable and the toolbar changed. Correct the values in the necessary
+fields and press the Save button then.
+
+The form will be updated again, so that its fields became non-editable,
+the local status switched to the ‘Created’ and buttons for further
+actions in the toolbar will be available again.
+
+Remove payments from the batch
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user with the Operator role. Open the
+**Transactions** monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Auth declined’).
+
+To remove instructions from the batch, mark them in the list and press
+the Remove button. Instructions will be removed from the batch.
+
+|image104|
+
+The form will be updated accordingly.
+
+Reopen batch
+^^^^^^^^^^^^
+
+Login the TMS/X as the user with the Operator role. Open the
+**Transactions** monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Closed’).
+
+Press the Reopen button at the opened form:
+
+|image105|
+
+To add new instruction in the batch press the New payment button.
+
+|image106|
+
+Form of the new payment instruction will be opened. After creating new
+payment, it will be added into the batch. The form will be updated
+accordingly.
+
+Close batch
+^^^^^^^^^^^
+
+Login the TMS/X as the user with the Operator role. Open the
+**Transactions** monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the batch
+should be ‘Open’ or ‘Returned’). Press the Close button at the opened
+form:
+
+|image107|
+
+The batch will be closed. Button Reopen will be available again.
+
+Returning transaction to repeated authorization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user with the Operator role. Open the
+**Transactions** monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Created’). Press the Move authorization button at the bottom
+of the opened form:
+
+|image108|
+
+The transaction detail form will be refreshed, the local status switched
+to the ‘Wait for Auth’ and buttons for further authorization actions in
+the toolbar will be available:
+
+|image109|
+
+Deleting transaction
+^^^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user with the Operator role. Open the
+**Transactions** monitoring table, choose the necessary one in there and
+click its Reference hyperlink (local status of the transaction should be
+‘Created’ or ‘Auth declined’). Press the Delete button at the bottom of
+the opened form:
+
+|image110|
+
+Confirm the action by pressing the Delete button once more in the pop-up
+dialog box. The transaction will be deleted and abandon the table.
+
+Sending transaction to the Central node
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user, who has authority to send transactions to
+the central node. Open the **Transactions** monitoring table, choose the
+necessary document in there and click its Reference hyperlink (local
+status of the transaction should be ‘Authorized’). Press the Send button
+at the bottom of the opened form:
+
+|image111|
+
+Confirm the action by pressing the Send button once more in the pop-up
+dialog box (you have to previously select the valid certificate to sign
+in the pop up dialog box):
+
+|image112|
+
+The local status of the transaction will change to the ‘Ready to Send’
+and the outgoing message will be created (you can monitor it in the
+‘Message Audit’ table, see the section 3.4.5). Then the message will be
+automatically sent to the Central node and the local status of the
+transaction will change to the final value ‘Sent’. As the transaction is
+processed later in the RTGS system, its other statuses (remote and
+reconciliation) will correspondently change:
+
+|image113|
+
+There is an option to resend transactions to Central node in case of the
+errors. This option is available for payments in ‘Ready to send’ and
+‘Error’ Local statuses.
+
+Login the TMS/X as the user, who has authority to re-send transactions.
+Open the **Transactions** monitoring table, select the necessary
+document in there and click button |image114| at the right corner of
+**Transactions** table. Select option ‘Resend selected transactions’
+from the drop-down list. Confirm the action by pressing the Confirm
+button once more in the pop-up dialog box (you have to previously select
+the valid certificate to sign in the pop up dialog box). The message
+will be automatically sent to the Central node and the local status of
+the transaction will change to the final value ‘Sent’.
+
+Payment cancellation in RTGS
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user, who has authority to cancel transactions.
+This option is available for payments in ‘Sent’ Local status and
+non-settled by RTGS (Reconciliation status – Queued, Suspended, Waiting
+or Inactive).
+
+Open the **Transactions** monitoring table, choose the necessary
+document in there and click its Reference hyperlink. Press the Cancel
+payment button at the bottom of the opened RTGS form:
+
+|image115|
+
+Confirm the action by pressing the button Confirm. To refuse
+cancellation, close the pop up dialog box.
+
+To send request for cancellation to RTGS click button ‘Approve’ for the
+appropriate request on the payment view form or ‘Decline’ to refuse
+payment cancellation:
+
+|image116|
+
+In case of successful request processing by RTGS, Reconciliation status
+of the payment will change to ‘Cancelled’.
+
+Payment cancellation in ACH
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user, who has authority to cancel transactions.
+This option is available for payments in ‘Sent’ Local status and
+non-settled by ACH (Reconciliation status – Queued, Suspended, Waiting
+or Inactive).
+
+Open the **Transactions** monitoring table, choose the necessary
+document in there and click its Reference hyperlink. Press the Cancel
+batch button at the bottom of the opened ACH form:
+
+|image117|
+
+Enter cancellation reason (if any) and confirm the action by pressing
+the button OK. To refuse cancellation, close the pop up dialog box.
+
+Request for batch cancellation will be send to ACH after approval.
+
+|image118|
+
+To cancel instructions in the batch press the Cancel payment button at
+the bottom of the opened DNS form, choose instruction to cancel and
+enter cancellation reason (if any). Confirm the action by pressing the
+button Ok:
+
+|image119|
+
+Request for instructions cancellation will be send to ACH after
+approval:
+
+|image120|
+
+In case of successful request processing by ACH, Reconciliation status
+of the payments will change to ‘Cancelled’.
+
+Changing priority
+^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user, who has authority to change priority of
+transactions. This option is available for payments in ‘Sent’ Local
+status and non-settled by Central node (Reconciliation status – Queued,
+Suspended or Inactive).
+
+Open the **Transactions** monitoring table, choose the necessary
+document in there and click its Reference hyperlink. Press the Change
+priority button at the bottom of the opened form:
+
+|image121|
+
+Choose new priority value from the dropping list in the pop up dialog
+box and press the button Ok:
+
+|image122|
+
+Request for changing priority of the payment will be generated and a
+task will be created. To stay payment’s priority unchanged close the pop
+up dialog box.
+
+To send request for changing priority to Central node open ‘Requests’
+tab of payment view form, click appropriate request and click button
+‘Approve’ in the pop up dialog box or ‘Decline’ to refuse changing
+priority:
+
+|image123|
+
+In case of successful request processing by Central node, priority of
+the payment will change accordingly.
+
+Return transaction
+^^^^^^^^^^^^^^^^^^
+
+Login the TMS/X as the user, who has authority to create return
+transactions. This option is available for payments in ‘Received’ Local
+status and settled by Central node.
+
+Open the **Transactions** monitoring table, choose the necessary
+document in there and click its Reference hyperlink. Press button Return
+batch at the bottom of the opened form:
+
+|image124|
+
+In the opened window choose the instructions to return, enter or choose
+return reason for each instruction and press button Create return. The
+new payment form will be generated and opened automatically in ‘Waiting
+for authorization’ status.
+
+Message audit
+~~~~~~~~~~~~~
+
+Call the **Monitoring > Message audit** item of the TMS/X main menu to
+open a table of messages, which was sent both from the TMS/X to the RTGS
+or ACH and from the RTGS or ACH to the TMS/X, and from/to CBS:
+
+|image125|
+
+The table has a set of the following fields:
+
+-  **ID** – system numeric identifier of the message (a hyperlink)
+
+-  **Reference** – reference number of the message;
+
+-  **Content type** – code of the message type according to the content
+       (MX as default);
+
+-  **Type** – code of the message type according to the message format;
+
+-  **Direction** – code of the message flow direction (from/to RTGS/ACH
+       or CBS);
+
+-  **State** – code of the result of the message processing;
+
+-  **State Description** – brief textual description of the result of
+       the message processing;
+
+-  **Creation date** – date and time, when the message was created.
+
+Use the table filtering option to find quickly a particular message (see
+the section 2.4.3). Select the message in the table and click the ID
+hyperlink to get access to the message details and related objects. The
+message details form will be opened in a separate window (the message
+type, direction and reference will be put into the header of the
+window):
+
+|image126|
+
+Depending of the message type the form could have following tabs:
+
+-  The **Original** tab displays main attributes of the selected message
+   (ID, state, date) and content of the message body in original format;
+
+-  The **Links** tab displays list of the TMS/X objects, which are
+   linked to the selected message (such as, another message,
+   transaction, event, etc.). Click the Type hyperlink in the list to
+   view details of the selected linked object in a separate window.
+
+Saving message in a file
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+In order to export message data into a file, select the message in the
+table, open its details form and click the |image127| (download) icon in
+the right upper corner.
+
+The standard file saving message box will be opened. Choose the ‘Save’
+or the ‘Save As’ option (in the case of ‘Save As', define the file
+destination and its name), and then press the Save in the pop-up
+standard file browser window. The file with the message content will be
+saved in the target folder.
+
+Printing a message 
+^^^^^^^^^^^^^^^^^^^
+
+In order to print message data, select the message in the table, open
+its details form and click the |image128| (print) icon in the right
+upper corner.
+
+The standard dialog box for printing option will be opened. Choose the
+printer setting and press the Print button. The printing page will be
+sent to the specified printer device.
+
+Reconciliation
+~~~~~~~~~~~~~~
+
+Call the **Monitoring > Reconciliation** item of the TMS/X main menu to
+open to view result of reconciliation based on statements (MT950)
+received from (RTGS and ACH):
+
+|image129|
+
+The **Reconciliation** menu item contains to tables:
+
+-  **Reports** – contains the list of reconciliation reports (MT950).
+       The **Reports** table contains the following columns:
+
+-  **Reference** – the reference number of the message;
+
+-  **Type** – message type;
+
+-  **Name** – name of the message type;
+
+-  **Status** – status of the report processing. It’s ‘Closed’ – when
+   correspondent payments from the report reconciled automatically (has
+   been found in TMS/X database and linked with records in the report)
+   or ‘Manual reconciliation required’ – when some of correspondent
+   payments from the report not linked (hasn’t been found in TMS/X
+   database);
+
+-  **Subsystem** – origin of the report (RTGS or ACH);
+
+-  **Creation date** – date of the message creation;
+
+-  **Transactions** – contains the list of transactions of selected
+       report. The **Transactions** table contains the following
+       columns:
+
+-  **Reference** – the reference number of the payment;
+
+-  **Value date** – date of the payment creation;
+
+-  **Amount** - amount of payment;
+
+-  **Currency** – currency of payment;
+
+-  **Status** – reconciliation status of each payment from the report.
+   It’s ‘Automatically reconciled’ – when correspondent payment from the
+   report reconciled automatically (has been found in TMS/X database and
+   linked with records in the report) or ‘Manually reconciled’ – when
+   some of correspondent payments where reconciled manually.
+
+For manual reconciliation choose report in ‘Manual reconciliation
+required’ status in the Reports table, mark necessary payments in the
+Transactions table and click button Reconcile. The report status will
+change into ‘Closed’ and payments status into ‘Manually reconciled’.
+
+Send queue
+~~~~~~~~~~
+
+Call **Monitoring > Send queue** item of the TMS/X main menu to open a
+table of created free format messages:
+
+|image130|
+
+The table has a set of the following fields:
+
+-  **Reference** – reference number of the message (a hyperlink);
+
+-  **Type** – code of the message type according to the message format;
+
+-  **Creation date** – date and time, when the message was created;
+
+-  **Local status** – current status of the message processing in the
+       TMS/X;
+
+-  **Description** – brief textual description of the result of the
+       message processing.
+
+To send free format message click its click its Reference hyperlink
+(local status of the message should be ‘Created’) and press button Send
+at the bottom of the opened form:
+
+|image131|
+
+The local status of the message will change to the ‘Ready to Send’ and
+the outgoing message will be created (you can monitor it in the ‘Message
+Audit’ table, see the section 3.4.5). Then the message will be
+automatically sent to the Central node and the local status of the
+transaction will change to the final value ‘Sent’.
+
+To decline free format message, click its click its Reference hyperlink
+(local status of the message should be ‘Created’) and press button
+Decline at the bottom of the opened form.
+
+Confirm the action by entering your comment to the action and pressing
+the Decline button one more time in the pop-up dialog box:
+
+|image132|
+
+The local status of the message in the table will change to the
+‘Declined’:
+
+|image133|
+
+The toolbar on the free format message form will be updated, so that new
+buttons for further actions will appear in there:
+
+|image134|
+
+Custom reports
+--------------
+
+Call the **Reports** item to of the main menu to get a list of the TMS/X
+custom reports:
+
+|image135|
+
+The following reports are available in the system:
+
+-  **Roles audit trial** - the report on roles profiles’ changes for the
+       selected period. Contains the list of roles, actions and their
+       dates and time;
+
+-  **Users audit trial** – the report on user profiles’ changes for the
+       selected period. Contains the list of users, actions and their
+       dates and time;
+
+-  **User login status report** – the report on users never logged in,
+       users logged in within last selected days and users disabled
+       since selected days;
+
+-  **Periodic review** – review user info report on current date.
+       Contains the list of users and assigned roles;
+
+-  **Last password change report** – the report on users didn’t change
+       their password for more than selected days before selected data;
+
+-  **Granted user authorities report** – the report on users’ roles and
+       authorities on current date;
+
+-  **Failed login report** – the report on failed login users for the
+       selected period. Contains the list of users, dates and time of
+       failed login and reason description;
+
+-  **Local user activity report** – the user activity report on selected
+       date;
+
+-  **Entitlements report** – the report on created roles;
+
+-  **Report on settled payments** – the report on settled transactions
+       on selected date;
+
+-  **Report on rejected or cancelled transactions** – the report on
+       transactions in rejected, cancelled or refused status on current
+       date;
+
+-  **Internal payment report** – the report on internal transactions in
+       selected currency to on selected date;
+
+-  **Outgoing transactions** **report** – the report on outgoing
+       transactions on selected date;
+
+-  **Incoming transactions** **report** – the report on incoming
+       transactions on selected date.
+
+To view the report choose necessary menu item, set parameters of the
+report, choose the report file format and click the button **Print:**
+
+|image136|
+
+The report will be generated in selected file format. To open or save
+the report click the correspondent button in the standard browser pop up
+dialog box. System supports following files formats of the reports –
+pdf, xls, rtf, csv, html, docx.
+
+.. |image0| image:: media/image1.png
+   :width: 4.32292in
+   :height: 0.44338in
+.. |image1| image:: media/image2.png
+   :width: 6.98958in
+   :height: 3.29550in
+.. |image2| image:: media/image3.png
+   :width: 6.97500in
+   :height: 3.08333in
+.. |image3| image:: media/image4.png
+   :width: 1.66848in
+   :height: 1.51042in
+.. |image4| image:: media/image5.png
+   :width: 3.02113in
+   :height: 0.46935in
+.. |image5| image:: media/image6.png
+   :width: 7.07138in
+   :height: 3.79104in
+.. |image6| image:: media/image7.png
+   :width: 7.00000in
+   :height: 0.25000in
+.. |image7| image:: media/image8.png
+   :width: 0.47727in
+   :height: 0.21875in
+.. |image8| image:: media/image9.png
+   :width: 6.98958in
+   :height: 0.23847in
+.. |image9| image:: media/image10.png
+   :width: 6.72847in
+   :height: 1.41597in
+.. |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML1bcb1e9.PNG| image:: media/image11.png
+   :width: 3.09564in
+   :height: 0.70895in
+.. |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML16d81f2.PNG| image:: media/image12.png
+   :width: 3.27719in
+   :height: 0.74479in
+.. |image12| image:: media/image13.png
+   :width: 6.50000in
+   :height: 3.20833in
+.. |image13| image:: media/image14.png
+   :width: 0.31246in
+   :height: 0.28122in
+.. |image14| image:: media/image15.png
+   :width: 0.29163in
+   :height: 0.26038in
+.. |image15| image:: media/image16.png
+   :width: 0.29163in
+   :height: 0.23955in
+.. |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML846440.PNG| image:: media/image17.png
+   :width: 1.39199in
+   :height: 0.95775in
+.. |image17| image:: media/image18.png
+   :width: 0.29163in
+   :height: 0.24997in
+.. |image18| image:: media/image19.png
+   :width: 6.98958in
+   :height: 0.65038in
+.. |image19| image:: media/image20.png
+   :width: 1.87500in
+   :height: 0.30208in
+.. |image20| image:: media/image21.png
+   :width: 0.30208in
+   :height: 0.25000in
+.. |image21| image:: media/image22.png
+   :width: 0.25000in
+   :height: 0.25000in
+.. |image22| image:: media/image23.png
+   :width: 6.98958in
+   :height: 0.78119in
+.. |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTMLef9a6f.PNG| image:: media/image24.png
+   :width: 1.55642in
+   :height: 1.00733in
+.. |image24| image:: media/image25.png
+   :width: 6.97917in
+   :height: 1.79167in
+.. |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTMLf79a11.PNG| image:: media/image26.png
+   :width: 1.54889in
+   :height: 1.60207in
+.. |image26| image:: media/image27.png
+   :width: 6.72847in
+   :height: 1.40486in
+.. |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTMLf79a11.PNG| image:: media/image26.png
+   :width: 1.59121in
+   :height: 1.64583in
+.. |image28| image:: media/image28.png
+   :width: 1.32058in
+   :height: 1.51866in
+.. |image29| image:: media/image29.png
+   :width: 6.50000in
+   :height: 2.22083in
+.. |image30| image:: media/image30.png
+   :width: 2.50943in
+   :height: 2.06203in
+.. |image31| image:: media/image31.png
+   :width: 6.84416in
+   :height: 1.84997in
+.. |image32| image:: media/image32.png
+   :width: 6.98958in
+   :height: 3.70000in
+.. |image33| image:: media/image33.png
+   :width: 6.50000in
+   :height: 3.33472in
+.. |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML1e24092.PNG| image:: media/image34.png
+   :width: 1.50000in
+   :height: 0.93938in
+.. |C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML1f2214f.PNG| image:: media/image35.png
+   :width: 6.69306in
+   :height: 2.47121in
+.. |image36| image:: media/image36.png
+   :width: 7.00000in
+   :height: 0.83333in
+.. |image37| image:: media/image37.png
+   :width: 4.23944in
+   :height: 1.14501in
+.. |image38| image:: media/image38.png
+   :width: 3.62338in
+   :height: 0.40343in
+.. |image39| image:: media/image39.png
+   :width: 2.60594in
+   :height: 2.21667in
+.. |image40| image:: media/image40.png
+   :width: 3.66197in
+   :height: 0.40100in
+.. |image41| image:: media/image41.png
+   :width: 1.64149in
+   :height: 2.20000in
+.. |image42| image:: media/image42.png
+   :width: 6.98958in
+   :height: 1.22014in
+.. |image43| image:: media/image43.png
+   :width: 6.98958in
+   :height: 1.03611in
+.. |image44| image:: media/image44.png
+   :width: 6.98958in
+   :height: 1.30417in
+.. |image45| image:: media/image45.png
+   :width: 6.98958in
+   :height: 1.17986in
+.. |image46| image:: media/image46.png
+   :width: 6.98958in
+   :height: 1.35000in
+.. |image47| image:: media/image47.png
+   :width: 6.98958in
+   :height: 1.21667in
+.. |image48| image:: media/image48.png
+   :width: 6.98958in
+   :height: 0.92639in
+.. |image49| image:: media/image49.png
+   :width: 6.98958in
+   :height: 1.65625in
+.. |image50| image:: media/image50.png
+   :width: 6.98958in
+   :height: 2.10833in
+.. |image51| image:: media/image51.png
+   :width: 6.72847in
+   :height: 2.85208in
+.. |image52| image:: media/image53.png
+   :width: 1.56903in
+   :height: 2.62963in
+.. |image53| image:: media/image54.png
+   :width: 3.35833in
+   :height: 0.65559in
+.. |image54| image:: media/image55.png
+   :width: 3.45000in
+   :height: 0.90959in
+.. |image55| image:: media/image56.png
+   :width: 6.98958in
+   :height: 3.01944in
+.. |image56| image:: media/image57.png
+   :width: 6.50000in
+   :height: 0.36597in
+.. |image57| image:: media/image58.png
+   :width: 3.29870in
+   :height: 0.98084in
+.. |image58| image:: media/image59.png
+   :width: 6.72847in
+   :height: 0.61042in
+.. |image59| image:: media/image60.png
+   :width: 6.72847in
+   :height: 0.91667in
+.. |image60| image:: media/image61.png
+   :width: 6.72847in
+   :height: 0.65139in
+.. |image61| image:: media/image62.png
+   :width: 6.98958in
+   :height: 0.93889in
+.. |image62| image:: media/image63.png
+   :width: 6.98333in
+   :height: 1.08333in
+.. |image63| image:: media/image64.png
+   :width: 6.98958in
+   :height: 3.87083in
+.. |image64| image:: media/image65.png
+   :width: 0.16665in
+   :height: 0.16665in
+.. |image65| image:: media/image66.png
+   :width: 5.40833in
+   :height: 0.18716in
+.. |image66| image:: media/image67.png
+   :width: 1.86458in
+   :height: 0.39133in
+.. |image67| image:: media/image68.png
+   :width: 6.98958in
+   :height: 5.04792in
+.. |image68| image:: media/image65.png
+   :width: 0.16665in
+   :height: 0.16665in
+.. |image69| image:: media/image66.png
+   :width: 5.40833in
+   :height: 0.18716in
+.. |image70| image:: media/image69.png
+   :width: 6.98958in
+   :height: 3.89028in
+.. |image71| image:: media/image65.png
+   :width: 0.16665in
+   :height: 0.16665in
+.. |image72| image:: media/image66.png
+   :width: 5.40833in
+   :height: 0.18716in
+.. |image73| image:: media/image70.png
+   :width: 6.98958in
+   :height: 3.11319in
+.. |image74| image:: media/image71.png
+   :width: 6.98958in
+   :height: 2.75694in
+.. |image75| image:: media/image65.png
+   :width: 0.16665in
+   :height: 0.16665in
+.. |image76| image:: media/image66.png
+   :width: 5.40833in
+   :height: 0.18716in
+.. |image77| image:: media/image72.png
+   :width: 6.98958in
+   :height: 4.51806in
+.. |image78| image:: media/image65.png
+   :width: 0.16665in
+   :height: 0.16665in
+.. |image79| image:: media/image66.png
+   :width: 5.40833in
+   :height: 0.18716in
+.. |image80| image:: media/image73.png
+   :width: 6.98958in
+   :height: 4.20417in
+.. |image81| image:: media/image65.png
+   :width: 0.16665in
+   :height: 0.16665in
+.. |image82| image:: media/image66.png
+   :width: 5.40833in
+   :height: 0.18716in
+.. |image83| image:: media/image74.png
+   :width: 6.98958in
+   :height: 3.97986in
+.. |image84| image:: media/image65.png
+   :width: 0.16665in
+   :height: 0.16665in
+.. |image85| image:: media/image66.png
+   :width: 5.40833in
+   :height: 0.18716in
+.. |image86| image:: media/image75.png
+   :width: 6.98958in
+   :height: 5.77153in
+.. |image87| image:: media/image76.png
+   :width: 2.80833in
+   :height: 1.21185in
+.. |image88| image:: media/image78.png
+   :width: 1.31581in
+   :height: 1.99051in
+.. |image89| image:: media/image79.png
+   :width: 6.98958in
+   :height: 1.18056in
+.. |image90| image:: media/image80.png
+   :width: 6.98958in
+   :height: 3.69375in
+.. |image91| image:: media/image81.png
+   :width: 6.98958in
+   :height: 1.15139in
+.. |image92| image:: media/image82.png
+   :width: 6.98958in
+   :height: 2.91458in
+.. |image93| image:: media/image83.png
+   :width: 6.98958in
+   :height: 1.20486in
+.. |image94| image:: media/image84.png
+   :width: 6.98958in
+   :height: 5.77569in
+.. |image95| image:: media/image85.png
+   :width: 6.98958in
+   :height: 0.84375in
+.. |image96| image:: media/image86.png
+   :width: 6.98958in
+   :height: 1.26736in
+.. |image97| image:: media/image87.png
+   :width: 6.98958in
+   :height: 3.73611in
+.. |image98| image:: media/image88.png
+   :width: 3.46226in
+   :height: 1.29375in
+.. |image99| image:: media/image89.png
+   :width: 6.98333in
+   :height: 2.10833in
+.. |image100| image:: media/image87.png
+   :width: 6.98958in
+   :height: 3.73611in
+.. |image101| image:: media/image90.png
+   :width: 3.16038in
+   :height: 1.23167in
+.. |image102| image:: media/image91.png
+   :width: 6.98333in
+   :height: 2.12500in
+.. |image103| image:: media/image92.png
+   :width: 6.98958in
+   :height: 3.70139in
+.. |image104| image:: media/image93.png
+   :width: 6.98958in
+   :height: 3.74167in
+.. |image105| image:: media/image94.png
+   :width: 6.98958in
+   :height: 3.54861in
+.. |image106| image:: media/image95.png
+   :width: 6.98958in
+   :height: 3.52847in
+.. |image107| image:: media/image96.png
+   :width: 6.98958in
+   :height: 3.47917in
+.. |image108| image:: media/image92.png
+   :width: 6.98958in
+   :height: 3.70139in
+.. |image109| image:: media/image87.png
+   :width: 6.98958in
+   :height: 3.73611in
+.. |image110| image:: media/image97.png
+   :width: 6.72847in
+   :height: 1.54306in
+.. |image111| image:: media/image98.png
+   :width: 6.97917in
+   :height: 1.54167in
+.. |image112| image:: media/image99.png
+   :width: 5.21698in
+   :height: 0.27461in
+.. |image113| image:: media/image100.png
+   :width: 6.98958in
+   :height: 2.08125in
+.. |image114| image:: media/image101.png
+   :width: 0.17628in
+   :height: 0.18333in
+.. |image115| image:: media/image102.png
+   :width: 6.98958in
+   :height: 3.66250in
+.. |image116| image:: media/image103.png
+   :width: 6.98958in
+   :height: 3.71181in
+.. |image117| image:: media/image104.png
+   :width: 6.98958in
+   :height: 3.33819in
+.. |image118| image:: media/image105.png
+   :width: 6.98958in
+   :height: 2.20972in
+.. |image119| image:: media/image106.png
+   :width: 6.98958in
+   :height: 1.38681in
+.. |image120| image:: media/image107.png
+   :width: 6.98958in
+   :height: 2.44722in
+.. |image121| image:: media/image104.png
+   :width: 6.98958in
+   :height: 3.33819in
+.. |image122| image:: media/image108.png
+   :width: 3.27500in
+   :height: 1.24818in
+.. |image123| image:: media/image109.png
+   :width: 2.87500in
+   :height: 1.69757in
+.. |image124| image:: media/image110.png
+   :width: 6.72847in
+   :height: 4.76250in
+.. |image125| image:: media/image111.png
+   :width: 6.98958in
+   :height: 1.45208in
+.. |image126| image:: media/image112.png
+   :width: 6.98958in
+   :height: 3.75417in
+.. |image127| image:: media/image113.png
+   :width: 0.22388in
+   :height: 0.20666in
+.. |image128| image:: media/image114.png
+   :width: 0.23955in
+   :height: 0.19789in
+.. |image129| image:: media/image115.png
+   :width: 6.98958in
+   :height: 1.59167in
+.. |image130| image:: media/image116.png
+   :width: 6.72847in
+   :height: 0.95139in
+.. |image131| image:: media/image117.png
+   :width: 6.98958in
+   :height: 4.22083in
+.. |image132| image:: media/image118.png
+   :width: 3.58977in
+   :height: 1.30000in
+.. |image133| image:: media/image119.png
+   :width: 6.98958in
+   :height: 0.73056in
+.. |image134| image:: media/image120.png
+   :width: 6.98958in
+   :height: 4.28056in
+.. |image135| image:: media/image121.png
+   :width: 2.60256in
+   :height: 3.75926in
+.. |image136| image:: media/image122.png
+   :width: 3.00943in
+   :height: 1.63874in

@@ -1,0 +1,2173 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>** &#8212;   1.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <p><strong>TMS/X for Central Bank of Jordan</strong></p>
+<blockquote>
+<div><strong>User Guide</strong></div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">**</span></a>TMS/X for Real Time Gross Settlement and Automated Clearing House of
+Central Bank of Jordan **</p>
+<p><a href="#id3"><span class="problematic" id="id4">**</span></a>CMA Small Systems AB
+**</p>
+<p>Document information</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="24%" />
+<col width="76%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Project name:</td>
+<td>Central Bank of Jordan TMS/X Router for RTGS and ACH</td>
+</tr>
+<tr class="row-even"><td>Document name:</td>
+<td>User Guide</td>
+</tr>
+</tbody>
+</table>
+<p>Version history (in the reversed order)</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="13%" />
+<col width="18%" />
+<col width="24%" />
+<col width="46%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>Version</td>
+<td>Date</td>
+<td>Authors</td>
+<td>Comments</td>
+</tr>
+<tr class="row-even"><td>002</td>
+<td>17-Dec-2018</td>
+<td>Mariya Shatskaya</td>
+<td><p class="first">The following descriptions added:</p>
+<ul class="simple">
+<li>Resend transaction action,</li>
+<li>Institution debit transfer form,</li>
+<li>Incomplete payments menu item,</li>
+<li>Reconciliation menu item,</li>
+<li>Custom reports menu item.</li>
+</ul>
+<p class="last">Mandate management updated.</p>
+</td>
+</tr>
+<tr class="row-odd"><td>001</td>
+<td>14-Mar-2018</td>
+<td>Mariya Shatskaya</td>
+<td>Initial version</td>
+</tr>
+</tbody>
+</table>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td> Copyright CMA Small Systems AB – 2018</td>
+</tr>
+<tr class="row-even"><td>No part of this publication may be reproduced, stored in a retrieval system or transmitted in any form or any means, electronic, photo static, recorded or otherwise without prior written permission of CMA Small Systems AB.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="id7">
+<h1><a href="#id5"><span class="problematic" id="id6">**</span></a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h1>
+<p><strong>Table of contents</strong></p>
+<p>1 Introduction 6</p>
+<p>1.1 Review of the TMS/X functionality 6</p>
+<p>1.2 Workstation requirements and settings 6</p>
+<p>1.2.1 Workstation requirements 6</p>
+<p>1.2.2 Browser proxy-server settings 6</p>
+<p>1.2.3 ActiveX component installing and setting 6</p>
+<p>1.2.4 Adding to Trusted Sites 7</p>
+<p>1.2.5 Using only TLS 1.1 and TLS 1.2 7</p>
+<p>1.2.6 Disable compatibility view 7</p>
+<p>1.3 Starting the TMS/X application 7</p>
+<p>1.3.1 Connect to the TMS/X 9</p>
+<p>1.4 User Role Hierarchy and Allocation 9</p>
+<p>2 Summary of the TMS/X interface 10</p>
+<p>2.1 Working page organization 10</p>
+<p>2.2 The TMS/X main menu 10</p>
+<p>2.3 Informational bar 11</p>
+<p>2.4 The TMS/X tables 11</p>
+<p>2.4.1 TMS/X table layout 11</p>
+<p>2.4.2 Displaying/hiding table’s columns 13</p>
+<p>2.4.3 Filters in tables 14</p>
+<p>2.5 Viewing/editing table record details 15</p>
+<p>2.6 Printing table data 16</p>
+<p>2.7 Copying table data 16</p>
+<p>2.8 Exporting table data 17</p>
+<p>3 Main tables and actions 19</p>
+<p>3.1 User session operations 19</p>
+<p>3.1.1 Logging out 19</p>
+<p>3.1.2 Changing own user password 19</p>
+<p>3.2 Dictionaries 20</p>
+<p>3.2.1 Correspondents 20</p>
+<p>3.2.2 Currencies 21</p>
+<p>3.2.3 Participant accounts 21</p>
+<p>3.2.4 Priorities 22</p>
+<p>3.2.5 Reject reasons 22</p>
+<p>3.2.6 Transaction type codes 22</p>
+<p>3.2.7 Limit types 23</p>
+<p>3.2.8 Positions 23</p>
+<p>3.3 The Capture menu 24</p>
+<p>3.3.1 Instruction input forms – common aspects 24</p>
+<p>3.3.1.1 Mandatory, optional and non-editable fields in the forms 25</p>
+<p>3.3.1.2 Validating instruction’s fields by the TMS/X 25</p>
+<p>3.3.1.3 Using instruction templates 26</p>
+<p>3.3.1.4 Cloning transactions 27</p>
+<p>3.3.2 Direct debit 27</p>
+<p>3.3.3 Direct credit 29</p>
+<p>3.3.4 Direct debit with mandate 30</p>
+<p>3.3.5 New mandate 32</p>
+<p>3.3.6 Institution transfer 33</p>
+<p>3.3.7 Single customer credit transfer 34</p>
+<p>3.3.8 Multiple customer credit transfer 35</p>
+<p>3.3.9 Institution debit transfer 37</p>
+<p>3.3.10 Free format message 38</p>
+<p>3.3.11 Import 39</p>
+<p>3.4 The Monitoring menu 40</p>
+<p>3.4.1 Monitoring transactions 40</p>
+<p>3.4.2 Monitoring mandates 42</p>
+<p>3.4.3 Payment search 43</p>
+<p>3.4.4 Incomplete payments 46</p>
+<p>3.4.5 Processing transactions 47</p>
+<p>3.4.5.1 Authorization: basic principles 47</p>
+<p>3.4.5.2 Making authorization actions 47</p>
+<p>3.4.5.3 Authorizing transaction 48</p>
+<p>3.4.5.4 Declining Transaction 49</p>
+<p>3.4.5.5 Editing transaction 50</p>
+<p>3.4.5.1 Remove payments from the batch 51</p>
+<p>3.4.5.2 Reopen batch 51</p>
+<p>3.4.5.3 Close batch 52</p>
+<p>3.4.5.4 Returning transaction to repeated authorization 53</p>
+<p>3.4.5.5 Deleting transaction 54</p>
+<p>3.4.5.6 Sending transaction to the Central node 54</p>
+<p>3.4.5.7 Payment cancellation in RTGS 55</p>
+<p>3.4.5.8 Payment cancellation in ACH 56</p>
+<p>3.4.5.9 Changing priority 58</p>
+<p>3.4.5.10 Return transaction 59</p>
+<p>3.4.6 Message audit 60</p>
+<p>3.4.6.1 Saving message in a file 61</p>
+<p>3.4.6.2 Printing a message 61</p>
+<p>3.4.7 Reconciliation 61</p>
+<p>3.4.8 Send queue 62</p>
+<p>3.5 Custom reports 64</p>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="review-of-the-tms-x-functionality">
+<h3>Review of the TMS/X functionality<a class="headerlink" href="#review-of-the-tms-x-functionality" title="Permalink to this headline">¶</a></h3>
+<p>The TMS/X application is used in order to prepare and send cash
+operations to the RTGS and ACH for processing.</p>
+<p>The TMS/X also allows users to monitor:</p>
+<ul class="simple">
+<li>processing of transactions and requests, have been sent to the
+Central node,</li>
+<li>reports on transactions and message exchange;</li>
+<li>other information, related to the bank operations.</li>
+</ul>
+</div>
+<div class="section" id="workstation-requirements-and-settings">
+<h3>Workstation requirements and settings<a class="headerlink" href="#workstation-requirements-and-settings" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="workstation-requirements">
+<h4>Workstation requirements<a class="headerlink" href="#workstation-requirements" title="Permalink to this headline">¶</a></h4>
+<p>Before starting to work with the Web interface system, make sure that
+your computer has been installed Microsoft Internet Explorer 10.0 or
+higher. The Java script should be enabled in web-browser settings. A
+client PC should have at least 512 MB of RAM and at least 1 GB free
+space on a hard drive.</p>
+</div>
+<div class="section" id="browser-proxy-server-settings">
+<h4>Browser proxy-server settings<a class="headerlink" href="#browser-proxy-server-settings" title="Permalink to this headline">¶</a></h4>
+<p>If you operate via a proxy-server, find out its address and the port
+number from your system administrator. Set the received information in
+the correspondent fields of the IE “Tools” - “Internet Options” window
+(“Connection” – “LAN Settings” – “Proxy server”). If the proxy server
+will not be used, then no additional settings are required.</p>
+</div>
+<div class="section" id="activex-component-installing-and-setting">
+<h4>ActiveX component installing and setting<a class="headerlink" href="#activex-component-installing-and-setting" title="Permalink to this headline">¶</a></h4>
+<p>No special installation procedures are required at the participant’s
+site, but <strong>when a user connects to the system the first time, the user
+should allow installing ActiveX component</strong> (in case user is going to
+sign and send transactions via TMS/X GUI manually). Web interface
+workplace is built on thin technologies and uses the standard browser
+for viewing its GUI.</p>
+<p>To run genuine Windows validation, you have to install an ActiveX
+control. The Internet Explorer might not be configured to download
+ActiveX controls for security reasons, or you might have declined to
+install the ActiveX control when the Internet Explorer prompted you to
+download, install, or run the control. Do the following actions:</p>
+<ul class="simple">
+<li>Open the Internet Explorer;</li>
+<li>Click the <strong>Tools</strong> menu, and then click the <strong>Internet Options</strong>;</li>
+<li>On the ‘Security’ tab (trusted sites), click the Custom level button;</li>
+<li>Scroll down the Security Settings list until you see the ‘ActiveX
+controls and plug-ins’;</li>
+<li>For Automatic prompting for the ActiveX controls, click Enable;</li>
+<li>Scroll down to the ‘Download signed ActiveX controls’ and click
+Enable or Prompt;</li>
+<li>Scroll down to the ‘Run ActiveX controls and plug-ins’ and click the
+Enable or Prompt;</li>
+<li>Scroll down to the ‘Script ActiveX controls, marked safe for
+scripting’ and click the Enable or Prompt;</li>
+<li>Click the OK button and then click the OK again. (You may need to
+restart your computer.).</li>
+</ul>
+</div>
+<div class="section" id="adding-to-trusted-sites">
+<h4>Adding to Trusted Sites<a class="headerlink" href="#adding-to-trusted-sites" title="Permalink to this headline">¶</a></h4>
+<p>Add the URL
+<a class="reference external" href="https://localhost:8743/portal/">https://&lt;server&gt;:&lt;port&gt;/portal/</a> to
+trusted sites, where:</p>
+<ul class="simple">
+<li>&lt;port&gt; - TCP port for SSL connection to the TMS/X;</li>
+<li>&lt;server&gt; - name or ip address of the TMS/X server.</li>
+</ul>
+<p>To do this, follow the steps:</p>
+<ul class="simple">
+<li>In the Internet Explorer, click <strong>Tools &gt; Internet Options</strong>, and
+then click the ‘Security’ tab;</li>
+<li>In the ’Select a Web content’ zone s box, click <strong>Trusted Sites</strong> &gt;
+<strong>Sites</strong> to specify its current security setting;</li>
+<li>In the ‘Add this Web site to the zone’ box, type the URL of the TMS/X
+site, and then click the Add button</li>
+</ul>
+<p>Click the OK button two times to accept the changes and return to the
+Internet Explorer.</p>
+</div>
+<div class="section" id="using-only-tls-1-1-and-tls-1-2">
+<h4>Using only TLS 1.1 and TLS 1.2<a class="headerlink" href="#using-only-tls-1-1-and-tls-1-2" title="Permalink to this headline">¶</a></h4>
+<p>In case you have to only use the TLS 1.1 and TLS 1.2, make the following
+setting:</p>
+<ul class="simple">
+<li>Left-click the gear icon;</li>
+<li>Select “Internet options” from the dropdown menu;</li>
+<li>Click the “Advanced” tab, scroll down and deselect “SSL 2.0” “SSL
+3.0” and “TLS 1.0”;</li>
+<li>Select “TLS 1.1” and “TLS 1.2”;</li>
+<li>Click the OK button to accept your changes (it should take effect
+immediately, but you may need to refresh your browser).</li>
+</ul>
+</div>
+<div class="section" id="disable-compatibility-view">
+<h4>Disable compatibility view<a class="headerlink" href="#disable-compatibility-view" title="Permalink to this headline">¶</a></h4>
+<p>In case you are using the IE 11version:</p>
+<ul class="simple">
+<li>Press the ‘Alt’ key on your keyboard, this will make a menu bar
+appear;</li>
+<li>Click on the <strong>Tools</strong> menu tab;</li>
+<li>Select the <strong>Compatibility View settings</strong> option;</li>
+<li>Uncheck the “Display intranet sites in Compatibility View” option.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="starting-the-tms-x-application">
+<h3>Starting the TMS/X application<a class="headerlink" href="#starting-the-tms-x-application" title="Permalink to this headline">¶</a></h3>
+<p>The workplace is accessible via a standard link in a web-browser address
+line (the URL-address depends on the system’s configuration and shall be
+issued by the system administrator):</p>
+<p><strong>http://&lt;hostname&gt;:&lt;port&gt;/portal</strong></p>
+<p>where:</p>
+<ul class="simple">
+<li>&lt;hostname&gt; - a name or IP address of the host, where the web server
+is installed;</li>
+<li>&lt;port&gt; is a port number.</li>
+</ul>
+<p>Example&nbsp;1: <a class="reference external" href="https://prism-client:8080/portal">https://prism-client:8080/portal</a></p>
+<p>Example&nbsp;2: <a class="reference external" href="https://10.1.28.164:8080/portal">https://10.1.28.164:8080/portal</a></p>
+<p>In order to launch the TMS/X application, call up the Microsoft Internet
+Explorer, specify the URL-address of the program and then click the
+“Enter” key:</p>
+<p><a class="reference internal" href="docs/media/image1.png"><img alt="image0" src="docs/media/image1.png" style="width: 4.32292in; height: 0.44338in;" /></a></p>
+<p>A login form will be displayed:</p>
+<p><a class="reference internal" href="docs/media/image2.png"><img alt="image1" src="docs/media/image2.png" style="width: 6.98958in; height: 3.29550in;" /></a></p>
+<p>Each user shall be assigned a unique login and password for a
+registration on the TMS/X server (this is provided by the system
+administrator). Fill in fields of the form by your credentials and press
+the Sign in button. After the entered data was successfully verified,
+the user will get access to available options of the system, according
+to his(her) role, and the starting page will be opened:</p>
+<p><a class="reference internal" href="docs/media/image3.png"><img alt="image2" src="docs/media/image3.png" style="width: 6.97500in; height: 3.08333in;" /></a></p>
+<div class="section" id="connect-to-the-tms-x">
+<h4>Connect to the TMS/X<a class="headerlink" href="#connect-to-the-tms-x" title="Permalink to this headline">¶</a></h4>
+<p>In order to close a communication session for the current user, click
+the username in the header of the TMS/X window and choose the ‘Logout’
+command from the drop down menu:</p>
+<p><a class="reference internal" href="docs/media/image4.png"><img alt="image3" src="docs/media/image4.png" style="width: 1.66848in; height: 1.51042in;" /></a></p>
+<p>A login form will pop up again, where you can enter another user’s login
+and password (e.g., to make authorization actions that were unavailable
+for the previously connected user).</p>
+<p>The TMS/X server may interrupt current user connection due to some
+situations (e.g., in the case of long period of yours inactivity). In
+such cases, the TMS/X page will be blanked and the alert will pop up:</p>
+<p><a class="reference internal" href="docs/media/image5.png"><img alt="image4" src="docs/media/image5.png" style="width: 3.02113in; height: 0.46935in;" /></a></p>
+<p>Try to login once more and in the case of a failure, contact to the
+system administrator or supporting team.</p>
+</div>
+</div>
+<div class="section" id="user-role-hierarchy-and-allocation">
+<h3>User Role Hierarchy and Allocation<a class="headerlink" href="#user-role-hierarchy-and-allocation" title="Permalink to this headline">¶</a></h3>
+<p>The TMS/X Workplace supports the following allocation of the user roles
+(each role defines set of access rights (permissions) to monitoring data
+and making operations):</p>
+<ul class="simple">
+<li>System Administrator – gives the permission to dictionaries,
+authorization profiles and switchover management;</li>
+<li>Security administrator – gives the permission to create user access
+and authorities’ management tasks;</li>
+<li>Security officer – gives the permission to approve user access and
+authorities’ management tasks;</li>
+<li>Operator – gives the permission create, edit and make transactions
+and transaction requests;</li>
+<li>Controller – gives the permission to authorize transaction and
+transaction requests.</li>
+</ul>
+<p>The TMS/X administrator may assign one or several roles from the list to
+any user.</p>
+<p>Each of the TMS/X users connects to the TMS/X by using his own login and
+password. After the user is connected, the TMS/X identifies the user’s
+role(s), which are definitely associated with the user credentials in
+the system. The contents of the TMS/X pages and menus will correspond to
+the identified user role.</p>
+</div>
+</div>
+<div class="section" id="summary-of-the-tms-x-interface">
+<h2>Summary of the TMS/X interface<a class="headerlink" href="#summary-of-the-tms-x-interface" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="working-page-organization">
+<h3>Working page organization<a class="headerlink" href="#working-page-organization" title="Permalink to this headline">¶</a></h3>
+<p>The application screen of the TMS/X consists of the following main
+elements:</p>
+<p><a class="reference internal" href="docs/media/image6.png"><img alt="image5" src="docs/media/image6.png" style="width: 7.07138in; height: 3.79104in;" /></a></p>
+<ul class="simple">
+<li>Logo and horizontal main menu bar at the header;</li>
+<li>Screen body that usually reflects currently opened table or object
+detail form;</li>
+<li>Information bar that is located in the footer</li>
+</ul>
+</div>
+<div class="section" id="the-tms-x-main-menu">
+<h3>The TMS/X main menu<a class="headerlink" href="#the-tms-x-main-menu" title="Permalink to this headline">¶</a></h3>
+<p>The TMS/X main menu is a horizontal bar at the top of the application
+page. The main menu contains top-level items that correspond to separate
+application’s sections. The top-level items may contain sub-items that
+are opened automatically, when you click the parent menu item. Each
+sub-item itself may contain one or few sub-items, etc. (multi-level
+hierarchy):</p>
+<p><a class="reference internal" href="docs/media/image7.png"><img alt="image6" src="docs/media/image7.png" style="width: 7.00000in; height: 0.25000in;" /></a></p>
+<p>The user’s main menu contains the following submenus:</p>
+<ul class="simple">
+<li><strong>TMS/X</strong> – closes currently opened page and returns to the home
+blank page;</li>
+<li><strong>Capture</strong> – allows users to create a new operation (instruction) of
+selected type. See the section 0 below for details;</li>
+<li><strong>Monitoring</strong> – allows users to monitor base objects and operations
+(such as transactions and messages) registered in the Central node
+system. See the section 3.3.2 below for details;</li>
+<li><strong>Dictionary</strong> - displays dictionaries of correspondents, accounts,
+operation types and other accessory data that are used in payment
+preparation and processing. Operators can view, and Administrators
+can manage the dictionaries. See the section 3.2 below for details;</li>
+<li><strong>Reports</strong> – allows users to view and print custom reports on
+monitoring transactions and user activity. See the section 3.5 below;</li>
+<li><strong>User tools</strong> (shown as the user name’s icon with a drop down menu
+<a class="reference internal" href="docs/media/image8.png"><img alt="image7" src="docs/media/image8.png" style="width: 0.47727in; height: 0.21875in;" /></a>) – allows user to login on/off and change their password
+(See the section 3.1 below for details). Also displays the user login
+information.</li>
+</ul>
+</div>
+<div class="section" id="informational-bar">
+<h3>Informational bar<a class="headerlink" href="#informational-bar" title="Permalink to this headline">¶</a></h3>
+<p>The following information is indicated at the bottom of the TMS/X page:</p>
+<p><a class="reference internal" href="docs/media/image9.png"><img alt="image8" src="docs/media/image9.png" style="width: 6.98958in; height: 0.23847in;" /></a></p>
+<ul class="simple">
+<li>The workplace registered name;</li>
+<li>The workplace software current version and copyrights;</li>
+<li>The name of current period and date of the business day (to see more
+details about a schedule of the day, just click the period name
+hyperlink. The schedule will be displayed in a separate window):</li>
+</ul>
+<p><a class="reference internal" href="docs/media/image10.png"><img alt="image9" src="docs/media/image10.png" style="width: 6.72847in; height: 1.41597in;" /></a></p>
+<ul>
+<li><p class="first">The signs of active/inactive connection (to see more details, just
+click the sign hyperlink):</p>
+<blockquote>
+<div><p><a href="#id8"><span class="problematic" id="id9">|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML1bcb1e9.PNG|</span></a></p>
+<p><a href="#id10"><span class="problematic" id="id11">|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML16d81f2.PNG|</span></a></p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="the-tms-x-tables">
+<h3>The TMS/X tables<a class="headerlink" href="#the-tms-x-tables" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="tms-x-table-layout">
+<h4>TMS/X table layout<a class="headerlink" href="#tms-x-table-layout" title="Permalink to this headline">¶</a></h4>
+<p>The following interface elements present in the TMS/X tables
+(dependently on the table data, some of them may be absent in a concrete
+table):</p>
+<p><a class="reference internal" href="docs/media/image13.png"><img alt="image12" src="docs/media/image13.png" style="width: 6.50000in; height: 3.20833in;" /></a></p>
+<ul>
+<li><p class="first">A name of the opened table,</p>
+</li>
+<li><p class="first">The table’s toolbar with the buttons for calling actions, which will
+affect the table or manipulate its record. The toolbar is placed just
+above the table. The number of buttons may be various for specific
+tables (some buttons may absent in some tables). Typical actions are:</p>
+<blockquote>
+<div><p><a class="reference internal" href="docs/media/image14.png"><img alt="image13" src="docs/media/image14.png" style="width: 0.31246in; height: 0.28122in;" /></a> - refreshes the table data (some tables (Transactions,
+Sustem events, etc.) are refreshed automatically and user can
+refresh other tables manually anytime via pressing the button);</p>
+<p><a class="reference internal" href="docs/media/image15.png"><img alt="image14" src="docs/media/image15.png" style="width: 0.29163in; height: 0.26038in;" /></a> - adds a new record into the table (correspondent entry
+form will be opened in a separate window);</p>
+<p><a class="reference internal" href="docs/media/image16.png"><img alt="image15" src="docs/media/image16.png" style="width: 0.29163in; height: 0.23955in;" /></a>- pops up a context menu (see the description of its items
+in sections 2.4.2, 2.8 and 2.7 below):</p>
+<p><a href="#id12"><span class="problematic" id="id13">|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML846440.PNG|</span></a></p>
+<p><a class="reference internal" href="docs/media/image18.png"><img alt="image17" src="docs/media/image18.png" style="width: 0.29163in; height: 0.24997in;" /></a>- closes the table and returns to the home page of the
+TMS/X.</p>
+</div></blockquote>
+</li>
+</ul>
+<p>The row local toolbar with icons of actions, which only affect the
+record, may be displayed in the last column of the table:</p>
+<p><a class="reference internal" href="docs/media/image19.png"><img alt="image18" src="docs/media/image19.png" style="width: 6.98958in; height: 0.65038in;" /></a></p>
+<p>Description of such actions will be given in sections, referred to
+concrete tables.</p>
+<ul class="simple">
+<li>Line of table header contains a set of descriptive names of the
+table’s columns. You can sort the table’s data in both ascending and
+descending order. Use the down-arrow icon, which becomes visible when
+the mouse pointer is over a column name: <a class="reference internal" href="docs/media/image20.png"><img alt="image19" src="docs/media/image20.png" style="width: 1.87500in; height: 0.30208in;" /></a>. You can also sort
+the table by the column’s data by simply clicking on a column header.
+When the table is sorted by the column’s data, it is indicated by an
+up-arrow (<a class="reference internal" href="docs/media/image21.png"><img alt="image20" src="docs/media/image21.png" style="width: 0.30208in; height: 0.25000in;" /></a>) or down-arrow (<a class="reference internal" href="docs/media/image22.png"><img alt="image21" src="docs/media/image22.png" style="width: 0.25000in; height: 0.25000in;" /></a>) in the column header.</li>
+<li>The selected line is highlighted with a light grey color in the
+table.</li>
+<li>When the screen window cannot hold the entire table, the scrollbar(s)
+will be displayed to make table data scrolling available.</li>
+<li>Use the Search field for fast searching records in large tables. Type
+any fragment of value, which you intend to find among the table
+records, in the field. The table will immediately be filtered, so
+that the records, containing the specified fragment in their columns,
+will only remain:</li>
+</ul>
+<p><a class="reference internal" href="docs/media/image23.png"><img alt="image22" src="docs/media/image23.png" style="width: 6.98958in; height: 0.78119in;" /></a></p>
+<p>To return to the full table, just clear the Search field.</p>
+</div>
+<div class="section" id="displaying-hiding-table-s-columns">
+<h4>Displaying/hiding table’s columns<a class="headerlink" href="#displaying-hiding-table-s-columns" title="Permalink to this headline">¶</a></h4>
+<p>You can display or hide any table column, depending on what information
+is more important. Call the table context menu and press the Column
+visibility button from there:</p>
+<p><a href="#id14"><span class="problematic" id="id15">|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTMLef9a6f.PNG|</span></a></p>
+<p>A list of the table column’s names will drop down:</p>
+<p><a class="reference internal" href="docs/media/image25.png"><img alt="image24" src="docs/media/image25.png" style="width: 6.97917in; height: 1.79167in;" /></a></p>
+<p>Click the column names in the list, which are not to be displayed (their
+background color will change from blue to white):</p>
+<p><a href="#id16"><span class="problematic" id="id17">|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTMLf79a11.PNG|</span></a></p>
+<p>Selected columns will immediately abandon the table:</p>
+<p><a class="reference internal" href="docs/media/image27.png"><img alt="image26" src="docs/media/image27.png" style="width: 6.72847in; height: 1.40486in;" /></a></p>
+<p>To return the hidden columns into the table, call the ‘Column
+visibility’ option again and click the names of the hidden columns once
+more (their background color will change to blue):</p>
+<p><a href="#id18"><span class="problematic" id="id19">|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTMLf79a11.PNG|</span></a> <a class="reference internal" href="docs/media/image28.png"><img alt="image28" src="docs/media/image28.png" style="width: 1.32058in; height: 1.51866in;" /></a></p>
+<p>Selected columns will immediately appear in the table.</p>
+</div>
+<div class="section" id="filters-in-tables">
+<h4>Filters in tables<a class="headerlink" href="#filters-in-tables" title="Permalink to this headline">¶</a></h4>
+<p>You can apply filtering to the data, displayed in the most of the
+tables. When the filtering options are available, the filter bar is
+placed above the table. To set the filter, click the bar. Fill in the
+necessary fields in the pop-up filter dialog box, then press the Filter
+button inside:</p>
+<p><a class="reference internal" href="docs/media/image29.png"><img alt="image29" src="docs/media/image29.png" style="width: 6.50000in; height: 2.22083in;" /></a></p>
+<p>The table will be updated, so that only the records, which meet the
+criteria, will remain. If filter field is a list, you can specify any
+numbers of possible values from it in some filters:</p>
+<p><a class="reference internal" href="docs/media/image30.png"><img alt="image30" src="docs/media/image30.png" style="width: 2.50943in; height: 2.06203in;" /></a></p>
+<p>The content of the filter depends on the table’s matter.</p>
+</div>
+</div>
+<div class="section" id="viewing-editing-table-record-details">
+<h3>Viewing/editing table record details<a class="headerlink" href="#viewing-editing-table-record-details" title="Permalink to this headline">¶</a></h3>
+<p>If the row record in the opened table has one or more fields that are
+colored in blue, it means that you can view or edit the data from the
+record in a separate form by simply clicking the hyperlink:</p>
+<p><a class="reference internal" href="docs/media/image31.png"><img alt="image31" src="docs/media/image31.png" style="width: 6.84416in; height: 1.84997in;" /></a></p>
+<p>A special multi-tab form with details of the record will pop-up, where
+you can view or edit them:</p>
+<p><a class="reference internal" href="docs/media/image32.png"><img alt="image32" src="docs/media/image32.png" style="width: 6.98958in; height: 3.70000in;" /></a></p>
+</div>
+<div class="section" id="printing-table-data">
+<h3>Printing table data<a class="headerlink" href="#printing-table-data" title="Permalink to this headline">¶</a></h3>
+<p>To print the content of any table, call the table context menu and press
+the Print button from there.</p>
+<p>The printing page layout and standard printer manager dialog box will be
+shown in a separate window. Make settings there and press its own Print
+button to send the page to the selected printer.</p>
+</div>
+<div class="section" id="copying-table-data">
+<h3>Copying table data<a class="headerlink" href="#copying-table-data" title="Permalink to this headline">¶</a></h3>
+<p>To copy a content of any table into a clipboard, call the table context
+menu and press the Copy button from there. The information message will
+be shown:</p>
+<p><a class="reference internal" href="docs/media/image33.png"><img alt="image33" src="docs/media/image33.png" style="width: 6.50000in; height: 3.33472in;" /></a></p>
+<p>Then you can paste the clipboard content into any textual editor or
+other application, supporting OLE-technology</p>
+</div>
+<div class="section" id="exporting-table-data">
+<h3>Exporting table data<a class="headerlink" href="#exporting-table-data" title="Permalink to this headline">¶</a></h3>
+<p>To convert the content of any table to the MS Excel file, call the table
+context menu and press the Excel button from there:</p>
+<p><a href="#id20"><span class="problematic" id="id21">|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML1e24092.PNG|</span></a></p>
+<p>Confirm the operation in the pop up message box by pressing the Open or
+Save button inside it. The name of the file will be generated
+automatically, but you can change it by choosing the Save As option
+instead of the Save.</p>
+<p>Specify new file name and location and press the Save button in the
+pop-up standard dialog box.</p>
+<p>The table data will be opened or saved in the correspondent
+application’s format:</p>
+<p><a href="#id22"><span class="problematic" id="id23">|C:\\Users\\sazonov\\AppData\\Local\\Temp\\SNAGHTML1f2214f.PNG|</span></a></p>
+<p>Then you can edit the file by using standard tools of the application
+(e.g., in order to prepare a report).</p>
+<p><em>Note:</em> I<em>n the case a filtering was applied to the table, the
+filtered data will only be exported, but not the whole table.</em></p>
+</div>
+</div>
+<div class="section" id="main-tables-and-actions">
+<h2>Main tables and actions<a class="headerlink" href="#main-tables-and-actions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="user-session-operations">
+<h3>User session operations<a class="headerlink" href="#user-session-operations" title="Permalink to this headline">¶</a></h3>
+<p>The login form appears on the screen automatically every time the TMS/X
+is started (see the section 1.3.1). When the user is logged-on, the
+following session operations are available from the separate menu that
+will pop-up, as the user clicks its name in the TMS/X main menu:</p>
+<p><a class="reference internal" href="docs/media/image36.png"><img alt="image36" src="docs/media/image36.png" style="width: 7.00000in; height: 0.83333in;" /></a></p>
+<p>The Session menu contains the following items:</p>
+<ul class="simple">
+<li><strong>Logout</strong>&nbsp;— logs off the user from the TMS/X and suggest new
+session;</li>
+<li><strong>Change password</strong>&nbsp;— allows changing user’s password (availability
+of the item depends on whether this functionality is provided in the
+current version of the software and cryptography settings).</li>
+</ul>
+<div class="section" id="logging-out">
+<h4>Logging out<a class="headerlink" href="#logging-out" title="Permalink to this headline">¶</a></h4>
+<p>The process of logging out of the software just invokes the logout
+function and redirects you to the login page, where you can enter
+credential of another user (e.g., in order to make an authorization of
+entered payment).</p>
+</div>
+<div class="section" id="changing-own-user-password">
+<h4>Changing own user password<a class="headerlink" href="#changing-own-user-password" title="Permalink to this headline">¶</a></h4>
+<p>Changing user’s password might be disabled depending on user’s
+permissions and cryptographic methods that are used in the current
+version of the TMS/X.</p>
+<p>When this option is able, call the <strong>Session</strong> &gt; <strong>Change password</strong>
+menu item. The dialog form will open:</p>
+<p><a class="reference internal" href="docs/media/image37.png"><img alt="image37" src="docs/media/image37.png" style="width: 4.23944in; height: 1.14501in;" /></a></p>
+<p>To change the password, type in your old password, the new one and
+retype the new password once again, in the correspondent fields of the
+form. The new password should be complex enough (from a security
+viewpoint); otherwise, the TMS/X wouldn’t accept it. Then press the
+Change button to confirm the action. In the case of mistake, the error
+message will be issued:</p>
+<p><a class="reference internal" href="docs/media/image38.png"><img alt="image38" src="docs/media/image38.png" style="width: 3.62338in; height: 0.40343in;" /></a></p>
+<p>Close the message box and try to fill in the fields of the password
+changing form correctly. In case of success, you will immediately be
+redirected to the login page. Enter your login and <strong>new</strong> password, as
+usual:</p>
+<p><a class="reference internal" href="docs/media/image39.png"><img alt="image39" src="docs/media/image39.png" style="width: 2.60594in; height: 2.21667in;" /></a></p>
+<p>After successful connection, the TMS/X will inform you about new
+password’s validity term:</p>
+<p><a class="reference internal" href="docs/media/image40.png"><img alt="image40" src="docs/media/image40.png" style="width: 3.66197in; height: 0.40100in;" /></a></p>
+</div>
+</div>
+<div class="section" id="dictionaries">
+<h3>Dictionaries<a class="headerlink" href="#dictionaries" title="Permalink to this headline">¶</a></h3>
+<p>Call the <strong>Dictionary</strong> item of the main menu to get a list of the TMS/X
+dictionary:</p>
+<p><a class="reference internal" href="docs/media/image41.png"><img alt="image41" src="docs/media/image41.png" style="width: 1.64149in; height: 2.20000in;" /></a></p>
+<p>Choose the necessary item from drop down list. Details of the
+dictionaries are described below in correspondent sections.</p>
+<div class="section" id="correspondents">
+<h4>Correspondents<a class="headerlink" href="#correspondents" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Dictionary &gt; Correspondents</strong> item to open the table of
+participants (institutions) registered the in the Central node:</p>
+<p><a class="reference internal" href="docs/media/image42.png"><img alt="image42" src="docs/media/image42.png" style="width: 6.98958in; height: 1.22014in;" /></a></p>
+<p>The table contains the following columns:</p>
+<ul class="simple">
+<li><strong>ID</strong> – system internal identifier of the correspondent;</li>
+<li><strong>BIC</strong> – bank identification code (BIC) of the correspondent;</li>
+<li><strong>Name</strong> – name of the correspondent;</li>
+<li><strong>Head office</strong> – name of the correspondents’ head office;</li>
+<li><strong>Code</strong> – internal 6-symbols code of the correspondent (if exists);</li>
+<li><strong>TIN –</strong> tax identification number of the correspondent (if exists);</li>
+<li><strong>SWIFT –</strong> a flag (Yes/No) that defines, whether the correspondent
+is registered in the SWIFT BIC Directory;</li>
+<li><strong>Type –</strong> code of the correspondent type (the DP – direct
+participant is default);</li>
+<li><strong>Modification date</strong> – date and time, when the record was created or
+last modified.</li>
+</ul>
+</div>
+<div class="section" id="currencies">
+<h4>Currencies<a class="headerlink" href="#currencies" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Dictionary &gt; Currencies</strong> menu item to open the table with a
+list and attributes of currencies:</p>
+<p><a class="reference internal" href="docs/media/image43.png"><img alt="image43" src="docs/media/image43.png" style="width: 6.98958in; height: 1.03611in;" /></a></p>
+<p>The table contains the following columns:</p>
+<ul class="simple">
+<li><strong>Code</strong> – system code of the currency;</li>
+<li><strong>Name</strong> – system name of the currency;</li>
+<li><strong>Decimal digits</strong> – number of decimal digits in amount values that
+are expressed in the currency;</li>
+</ul>
+</div>
+<div class="section" id="participant-accounts">
+<h4>Participant accounts<a class="headerlink" href="#participant-accounts" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Dictionary &gt; Participant Accounts</strong> item to open the table of
+accounts, registered in the in the Central node:</p>
+<p><a class="reference internal" href="docs/media/image44.png"><img alt="image44" src="docs/media/image44.png" style="width: 6.98958in; height: 1.30417in;" /></a></p>
+<p>The table contains the following columns:</p>
+<ul class="simple">
+<li><strong>ID</strong> – system internal (numeric) identifier of the account;</li>
+<li><strong>Code</strong> - code of the account;</li>
+<li><strong>Correspondent</strong> - name of the correspondent of the participant, the
+account is referred to;</li>
+<li><strong>Type</strong> - a type of the account;</li>
+<li><strong>Currency</strong> - code of the currency (ISO) of the account;</li>
+<li><strong>BIC</strong> – bank identification code (BIC) of the participant the
+account belongs to</li>
+<li><strong>Corr Account</strong> - code of the correspondent account (if exists);</li>
+<li><strong>Modification date</strong> – date and time, when the record was created or
+last modified.</li>
+</ul>
+</div>
+<div class="section" id="priorities">
+<h4>Priorities<a class="headerlink" href="#priorities" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Dictionary &gt; Priorities</strong> item to open the table of
+priorities that are registered in the in the Central node:</p>
+<p><a class="reference internal" href="docs/media/image45.png"><img alt="image45" src="docs/media/image45.png" style="width: 6.98958in; height: 1.17986in;" /></a></p>
+<p>The table contains the following columns:</p>
+<ul class="simple">
+<li><strong>Name</strong> – name of the group, the priority is included into;</li>
+<li><strong>Value –</strong> number of the priority;</li>
+<li><strong>Modification date</strong> – date and time, when the record was created or
+last modified.</li>
+</ul>
+</div>
+<div class="section" id="reject-reasons">
+<h4>Reject reasons<a class="headerlink" href="#reject-reasons" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Dictionary &gt; Reject reasons</strong> menu item to open the table
+with a list of rejection reasons that are registered in the Central
+node:</p>
+<p><a class="reference internal" href="docs/media/image46.png"><img alt="image46" src="docs/media/image46.png" style="width: 6.98958in; height: 1.35000in;" /></a></p>
+<p>The table contains the following columns:</p>
+<ul class="simple">
+<li><strong>Code</strong> – rejection reason code;</li>
+<li><strong>Description</strong> – rejection reason description.</li>
+</ul>
+</div>
+<div class="section" id="transaction-type-codes">
+<h4>Transaction type codes<a class="headerlink" href="#transaction-type-codes" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Dictionary &gt; Transaction type codes</strong> item to open the table
+of priorities that are registered in the Central node:</p>
+<p><a class="reference internal" href="docs/media/image47.png"><img alt="image47" src="docs/media/image47.png" style="width: 6.98958in; height: 1.21667in;" /></a></p>
+<p>The table contains the following columns:</p>
+<ul class="simple">
+<li><strong>Code</strong> – transaction type code;</li>
+<li><strong>Name</strong> – transaction type code name;</li>
+<li><strong>Subsystem</strong> – subsystem (RTGS or ACH) TTC used.</li>
+</ul>
+</div>
+<div class="section" id="limit-types">
+<h4>Limit types<a class="headerlink" href="#limit-types" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Dictionary &gt; Limit types</strong> item to open the table of limits
+that are set in the Central node:</p>
+<p><a class="reference internal" href="docs/media/image48.png"><img alt="image48" src="docs/media/image48.png" style="width: 6.98958in; height: 0.92639in;" /></a></p>
+</div>
+<div class="section" id="positions">
+<h4>Positions<a class="headerlink" href="#positions" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Dictionary &gt; Positions</strong> menu item allows to open the table
+of Bank’s accounts to request account reports:</p>
+<p><a class="reference internal" href="docs/media/image49.png"><img alt="image49" src="docs/media/image49.png" style="width: 6.98958in; height: 1.65625in;" /></a></p>
+<p>The table contains the following columns:</p>
+<ul class="simple">
+<li><strong>Account code</strong> – number of account;</li>
+<li><strong>Currency</strong> – account currency;</li>
+<li><strong>Type</strong> – account type.</li>
+</ul>
+<p>To get access to account details and related reports and actions click
+the blue link of the account code.</p>
+<p><a class="reference internal" href="docs/media/image50.png"><img alt="image50" src="docs/media/image50.png" style="width: 6.98958in; height: 2.10833in;" /></a></p>
+<p>Following actions with Settlement account available on corresponding
+buttons:</p>
+<ul class="simple">
+<li><strong>Get account</strong>– to send request for account report click the button
+and confirm sending;</li>
+<li><strong>Get customer account</strong> – to send request for balance report click
+the button and confirm sending;</li>
+<li><strong>Get customer statement</strong> – to send request for statement report
+click the button and confirm sending;</li>
+<li><strong>Get reservations</strong> – to send limit request click the button and
+confirm sending;</li>
+<li><strong>Modify reservations</strong> – to send request for set limit click the
+button and confirm sending.</li>
+</ul>
+<p>Following actions with Clearing account available on corresponding
+buttons on <strong>Position</strong> form:</p>
+<ul class="simple">
+<li><strong>Get Debit Cap</strong> – to send request for the last value of debit cup
+click the button and confirm sending;</li>
+<li><strong>Set Debit Cap</strong> – to send request for to defining a value of debit
+cup click the button and confirm sending:</li>
+<li><strong>Get account</strong> – to send request for account report click the button
+and confirm sending.</li>
+</ul>
+<p>Select the report in the table and click the ID hyperlink to get access
+to the report, message details and related objects. The report
+<strong>Details</strong> tab will be opened in a separate window (the message type,
+direction and reference will be put into the header of the window):</p>
+<p><a class="reference internal" href="docs/media/image51.png"><img alt="image51" src="docs/media/image51.png" style="width: 6.72847in; height: 2.85208in;" /></a></p>
+<p>For the description of other tabs see the section 3.4.5 Message audit.</p>
+</div>
+</div>
+<div class="section" id="the-capture-menu">
+<h3>The Capture menu<a class="headerlink" href="#the-capture-menu" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="instruction-input-forms-common-aspects">
+<h4>Instruction input forms – common aspects<a class="headerlink" href="#instruction-input-forms-common-aspects" title="Permalink to this headline">¶</a></h4>
+<p>Every Instruction type has its own input form that will pop-up, once you
+select it among the items of the TMS/X <strong>Capture</strong> menu:</p>
+<p><a class="reference internal" href="docs/media/image53.png"><img alt="image52" src="docs/media/image53.png" style="width: 1.56903in; height: 2.62963in;" /></a></p>
+<p>You have to fill in all the required fields in the form with appropriate
+values, and then choose the following action that shall be completed.
+Pay attention to the following points:</p>
+<div class="section" id="mandatory-optional-and-non-editable-fields-in-the-forms">
+<h5>Mandatory, optional and non-editable fields in the forms<a class="headerlink" href="#mandatory-optional-and-non-editable-fields-in-the-forms" title="Permalink to this headline">¶</a></h5>
+<p>Some fields of the forms might be pre-filled with the context default
+values; you can correct them if it is necessary.</p>
+<p>If the value is disabled for editing, it is displayed as faded to gray.</p>
+<p>Mandatory fields of any form are marked with red asterisks * in front
+of their names:</p>
+<blockquote>
+<div><a class="reference internal" href="docs/media/image54.png"><img alt="image53" src="docs/media/image54.png" style="width: 3.35833in; height: 0.65559in;" /></a></div></blockquote>
+<p>You can’t save an instruction, if at least one of the mandatory fields
+is empty or incorrect (see the section 3.3.1.2).</p>
+<p>Most of the fields on any forms are lists. To get the whole list for a
+choice, click the symbol at the end of the field:</p>
+<p><a class="reference internal" href="docs/media/image55.png"><img alt="image54" src="docs/media/image55.png" style="width: 3.45000in; height: 0.90959in;" /></a></p>
+</div>
+<div class="section" id="validating-instructions-fields-by-the-tms-x">
+<h5>Validating instruction’s fields by the TMS/X<a class="headerlink" href="#validating-instructions-fields-by-the-tms-x" title="Permalink to this headline">¶</a></h5>
+<p>In the cases some fields of the form were filled in with incorrect
+values, the TMS/X prevents the payment from saving and issues local
+alert message below each incorrect field:</p>
+<p><a class="reference internal" href="docs/media/image56.png"><img alt="image55" src="docs/media/image56.png" style="width: 6.98958in; height: 3.01944in;" /></a></p>
+<p>In such situation, you have to control the fields that are empty or
+incorrect and edit them, then try to press the Create button again.</p>
+</div>
+<div class="section" id="using-instruction-templates">
+<h5>Using instruction templates<a class="headerlink" href="#using-instruction-templates" title="Permalink to this headline">¶</a></h5>
+<p>You can use the current payment instruction as a template. Click the
+‘Template’ icon in the right upper corner of the form:</p>
+<p><a class="reference internal" href="docs/media/image57.png"><img alt="image56" src="docs/media/image57.png" style="width: 6.50000in; height: 0.36597in;" /></a></p>
+<p>The Template saving dialog box will pop up:</p>
+<p><a class="reference internal" href="docs/media/image58.png"><img alt="image57" src="docs/media/image58.png" style="width: 3.29870in; height: 0.98084in;" /></a></p>
+<p>Enter the unique name of the new template in the correspondent field and
+press the Save button. A pop-up message at the top of the form will
+indicate the successful result:</p>
+<p><a class="reference internal" href="docs/media/image59.png"><img alt="image58" src="docs/media/image59.png" style="width: 6.72847in; height: 0.61042in;" /></a></p>
+<p>In future, you can use any saved template in order to quickly create a
+new instruction of the same type: Click the ‘Template’ icon on the form
+and select the necessary name from a drop down list:</p>
+<p><a class="reference internal" href="docs/media/image60.png"><img alt="image59" src="docs/media/image60.png" style="width: 6.72847in; height: 0.91667in;" /></a></p>
+<p>The fields of the form will be automatically filled in by the values,
+taken from the chosen template:</p>
+<p><a class="reference internal" href="docs/media/image61.png"><img alt="image60" src="docs/media/image61.png" style="width: 6.72847in; height: 0.65139in;" /></a></p>
+</div>
+<div class="section" id="cloning-transactions">
+<h5>Cloning transactions<a class="headerlink" href="#cloning-transactions" title="Permalink to this headline">¶</a></h5>
+<p>Another way to create a new transfer is cloning the existing one (e.g.,
+in cases you are to create several unified transfers). A document that
+has been created, will be used as a template for a new one.</p>
+<p>Login to the TMS/X as the user with the Operator role. Open the
+<strong>Transactions</strong> monitoring table, choose the source document in there
+and click its Reference hyperlink. Call the context menu from the opened
+transaction’s detail form and choose the Clone option from there:</p>
+<p><a class="reference internal" href="docs/media/image62.png"><img alt="image61" src="docs/media/image62.png" style="width: 6.98958in; height: 0.93889in;" /></a></p>
+<p>The entry form of correspondent transaction type will be opened, where
+fields has been already filled in by attributes of the source
+transaction (except the ‘Reference’ fields, that will be regenerated
+automatically to be unique). Control values in all the fields and
+correct the necessary ones. Press the Create button then. New
+transaction will be saved in the table, where you can make further
+authorization/sending actions and monitor the transfer processing.</p>
+<p><a class="reference internal" href="docs/media/image63.png"><img alt="image62" src="docs/media/image63.png" style="width: 6.98333in; height: 1.08333in;" /></a></p>
+<p>Details of instruction’s creating are described below in the next
+following sections (correspondently to each type).</p>
+</div>
+</div>
+<div class="section" id="direct-debit">
+<h4>Direct debit<a class="headerlink" href="#direct-debit" title="Permalink to this headline">¶</a></h4>
+<p>Login as a user, who was granted the Operator (Maker) role. Choose the
+<strong>Direct debit</strong> instruction item in the <strong>Capture</strong> menu.</p>
+<p>The following entry form of instruction will be opened:</p>
+<p><a class="reference internal" href="docs/media/image64.png"><img alt="image63" src="docs/media/image64.png" style="width: 6.98958in; height: 3.87083in;" /></a></p>
+<p>The form has the following fields:</p>
+<ul class="simple">
+<li><strong>Reference</strong> – (TRN), unique reference of transaction (the Sender’s
+own reference number);</li>
+<li><strong>Operation code</strong> – bank operation code of the transaction;</li>
+<li><strong>Amount / Currency</strong> — amount of the payment / code of the currency
+(the JOD is default);</li>
+<li><strong>Value date</strong>&nbsp;— the date of the day, when the payment is to be
+settled;</li>
+</ul>
+<p><em>Credit area</em> (details of crediting part):</p>
+<ul class="simple">
+<li><strong>Beneficiary customer name / Account / Address</strong> - the name,
+account’s code and address of the beneficiary customer (the
+beneficiary party, which will be paid);</li>
+</ul>
+<p><em>Debit area</em> (details of debiting part):</p>
+<ul class="simple">
+<li><strong>Bank-Debtor</strong> – the bank identification code of bank-debitor;</li>
+<li><dl class="first docutils">
+<dt><strong>Debtor customer name / Account / Address</strong> – the name, account’s</dt>
+<dd>code and address of the debtor customer (who is ordering the
+transaction);</dd>
+</dl>
+</li>
+</ul>
+<p><em>Transaction details</em>:</p>
+<ul class="simple">
+<li><strong>Document No / Document date</strong> – the number and date of original
+document;</li>
+<li><strong>Transaction type</strong> — type code of transaction;</li>
+<li><strong>Remittance information</strong>&nbsp;— additional information, referred to
+payment.</li>
+</ul>
+<p>Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its <a class="reference internal" href="docs/media/image65.png"><img alt="image64" src="docs/media/image65.png" style="width: 0.16665in; height: 0.16665in;" /></a> icon:</p>
+<p><a class="reference internal" href="docs/media/image66.png"><img alt="image65" src="docs/media/image66.png" style="width: 5.40833in; height: 0.18716in;" /></a></p>
+<p>The instruction will be added to the <strong>Transactions</strong> table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the ACH</p>
+<p><em>Note:</em> <em>To create several instructions of the same type one by one,
+mark option ‘Create another’ at the bottom of instruction entry form:</em></p>
+<p><a class="reference internal" href="docs/media/image67.png"><img alt="image66" src="docs/media/image67.png" style="width: 1.86458in; height: 0.39133in;" /></a></p>
+<p><em>After creation of first instruction the entry form will stay opened and
+blank for the creating next one. Unmark this option while inputting the
+last instruction to finish the chain. This option is available on all
+instruction input forms.</em></p>
+</div>
+<div class="section" id="direct-credit">
+<h4>Direct credit<a class="headerlink" href="#direct-credit" title="Permalink to this headline">¶</a></h4>
+<p>Login as a user, who was granted the Operator (Maker) role. Choose the
+<strong>Direct credit DNS</strong> instruction item in the <strong>Capture</strong> menu.</p>
+<p>The following entry form of instruction will be opened:</p>
+<p><a class="reference internal" href="docs/media/image68.png"><img alt="image67" src="docs/media/image68.png" style="width: 6.98958in; height: 5.04792in;" /></a></p>
+<p>The form has the following fields:</p>
+<ul class="simple">
+<li><strong>Reference</strong> – (TRN), unique reference of transaction (the Sender’s
+own reference number);</li>
+<li><strong>Amount / Currency</strong> — amount of the payment / code of the currency
+(the JOD is default);</li>
+<li><strong>Value date</strong>&nbsp;— the date of the day, when the payment is to be
+settled;</li>
+<li><strong>Instructed amount / Currency</strong> – instructed amount of the payment /
+code of the currency (the JOD is default);</li>
+<li><strong>Exchange rate</strong> – exchange rate;</li>
+</ul>
+<p><em>Debit area</em> (details of debiting part):</p>
+<ul class="simple">
+<li><strong>Bank-Debtor</strong> – the bank identification code of bank-debtor;</li>
+<li><dl class="first docutils">
+<dt><strong>Ordering customer name / Account / Address</strong> – the name , account’s</dt>
+<dd>code and address of the debtor customer (who is ordering the
+transaction);</dd>
+</dl>
+</li>
+</ul>
+<p><em>Credit area</em> (details of crediting part):</p>
+<ul class="simple">
+<li><strong>Beneficiary bank</strong> – the bank identification code of beneficiary
+bank;</li>
+<li><strong>Beneficiary customer name / Account / Address</strong> - the name,
+account’s code and address of the beneficiary customer (the
+beneficiary party, which will be paid);</li>
+</ul>
+<p><em>Transaction details</em>:</p>
+<ul class="simple">
+<li><strong>Document No / Document date</strong> – the number and date of original
+document;</li>
+<li><strong>Transaction type</strong> — type code of transaction;</li>
+<li><strong>Remittance information</strong>&nbsp;— additional information, referred to
+payment;</li>
+<li><strong>Charge bearer</strong> – a code that defines, which party will bear the
+charges for the transaction (BEN, OUR or SHA);</li>
+<li><strong>Charge amount / Currency</strong> - charge amount / code of the currency
+(the JOD is default);</li>
+<li><strong>Regulatory reporting</strong> – regulatory reporting, referred to the
+payment;</li>
+<li><strong>Instruction for next agent</strong>&nbsp;— instruction for the next agent,
+referred to the payment;</li>
+<li><strong>Service type</strong> — Service Type Identifier</li>
+<li><strong>UETR</strong> — Unique End-to-end Transaction Reference.</li>
+</ul>
+<p>Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its <a class="reference internal" href="docs/media/image65.png"><img alt="image68" src="docs/media/image65.png" style="width: 0.16665in; height: 0.16665in;" /></a> icon:</p>
+<p><a class="reference internal" href="docs/media/image66.png"><img alt="image69" src="docs/media/image66.png" style="width: 5.40833in; height: 0.18716in;" /></a></p>
+<p>The instruction will be added to the <strong>Transactions</strong> table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the ACH.</p>
+</div>
+<div class="section" id="direct-debit-with-mandate">
+<h4>Direct debit with mandate<a class="headerlink" href="#direct-debit-with-mandate" title="Permalink to this headline">¶</a></h4>
+<p>Login as a user, who was granted the Operator (Maker) role. Choose the
+<strong>Direct debit with mandate</strong> instruction item in the <strong>Capture</strong> menu.</p>
+<p>The following entry form of instruction will be opened:</p>
+<p><a class="reference internal" href="docs/media/image69.png"><img alt="image70" src="docs/media/image69.png" style="width: 6.98958in; height: 3.89028in;" /></a></p>
+<p>The form has the following fields:</p>
+<ul class="simple">
+<li><strong>Mandate reference</strong> – the list of active mandates for the
+Bank-Debtor specified;</li>
+<li><strong>Reference</strong> – (TRN), unique reference of transaction (the Sender’s
+own reference number);</li>
+<li><strong>Amount / Currency</strong> — amount of the payment / code of the currency
+(the JOD is default);</li>
+<li><strong>Priority</strong>&nbsp;— the priority group and number of priority of the
+payment;</li>
+<li><strong>Value date</strong>&nbsp;— the date of the day, when the payment is to be
+settled;</li>
+</ul>
+<p><em>Credit area</em> (details of crediting part):</p>
+<ul class="simple">
+<li><strong>Beneficiary customer name / Account / Address</strong> - the name,
+account’s code and address of the beneficiary customer (the
+beneficiary party, which will be paid);</li>
+</ul>
+<p><em>Debit area</em> (details of debiting part):</p>
+<ul class="simple">
+<li><strong>Bank-Debtor</strong> – the bank identification code of bank-debitor;</li>
+<li><dl class="first docutils">
+<dt><strong>Debtor customer name / Account / Address</strong> – the name, account’s</dt>
+<dd>code and address of the debtor customer (who is ordering the
+transaction);</dd>
+</dl>
+</li>
+</ul>
+<p><em>Transaction details</em>:</p>
+<ul class="simple">
+<li><strong>Document No / Document date</strong> – the number and date of original
+document;</li>
+<li><strong>Transaction type</strong> — type code of transaction;</li>
+<li><strong>Remittance information</strong>&nbsp;— additional information, referred to
+payment.</li>
+</ul>
+<p>Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its <a class="reference internal" href="docs/media/image65.png"><img alt="image71" src="docs/media/image65.png" style="width: 0.16665in; height: 0.16665in;" /></a> icon:</p>
+<p><a class="reference internal" href="docs/media/image66.png"><img alt="image72" src="docs/media/image66.png" style="width: 5.40833in; height: 0.18716in;" /></a></p>
+<p>The instruction will be added to the <strong>Transactions</strong> table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the ACH.</p>
+</div>
+<div class="section" id="new-mandate">
+<h4>New mandate<a class="headerlink" href="#new-mandate" title="Permalink to this headline">¶</a></h4>
+<p>Login as a user, who was granted the Operator (Maker) role. Choose the
+<strong>New mandate</strong> instruction item in the <strong>Capture</strong> menu.</p>
+<p>The following entry form of instruction will be opened:</p>
+<p><a class="reference internal" href="docs/media/image70.png"><img alt="image73" src="docs/media/image70.png" style="width: 6.98958in; height: 3.11319in;" /></a></p>
+<p>The form has the following fields:</p>
+<ul class="simple">
+<li><strong>Reference</strong> - (TRN), unique reference of mandate (the Sender’s own
+reference number);</li>
+<li><strong>Valid from</strong> - the start date of validity of mandate;</li>
+<li><strong>Valid to</strong> - the end date of validity of mandate (disable if
+‘Untimely’ is marked);</li>
+<li><strong>Type</strong> - One-off – mandate is used only for 1 payment; mandate will
+expire after first payment will be sent to ACH. Recurrent – used for
+multiple payments;</li>
+<li><strong>Untimely</strong> - termless validity of mandate (available only for
+recurrent mandates);</li>
+<li><strong>Currency</strong> - the code of the currency (the JOD is default) of the
+mandate;</li>
+<li><strong>Maximum amount per instruction</strong> - the maximum amount of payment
+per instruction;</li>
+<li><strong>Payee name</strong> – payee customer name;</li>
+<li><strong>Payee bank</strong> - not editable, filled automatically by CBJ:</li>
+<li><strong>Payee account</strong> – account of the payee’s customer;</li>
+<li><strong>Payer name</strong> – payer customer name;</li>
+<li><strong>Payer bank</strong> – payer bank identification code;</li>
+<li><strong>Payer account</strong> – account of the payer.</li>
+</ul>
+<p>Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the mandate. After creation of mandate
+view mandate form is opened. The ‘Mandate’ tab of the form displays
+mandate details.</p>
+<p>The mandate will be added to the <strong>Issued mandates</strong> table, where you
+can make further authorization/sending actions and monitor the mandate
+processing in the ACH.</p>
+</div>
+<div class="section" id="institution-transfer">
+<h4>Institution transfer<a class="headerlink" href="#institution-transfer" title="Permalink to this headline">¶</a></h4>
+<p>Login as a user, who was granted the Operator (Maker) role. Choose the
+<strong>Institution transfer</strong> instruction item in the <strong>Capture</strong> menu.</p>
+<p>The following entry form of instruction will be opened:</p>
+<p><a class="reference internal" href="docs/media/image71.png"><img alt="image74" src="docs/media/image71.png" style="width: 6.98958in; height: 2.75694in;" /></a></p>
+<p>The form has the following fields (in expanded mode):</p>
+<ul class="simple">
+<li><strong>Reference</strong> – (TRN), unique reference of transaction (the Sender’s
+own reference number);</li>
+<li><strong>Related reference</strong> – reference number of the related transaction
+(for links, the NONREF is default);</li>
+<li><strong>Amount / Currency</strong> — the amount of the payment and the code of the
+currency (the BHD is default);</li>
+<li><strong>Value date</strong>&nbsp;— the date of the day, when the payment is to be
+settled;</li>
+<li><strong>Priority</strong>&nbsp;—the priority group and number of priority of the
+payment;</li>
+</ul>
+<p><em>Debit area</em> (details of debiting part):</p>
+<ul class="simple">
+<li><strong>Ordering Institution / Account</strong> – the bank identification code and
+account’s code ordering institution;</li>
+</ul>
+<p><em>Credit area</em> - details of crediting part:</p>
+<ul class="simple">
+<li><strong>Beneficiary institution</strong> / <strong>Account</strong> - the identification and
+account’s code of the creditor (the Beneficiary party, which will be
+paid);</li>
+<li><strong>Account with institution</strong> / <strong>Account</strong> (optional) - the bank
+identification code and account’s code of the member, who will pay to
+or credit the Beneficiary;</li>
+<li><strong>Receiver’s correspondent</strong> (optional) – the bank identification
+code of the Receiver’s branch or another financial institution, where
+the funds will be made available to the Receiver;</li>
+</ul>
+<p><em>Details area</em>:</p>
+<ul class="simple">
+<li><strong>Transaction type -</strong> type code of transaction;</li>
+<li><strong>Instruction for next agent</strong>&nbsp;— instruction for the next agent,
+referred to the payment.</li>
+</ul>
+<p>Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its <a class="reference internal" href="docs/media/image65.png"><img alt="image75" src="docs/media/image65.png" style="width: 0.16665in; height: 0.16665in;" /></a> icon:</p>
+<p><a class="reference internal" href="docs/media/image66.png"><img alt="image76" src="docs/media/image66.png" style="width: 5.40833in; height: 0.18716in;" /></a></p>
+<p>The instruction will be added to the <strong>Transactions</strong> table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the RTGS.</p>
+</div>
+<div class="section" id="single-customer-credit-transfer">
+<h4>Single customer credit transfer<a class="headerlink" href="#single-customer-credit-transfer" title="Permalink to this headline">¶</a></h4>
+<p>Login as a user, who was granted the Operator (Maker) role. Choose the
+<strong>Single customer credit transfer</strong> instruction item in the <strong>Capture</strong>
+menu.</p>
+<p>The following entry form of instruction will be opened:</p>
+<p><a class="reference internal" href="docs/media/image72.png"><img alt="image77" src="docs/media/image72.png" style="width: 6.98958in; height: 4.51806in;" /></a></p>
+<p>The form has the following fields (in expanded mode):</p>
+<ul class="simple">
+<li><strong>Reference</strong> – (TRN), unique reference of transaction (the Sender’s
+own reference number);</li>
+<li><strong>Priority</strong>&nbsp;— the priority group and number of priority of the
+payment;</li>
+<li><strong>Amount / Currency</strong> — amount of the payment / code of the currency
+(the JOD is default);</li>
+<li><strong>Value date</strong>&nbsp;— the date of the day, when the payment is to be
+settled;</li>
+<li><strong>Instructed Amount / Currency</strong> - amount and currency code of the
+instruction (provided for informational purposes and has to be
+transported unchanged);</li>
+<li><strong>Exchange Rate</strong> – the value of the exchange rate, used to convert
+the instructed amount;</li>
+</ul>
+<p><em>Debit area</em> (details of debiting part):</p>
+<ul class="simple">
+<li><strong>Bank-Debtor</strong> – the bank identification code of bank-debtor;</li>
+<li><strong>Ordering customer / Account / Address</strong> – identification and
+account’s code and address of the ordering customer (who is ordering
+the transaction);</li>
+</ul>
+<p><em>Credit area</em> - details of crediting part:</p>
+<ul class="simple">
+<li><strong>Beneficiary bank</strong> – the bank identification code of beneficiary
+bank;</li>
+<li><strong>Beneficiary customer</strong> / <strong>Account</strong> / <strong>Address</strong> - the
+identification and account’s code and the address of the creditor
+(the Beneficiary party, which will be paid);</li>
+</ul>
+<p><em>Sender to receiver information area</em>:</p>
+<ul class="simple">
+<li><strong>Transaction type -</strong> type code of transaction;</li>
+<li><strong>Instruction for next agent</strong>&nbsp;— instruction for the next agent,
+referred to the payment;</li>
+<li><strong>Charge bearer</strong> – a code that defines, which party will bear the
+charges for the transaction (BEN, OUR or SHA);</li>
+<li><strong>Charge</strong> <strong>amount charge</strong> – amount and code of the currency of the
+transaction charges, dedicated by the Sender (in the case of OUR or
+SHA), or dedicated by the Receiver (in the case of BEN);</li>
+<li><strong>Remittance information</strong>&nbsp;— additional information, referred to
+payment.</li>
+</ul>
+<p>Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its <a class="reference internal" href="docs/media/image65.png"><img alt="image78" src="docs/media/image65.png" style="width: 0.16665in; height: 0.16665in;" /></a> icon:</p>
+<p><a class="reference internal" href="docs/media/image66.png"><img alt="image79" src="docs/media/image66.png" style="width: 5.40833in; height: 0.18716in;" /></a></p>
+<p>The instruction will be added to the <strong>Transactions</strong> table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the RTGS.</p>
+</div>
+<div class="section" id="multiple-customer-credit-transfer">
+<h4>Multiple customer credit transfer<a class="headerlink" href="#multiple-customer-credit-transfer" title="Permalink to this headline">¶</a></h4>
+<p>Login as a user, who was granted the Operator (Maker) role. Choose the
+<strong>Multiple customer credit</strong> <strong>transfer</strong> instruction item in the
+<strong>Capture</strong> menu (Participants can construct the transfer to send a
+batch of customer’s transfers).</p>
+<p>The following entry form of instruction will be opened:</p>
+<p><a class="reference internal" href="docs/media/image73.png"><img alt="image80" src="docs/media/image73.png" style="width: 6.98958in; height: 4.20417in;" /></a></p>
+<p>This form has the following fields (in expanded mode):</p>
+<ul class="simple">
+<li><strong>Batch reference</strong> - (TRN) reference number of the whole transaction
+(the Sender’s own reference number);</li>
+<li><strong>Reference</strong> – (TRN), unique reference of transaction (the Sender’s
+own reference number);</li>
+<li><strong>Batch amount</strong> / <strong>Currency</strong> — amount and code of the currency of
+the whole batch payment (sum of all instruction’s amounts,
+informational field, automatically calculated and updated each time a
+new instruction is added);</li>
+<li><strong>Amount / Currency</strong> — amount of the payment / code of the currency
+(the JOD is default);</li>
+<li><strong>Value date</strong>&nbsp;— the date of the day, when the payment is to be
+settled;</li>
+<li><strong>Priority</strong>&nbsp;— the priority group and number of priority of the
+payment;</li>
+</ul>
+<p><em>Debit area</em> (details of debiting part):</p>
+<ul class="simple">
+<li><strong>Bank-Debtor</strong> – the bank identification code of bank-debtor;</li>
+<li><strong>Ordering customer / Account / Address</strong> – identification and
+account’s code and address of the ordering customer (who is ordering
+the transaction);</li>
+</ul>
+<p><em>Credit area</em> - details of crediting part:</p>
+<ul class="simple">
+<li><strong>Beneficiary bank</strong> – the bank identification code of beneficiary
+bank;</li>
+<li><strong>Beneficiary customer</strong> / <strong>Account</strong> / <strong>Address</strong> - the
+identification and account’s code and the address of the creditor
+(the Beneficiary party, which will be paid);</li>
+</ul>
+<p><em>Sender to receiver information area</em>:</p>
+<ul class="simple">
+<li><strong>Transaction type</strong> - type code of transaction;</li>
+<li><strong>Instruction for next agent</strong>&nbsp;— instruction for the next agent,
+referred to the payment;</li>
+<li><strong>Charge bearer</strong> – a code that defines, which party will bear the
+charges for the transaction (BEN, OUR or SHA);</li>
+<li><strong>Remittance information</strong>&nbsp;— additional information, referred to
+payment.</li>
+</ul>
+<p>Fill in all the mandatory fields of the form with attributes of the
+batch and first instruction, click on the Create another button to add
+next instruction. The form stays opened with the same batch attributes
+(the Reference, Value date and Priority), the reference of the new
+instruction will be generated automatically and other fields will be
+cleared, so you can enter attributes of the second instruction in the
+same way. After the last instruction is ready click the Finish button.</p>
+<p>Close the informational message box by pressing its <a class="reference internal" href="docs/media/image65.png"><img alt="image81" src="docs/media/image65.png" style="width: 0.16665in; height: 0.16665in;" /></a> icon:</p>
+<p><a class="reference internal" href="docs/media/image66.png"><img alt="image82" src="docs/media/image66.png" style="width: 5.40833in; height: 0.18716in;" /></a></p>
+<p>The transfer will be added to the <strong>Transactions</strong> table, where you can
+make further authorization/sending actions and monitor its processing in
+the RTGS.</p>
+</div>
+<div class="section" id="institution-debit-transfer">
+<h4>Institution debit transfer<a class="headerlink" href="#institution-debit-transfer" title="Permalink to this headline">¶</a></h4>
+<p>Login as a user, who was granted the Operator (Maker) role. Choose the
+<strong>Institution debit transfer</strong> instruction item in the <strong>Capture</strong> menu.</p>
+<p>The following entry form of instruction will be opened:</p>
+<p><a class="reference internal" href="docs/media/image74.png"><img alt="image83" src="docs/media/image74.png" style="width: 6.98958in; height: 3.97986in;" /></a></p>
+<p>The form has the following fields (in expanded mode):</p>
+<ul class="simple">
+<li><strong>Sender</strong> – the identification code of the Sender of transaction;</li>
+<li><strong>Receiver</strong> - the identification code of the Receiver of
+transaction;</li>
+<li><strong>Reference</strong> – (TRN), unique reference of transaction (the Sender’s
+own reference number);</li>
+<li><strong>Priority</strong>&nbsp;—the priority group and number of priority of the
+payment;</li>
+<li><strong>Sender information</strong>&nbsp;— additional information, referred to the
+payment, from the Sender to the Beneficiary;</li>
+<li><strong>Related reference</strong> – reference number of the related transaction
+(for links, the NONREF is default);</li>
+<li><strong>Value date</strong>&nbsp;— the date of the day, when the payment is to be
+settled;</li>
+<li><strong>Amount / Currency</strong> — the amount of the payment and the code of the
+currency (the BHD is default);</li>
+</ul>
+<p><em>Debit area</em> - details of debiting part:</p>
+<ul class="simple">
+<li><strong>Beneficiary institution</strong> / <strong>Account</strong> - the identification and
+account’s code of the creditor (the Beneficiary party, which will be
+paid);</li>
+<li><strong>Account with institution</strong> / <strong>Account</strong> - the bank identification
+code and account’s code of the member, who will pay to or credit the
+Beneficiary;</li>
+<li><strong>Transaction type -</strong> type code of transaction;</li>
+</ul>
+<p><em>Credit</em> <em>area</em> (details of crediting part):</p>
+<ul class="simple">
+<li><strong>Debit</strong> <strong>Institution / Account</strong> – the bank identification code
+and account’s of code debit institution.</li>
+</ul>
+<p>Fill in all the mandatory fields of the form with proper values and
+press the Create button to save the transfer. Close the informational
+message box by pressing its <a class="reference internal" href="docs/media/image65.png"><img alt="image84" src="docs/media/image65.png" style="width: 0.16665in; height: 0.16665in;" /></a> icon:</p>
+<p><a class="reference internal" href="docs/media/image66.png"><img alt="image85" src="docs/media/image66.png" style="width: 5.40833in; height: 0.18716in;" /></a></p>
+<p>The instruction will be added to the <strong>Transactions</strong> table, where you
+can make further authorization/sending actions and monitor the transfer
+processing in the RTGS.</p>
+</div>
+<div class="section" id="free-format-message">
+<h4>Free format message<a class="headerlink" href="#free-format-message" title="Permalink to this headline">¶</a></h4>
+<p>Login as the user, who was granted the Operator (Maker) role. Choose the
+<strong>Free format message (MTn99)</strong> item in the Capture menu to create
+messages to ACH or RTGS accordingly.</p>
+<p>The following instruction entry form will be opened:</p>
+<p><a class="reference internal" href="docs/media/image75.png"><img alt="image86" src="docs/media/image75.png" style="width: 6.98958in; height: 5.77153in;" /></a></p>
+<p>The form has the following fields:</p>
+<ul class="simple">
+<li><strong>Reference</strong> – reference number of the message. Unique reference
+number is generated automatically and could be changed by user;</li>
+<li><strong>Related reference</strong> – reference of related message;</li>
+<li><strong>Message type</strong> – the type of the free format message;</li>
+<li><strong>Receiver BIC</strong> - the identification code of the Receiver;</li>
+<li><strong>Message text</strong> – text of the message.</li>
+</ul>
+<p>Fill in all the mandatory fields of the form and press the Create button
+to send the message. The created message will appear in Monitoring/Send
+queue menu item (see the section 3.4.6).</p>
+</div>
+<div class="section" id="import">
+<h4>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h4>
+<p>Login as a user, who has authority to import payment from file. Choose
+the <strong>Import (multiple direct format)</strong> item in the <strong>Capture</strong> menu.
+The following import form will be opened:</p>
+<p><a class="reference internal" href="docs/media/image76.png"><img alt="image87" src="docs/media/image76.png" style="width: 2.80833in; height: 1.21185in;" /></a></p>
+<p>To load payment from file click button ‘Choose file’, choose files and
+click Open in standard browser pop up dialog box. The file chosen will
+appear on the screen. Click button Import to load all the files in the
+list. Successfully loaded payment will appear in the Transactions table
+(see Monitoring transactions).</p>
+</div>
+</div>
+<div class="section" id="the-monitoring-menu">
+<h3>The Monitoring menu<a class="headerlink" href="#the-monitoring-menu" title="Permalink to this headline">¶</a></h3>
+<p>Use the <strong>Monitoring</strong> items of the TMS/X main menu for the following
+purposes:</p>
+<ul class="simple">
+<li>to search transactions;</li>
+<li>to monitor transactions that were created and sent;</li>
+<li>to make authorization/sending actions with created transactions;</li>
+<li>to monitor received transactions;</li>
+<li>to monitor message workflow.</li>
+</ul>
+<p><a class="reference internal" href="docs/media/image78.png"><img alt="image88" src="docs/media/image78.png" style="width: 1.31581in; height: 1.99051in;" /></a></p>
+<div class="section" id="monitoring-transactions">
+<h4>Monitoring transactions<a class="headerlink" href="#monitoring-transactions" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Monitoring &gt; Transactions</strong> item of the TMS/X main menu to
+open a table of transactions:</p>
+<p><a class="reference internal" href="docs/media/image79.png"><img alt="image89" src="docs/media/image79.png" style="width: 6.98958in; height: 1.18056in;" /></a></p>
+<p>The table has a set of the following fields:</p>
+<ul class="simple">
+<li><strong>Reference</strong> – reference number of the transaction (is a hyperlink);</li>
+<li><strong>Operation</strong> – code of bank operation referred to the payment to be
+searched;</li>
+<li><strong>Instrument</strong> – ISIN code of the instrument, involved in the
+transaction;</li>
+<li><strong>Quantity -</strong> total quantity of the instrument to be transferred;</li>
+<li><strong>Value date</strong> – value date of the transaction;</li>
+<li><strong>Settlement date</strong> – date of the transaction settlement;</li>
+<li><strong>Amount</strong> – amount of the transaction;</li>
+<li><strong>Currency</strong> – code of currency, the transaction amount is nominated
+in;</li>
+<li><strong>Dr Bank</strong> – BIC code of the Debtor’s Bank;</li>
+<li><strong>Cr Bank</strong> – BIC code of the Creditor’s Bank;</li>
+<li><strong>Local</strong> — current status of the payment the transaction in the
+TMS/X;</li>
+<li><strong>Reconciliation</strong> — current status of the payment transaction that
+was received from the Central node;</li>
+<li><strong>Priority</strong> – number of priority, assigned to the transaction by the
+Sender;</li>
+<li><strong>TTC</strong> – transaction type code;</li>
+<li><strong>Via</strong> – code of the channel, the transaction was initiated;</li>
+<li><strong>Dr Bank Account</strong> – code of the account in the Debtor Bank;</li>
+<li><strong>Debtor</strong> – code/name of the Debtor;</li>
+<li><strong>Cr Bank Account</strong> – code of the account in the Creditor’s Bank;</li>
+<li><strong>Creditor</strong> – code/name of the Creditor;</li>
+<li><strong>Rem. info</strong>&nbsp;— remittance information,&nbsp;additional information,
+referred to payment;</li>
+<li><strong>Description</strong> – brief textual information, referred to the result
+of the transaction processing;</li>
+<li><strong>Create date</strong> – date and time, when the transaction was created;</li>
+<li><strong>Modification time</strong> – date and time, when the record was created or
+last modified.</li>
+</ul>
+<p>Use the table filtering option to quickly find a particular transaction
+(see the section 2.4.3).</p>
+<p>Select the transaction in the table and click the Reference hyperlink to
+get access to the transaction details and related actions. The
+transaction details form will be opened in a separate window:</p>
+<p><a class="reference internal" href="docs/media/image80.png"><img alt="image90" src="docs/media/image80.png" style="width: 6.98958in; height: 3.69375in;" /></a></p>
+<p>The form has 3 tabs:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>The <strong>Details</strong> tab displays set of fields with the transaction</dt>
+<dd>attributes, which are the same, as these ones on the
+correspondent transaction entry forms;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The <strong>Requests</strong> tab displays list and attributes of query messages,</dt>
+<dd>which are related to the transaction (if there were no one, the
+list will be empty):</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The <strong>Audit</strong> tab displays list and attributes of processing steps</dt>
+<dd>that the transaction has passed in the TMS/X:</dd>
+</dl>
+</li>
+</ul>
+<p>At the bottom of the form, there is a toolbar with buttons for further
+possible actions (described in the next following sections). Current
+local status of the transaction is displayed in the begginning of the
+bottom line.</p>
+</div>
+<div class="section" id="monitoring-mandates">
+<h4>Monitoring mandates<a class="headerlink" href="#monitoring-mandates" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Monitoring &gt; Issued mandates</strong> item of the TMS/X main menu to
+open a table of issued mandates:</p>
+<p><a class="reference internal" href="docs/media/image81.png"><img alt="image91" src="docs/media/image81.png" style="width: 6.98958in; height: 1.15139in;" /></a></p>
+<p>The table has a set of the following fields:</p>
+<ul class="simple">
+<li><strong>Reference</strong> - (TRN), unique reference of mandate (the Sender’s own
+reference number);</li>
+<li><strong>Currency</strong> - the code of the currency of the mandate;</li>
+<li><strong>Maximum amount per instruction</strong> - the maximum amount of payment
+per instruction;</li>
+<li><strong>Collection amount</strong> – collection amount of payments in the mandate;</li>
+<li><strong>Number of payments</strong> – number of payments in the mandate;</li>
+<li><strong>Payer account</strong> – account of the payer;</li>
+<li><strong>Payer bank</strong> – payer bank identification code;</li>
+<li><strong>Payee account</strong> – account of the payee’s customer;</li>
+<li><strong>Payee bank</strong> - not editable, filled automatically by GIB:</li>
+<li><strong>Type</strong> – mandate type;</li>
+<li><strong>Frequency</strong> – frequency of payments;</li>
+<li><strong>Valid from</strong> - the start date of validity of mandate;</li>
+<li><strong>Valid to</strong> - the end date of validity of mandate (disable if
+‘Untimely’ is marked);</li>
+<li><strong>Status</strong> – mandate status;</li>
+<li><strong>Description</strong> – status description;</li>
+<li><strong>Create date</strong> – date and time, when the transaction was created;</li>
+<li><strong>Modification time</strong> – date and time, when the record was created or
+last modified.</li>
+</ul>
+<p>Call the <strong>Monitoring &gt; Received mandates</strong> item of the TMS/X main menu
+to open a table of received mandates.</p>
+<p>Select the mandate in the table and click the Reference hyperlink to get
+access to the mandate details and related actions. The mandate details
+form will be opened in a separate window:</p>
+<p><a class="reference internal" href="docs/media/image82.png"><img alt="image92" src="docs/media/image82.png" style="width: 6.98958in; height: 2.91458in;" /></a></p>
+<p>The form has 3 tabs:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>The <strong>Mandate</strong> tab displays set of fields with the mandate</dt>
+<dd>attributes, which are the same, as these ones on the
+correspondent mandate entry forms;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>The <strong>Audit</strong> tab displays list and attributes of processing steps</dt>
+<dd>that the mandate has passed in the TMS/X;</dd>
+</dl>
+</li>
+<li>The <strong>Images</strong> tab display the list of mandate images attached;</li>
+<li><dl class="first docutils">
+<dt>The <strong>Payments</strong> tab display the list of payments created based on</dt>
+<dd>mandate.</dd>
+</dl>
+</li>
+</ul>
+<p>At the bottom of the form, there is a toolbar with buttons for further
+possible actions. Current local status of the mandate is displayed in
+the begginning of the bottom line.</p>
+<p>In order to approve issued mandate, choose the necessary document in the
+list and click the Reference hyperlink. Press the Authorize button at
+the bottom of the opened form. TMS/X will send request ACH for
+authorization of mandate. After receiving authorization from ACH TMS/X
+will change status of mandate to ‘Active’.</p>
+<p>In order to cancel active mandate, choose the necessary document in the
+list and click the Reference hyperlink. Press the Cancel button at the
+bottom of the opened form. The request for mandate cancellation will be
+created and send to ACH after approval. After receiving receipt from ACH
+TMS/X will change status of mandate to ‘Cancelled’.</p>
+<p>In order to approve or reject received mandate, choose the necessary
+document in <strong>Received mandates</strong> list and click the Reference
+hyperlink. Press the Accept or Reject button at the bottom of the opened
+form. The request for mandate approving will be created and send to ACH
+after verification. After receiving receipt from ACH TMS/X will change
+status of mandate accordingly.</p>
+</div>
+<div class="section" id="payment-search">
+<h4>Payment search<a class="headerlink" href="#payment-search" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Monitoring &gt; Payment search</strong> item of the TMS/X main menu to
+open payment search table for fast finding of particular payment:</p>
+<p><a class="reference internal" href="docs/media/image83.png"><img alt="image93" src="docs/media/image83.png" style="width: 6.98958in; height: 1.20486in;" /></a></p>
+<p>The table has the following columns:</p>
+<ul class="simple">
+<li><strong>Reference</strong> – transaction reference number (is hyperlink to open
+the payment view form);</li>
+<li><strong>Type</strong> – type of the payment;</li>
+<li><strong>Amount</strong> – amount of payment;</li>
+<li><strong>Value date</strong> – date of the payment creation;</li>
+<li><strong>Status</strong> – current status of the payment;</li>
+<li><strong>Bank-Debtor</strong> – BIC of the payment debtor bank;</li>
+<li><strong>Debtor account</strong> – account of the debitor of the payment;</li>
+<li><strong>Debtor name</strong> – name of the debitor of the payment;</li>
+<li><strong>Beneficiary bank</strong> – BIC of the payment creditor bank;</li>
+<li><strong>Creditor account</strong> – account of the creditor of the payment;</li>
+<li><strong>Creditor name</strong> – name of the creditor of the payment;</li>
+<li><strong>Remit Info</strong> - remittance information, referred to the payment.</li>
+</ul>
+<p>To open the payment instruction filter window click filter line under
+the table name:</p>
+<p><a class="reference internal" href="docs/media/image84.png"><img alt="image94" src="docs/media/image84.png" style="width: 6.98958in; height: 5.77569in;" /></a></p>
+<p>The filter panel has a set of the following optional fields:</p>
+<ul class="simple">
+<li><strong>Transaction reference</strong> - payment reference number to be searched;</li>
+<li><strong>Bank operation</strong> - code of bank operation referred to the payment
+to be searched (selected from the list of bank operation codes
+registered);</li>
+<li><strong>Value date from … to</strong> - range of value dates where the payments
+will be searched;</li>
+<li><strong>Amount from … to</strong> - range of amounts where the payments will be
+searched;</li>
+<li><strong>Mandate reference -</strong> mandate reference number to be searched;</li>
+<li><strong>Currency</strong> - currency where the payments will be searched;</li>
+<li><strong>Sender BIC</strong> - BIC of the sender to be searched (selected from the
+list of correspondents registered in Central node);</li>
+<li><strong>Receiver BIC</strong> - BIC of the receiver to be searched (selected from
+the list of correspondents registered in Central node);</li>
+<li><strong>Modification date/time from … to</strong> – range of modification
+date/time where the payments will be searched;</li>
+<li><strong>Document No</strong> – the number of original document to be searched;</li>
+</ul>
+<p><em>Debit / Credit area</em> (details of debiting / crediting part to be
+searched):</p>
+<ul class="simple">
+<li><strong>Institution identifier</strong> – the bank identification code to be
+searched;</li>
+<li><dl class="first docutils">
+<dt><strong>Account</strong> – the account’s code of the debtor / creditor bank to be</dt>
+<dd>searched;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Sub Account</strong> – the sub account’s code of the debtor / creditor</dt>
+<dd>bank to be searched;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Account -</strong> account’s code of debtor / creditor customer to be</dt>
+<dd>searched;</dd>
+</dl>
+</li>
+<li><strong>Name</strong> - the name of debtor / creditor customer to be searched;</li>
+</ul>
+<p><em>Instruction additional information area</em>:</p>
+<ul class="simple">
+<li><strong>Remittance information</strong> - remittance textual information in the
+payment to be searched;</li>
+<li><strong>Regulatory reporting</strong> - information for reporting to regulatory in
+the payment to be searched;</li>
+<li><strong>Transaction type</strong> - code of the transaction type of the payment to
+be searched (selected from the list of transaction type codes
+registered in Central node);</li>
+<li><strong>VAT</strong> – VAT condition used in search;</li>
+<li><strong>VAT/Related reference</strong> - reference number to be searched.</li>
+</ul>
+<p>Fill in the necessary fields in the filter form to define a criteria for
+a search and then press the button Filter to apply it. The table will be
+refreshed so that only records that match filter criteria will remain.</p>
+</div>
+<div class="section" id="incomplete-payments">
+<h4>Incomplete payments<a class="headerlink" href="#incomplete-payments" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Payments &gt; Incomplete payments</strong> item of the TMS/X main menu
+to open a table of outgoing payments that has not belonged to a certain
+batch. Such records in the table may be:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>outgoing payments failed validations of TMS/X (for example, payments</dt>
+<dd>having past value date);</dd>
+</dl>
+</li>
+<li>payments excluded manually from the outgoing batch by batch Reviewer;</li>
+<li>outgoing payments waiting inclusion into the batch;</li>
+<li>violated outgoing payments.</li>
+</ul>
+<p><a class="reference internal" href="docs/media/image85.png"><img alt="image95" src="docs/media/image85.png" style="width: 6.98958in; height: 0.84375in;" /></a></p>
+<p>The table has the following columns:</p>
+<ul class="simple">
+<li><strong>Id</strong> – system internal numeric identifier of the payment;</li>
+<li><strong>Reference</strong> – payment reference number;</li>
+<li><strong>Type</strong> – type of the payment;</li>
+<li><strong>Amount</strong> – amount of the payment;</li>
+<li><strong>Date</strong> – date of the payment creation;</li>
+<li><strong>Currency code</strong> – code of the payment currency;</li>
+<li><strong>Creditor account</strong> – IBAN of the creditor of the payment;</li>
+<li><strong>Creditor name</strong> – name of the creditor of the payment;</li>
+<li><strong>Debtor account</strong> – IBAN of the debtor of the payment;</li>
+<li><strong>Debtor name</strong> – name of the debtor of the payment;</li>
+<li><strong>Remit Info</strong> - remittance information, referred to the payment;</li>
+<li><strong>Value date</strong> – date when the payment is to be settled;</li>
+<li><strong>AML status</strong> – current AML status of the payment.</li>
+</ul>
+<p>In order to remove incomplete payment from processing, choose the
+necessary document in the list and click its Reference hyperlink. Call
+the context menu from the opened transaction’s detail form and choose
+the Delete option from there:</p>
+<p><a class="reference internal" href="docs/media/image86.png"><img alt="image96" src="docs/media/image86.png" style="width: 6.98958in; height: 1.26736in;" /></a></p>
+<p>The payment will abandon the Incomplete payments table.</p>
+<p>In order to correct incomplete payment and return it into processing,
+choose the necessary document in the list and click its Reference
+hyperlink. Call the context menu from the opened transaction’s detail
+form and choose the Edit option from there. The edit form of
+correspondent transaction type will be opened. Correct the values in the
+necessary fields and press the Save button then.</p>
+<p>The payment will abandon the <strong>Incomplete payments</strong> table and will be
+added to the <strong>Transactions</strong> table, where you can make further
+authorization/sending actions and monitor the transfer processing.</p>
+</div>
+<div class="section" id="processing-transactions">
+<h4>Processing transactions<a class="headerlink" href="#processing-transactions" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="authorization-basic-principles">
+<h5>Authorization: basic principles<a class="headerlink" href="#authorization-basic-principles" title="Permalink to this headline">¶</a></h5>
+<p>Authorization in the TMS/X can be applied to a particular type of
+documents. The authorization itself is a procedure that assumes
+specified actions from user(s), other than the user, who created the
+document. Dependently on settings, which are provided by the TMS/X
+Administrator (described in the separate TMS/X Administrator Guide,
+supplied by the CMA), the authorization procedure may be either applied
+or not to the particular documents (or their types) and its rules may
+flexibly be changed.</p>
+<p>All the authorization actions are made by approvers. An approver in the
+TMS/X is a person (user) who has an authority to authenticate and/or
+change the document. To be an approver, such user(s) must own at least
+one of the corresponded roles that is also managed by the TMS/X
+Administrator.</p>
+</div>
+<div class="section" id="making-authorization-actions">
+<h5>Making authorization actions<a class="headerlink" href="#making-authorization-actions" title="Permalink to this headline">¶</a></h5>
+<p>After the document is issued by user-maker and saved in the TMS/X local
+database, the TMS/X tries to pick up an authorization profile, which
+would be applied to the document (based on appropriate settings, have
+been done by the Administrator). In the case the profile is found, local
+status of the document changes from “Created” to “Waiting for
+Authorization”, and users-approvers can make the following authorization
+actions:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Approve the document. The Approver checks the document attributes via</dt>
+<dd>popping up the view form and calls the ‘Approve’ command,
+provided (s)he didn’t notice any kind of mistakes. The document
+will move to the next processing step (is ready to be sent);</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Decline the document. In the case any errors were found, the Approver</dt>
+<dd>user calls the ‘Decline’ command. The document will move back to
+the previous step for repairing.</dd>
+</dl>
+</li>
+</ul>
+<p>The both actions are logged in the document processing audit.</p>
+</div>
+<div class="section" id="authorizing-transaction">
+<h5>Authorizing transaction<a class="headerlink" href="#authorizing-transaction" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user with the Approver (Controller) role. Open
+the <strong>Transactions</strong> monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Waiting Authorization’.</p>
+<p>Check the transaction attributes and press the Authorize button at the
+bottom of the opened form:</p>
+<p><a class="reference internal" href="docs/media/image87.png"><img alt="image97" src="docs/media/image87.png" style="width: 6.98958in; height: 3.73611in;" /></a></p>
+<p>Confirm the action by entering your comment to the action and pressing
+the Authorize button once more in the pop-up dialog box:</p>
+<p><a class="reference internal" href="docs/media/image88.png"><img alt="image98" src="docs/media/image88.png" style="width: 3.46226in; height: 1.29375in;" /></a></p>
+<p>The local status of the transaction in the table will change to
+‘Authorized’ (you can monitor it both in the base table and in the
+‘Audit’ tab of the transaction detail’s form):</p>
+<p><a class="reference internal" href="docs/media/image89.png"><img alt="image99" src="docs/media/image89.png" style="width: 6.98333in; height: 2.10833in;" /></a></p>
+<p>The toolbar on the form will be updated, so that new buttons for further
+actions will appear in there (authorized transaction can be sent to the
+Central node).</p>
+</div>
+<div class="section" id="declining-transaction">
+<h5>Declining Transaction<a class="headerlink" href="#declining-transaction" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user with the Approver (Controller) role. Open
+the <strong>Transactions</strong> monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Waiting Authorization’. Check the transaction attributes and
+in the case of any error(s), press the Decline button at the bottom of
+the opened form:</p>
+<p><a class="reference internal" href="docs/media/image87.png"><img alt="image100" src="docs/media/image87.png" style="width: 6.98958in; height: 3.73611in;" /></a></p>
+<p>Confirm the action by entering your comment to the action and pressing
+the Decline button one more time in the pop-up dialog box:</p>
+<p><a class="reference internal" href="docs/media/image90.png"><img alt="image101" src="docs/media/image90.png" style="width: 3.16038in; height: 1.23167in;" /></a></p>
+<p>The local status of the transaction in the table will change to the
+‘Auth declined’ (you can monitor it both in the base table and in the
+‘Audit’ tab of the transaction detail’s form):</p>
+<p><a class="reference internal" href="docs/media/image91.png"><img alt="image102" src="docs/media/image91.png" style="width: 6.98333in; height: 2.12500in;" /></a></p>
+<p>The toolbar on the form will be updated, so that new buttons for further
+actions will appear in there. You can edit the transfer and then move it
+to the ‘Authorization’ step again, or delete it (see the next following
+sections below).</p>
+</div>
+<div class="section" id="editing-transaction">
+<h5>Editing transaction<a class="headerlink" href="#editing-transaction" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user with the Operator role. Open the
+<strong>Transactions</strong> monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Auth declined’). Press the Edit button at the bottom of the
+opened form:</p>
+<p><a class="reference internal" href="docs/media/image92.png"><img alt="image103" src="docs/media/image92.png" style="width: 6.98958in; height: 3.70139in;" /></a></p>
+<p>The transaction detail form will be refreshed, so that its fields become
+editable and the toolbar changed. Correct the values in the necessary
+fields and press the Save button then.</p>
+<p>The form will be updated again, so that its fields became non-editable,
+the local status switched to the ‘Created’ and buttons for further
+actions in the toolbar will be available again.</p>
+</div>
+<div class="section" id="remove-payments-from-the-batch">
+<h5>Remove payments from the batch<a class="headerlink" href="#remove-payments-from-the-batch" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user with the Operator role. Open the
+<strong>Transactions</strong> monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Auth declined’).</p>
+<p>To remove instructions from the batch, mark them in the list and press
+the Remove button. Instructions will be removed from the batch.</p>
+<p><a class="reference internal" href="docs/media/image93.png"><img alt="image104" src="docs/media/image93.png" style="width: 6.98958in; height: 3.74167in;" /></a></p>
+<p>The form will be updated accordingly.</p>
+</div>
+<div class="section" id="reopen-batch">
+<h5>Reopen batch<a class="headerlink" href="#reopen-batch" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user with the Operator role. Open the
+<strong>Transactions</strong> monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Closed’).</p>
+<p>Press the Reopen button at the opened form:</p>
+<p><a class="reference internal" href="docs/media/image94.png"><img alt="image105" src="docs/media/image94.png" style="width: 6.98958in; height: 3.54861in;" /></a></p>
+<p>To add new instruction in the batch press the New payment button.</p>
+<p><a class="reference internal" href="docs/media/image95.png"><img alt="image106" src="docs/media/image95.png" style="width: 6.98958in; height: 3.52847in;" /></a></p>
+<p>Form of the new payment instruction will be opened. After creating new
+payment, it will be added into the batch. The form will be updated
+accordingly.</p>
+</div>
+<div class="section" id="close-batch">
+<h5>Close batch<a class="headerlink" href="#close-batch" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user with the Operator role. Open the
+<strong>Transactions</strong> monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the batch
+should be ‘Open’ or ‘Returned’). Press the Close button at the opened
+form:</p>
+<p><a class="reference internal" href="docs/media/image96.png"><img alt="image107" src="docs/media/image96.png" style="width: 6.98958in; height: 3.47917in;" /></a></p>
+<p>The batch will be closed. Button Reopen will be available again.</p>
+</div>
+<div class="section" id="returning-transaction-to-repeated-authorization">
+<h5>Returning transaction to repeated authorization<a class="headerlink" href="#returning-transaction-to-repeated-authorization" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user with the Operator role. Open the
+<strong>Transactions</strong> monitoring table, choose the necessary document in
+there and click its Reference hyperlink (local status of the transaction
+should be ‘Created’). Press the Move authorization button at the bottom
+of the opened form:</p>
+<p><a class="reference internal" href="docs/media/image92.png"><img alt="image108" src="docs/media/image92.png" style="width: 6.98958in; height: 3.70139in;" /></a></p>
+<p>The transaction detail form will be refreshed, the local status switched
+to the ‘Wait for Auth’ and buttons for further authorization actions in
+the toolbar will be available:</p>
+<p><a class="reference internal" href="docs/media/image87.png"><img alt="image109" src="docs/media/image87.png" style="width: 6.98958in; height: 3.73611in;" /></a></p>
+</div>
+<div class="section" id="deleting-transaction">
+<h5>Deleting transaction<a class="headerlink" href="#deleting-transaction" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user with the Operator role. Open the
+<strong>Transactions</strong> monitoring table, choose the necessary one in there and
+click its Reference hyperlink (local status of the transaction should be
+‘Created’ or ‘Auth declined’). Press the Delete button at the bottom of
+the opened form:</p>
+<p><a class="reference internal" href="docs/media/image97.png"><img alt="image110" src="docs/media/image97.png" style="width: 6.72847in; height: 1.54306in;" /></a></p>
+<p>Confirm the action by pressing the Delete button once more in the pop-up
+dialog box. The transaction will be deleted and abandon the table.</p>
+</div>
+<div class="section" id="sending-transaction-to-the-central-node">
+<h5>Sending transaction to the Central node<a class="headerlink" href="#sending-transaction-to-the-central-node" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user, who has authority to send transactions to
+the central node. Open the <strong>Transactions</strong> monitoring table, choose the
+necessary document in there and click its Reference hyperlink (local
+status of the transaction should be ‘Authorized’). Press the Send button
+at the bottom of the opened form:</p>
+<p><a class="reference internal" href="docs/media/image98.png"><img alt="image111" src="docs/media/image98.png" style="width: 6.97917in; height: 1.54167in;" /></a></p>
+<p>Confirm the action by pressing the Send button once more in the pop-up
+dialog box (you have to previously select the valid certificate to sign
+in the pop up dialog box):</p>
+<p><a class="reference internal" href="docs/media/image99.png"><img alt="image112" src="docs/media/image99.png" style="width: 5.21698in; height: 0.27461in;" /></a></p>
+<p>The local status of the transaction will change to the ‘Ready to Send’
+and the outgoing message will be created (you can monitor it in the
+‘Message Audit’ table, see the section 3.4.5). Then the message will be
+automatically sent to the Central node and the local status of the
+transaction will change to the final value ‘Sent’. As the transaction is
+processed later in the RTGS system, its other statuses (remote and
+reconciliation) will correspondently change:</p>
+<p><a class="reference internal" href="docs/media/image100.png"><img alt="image113" src="docs/media/image100.png" style="width: 6.98958in; height: 2.08125in;" /></a></p>
+<p>There is an option to resend transactions to Central node in case of the
+errors. This option is available for payments in ‘Ready to send’ and
+‘Error’ Local statuses.</p>
+<p>Login the TMS/X as the user, who has authority to re-send transactions.
+Open the <strong>Transactions</strong> monitoring table, select the necessary
+document in there and click button <a class="reference internal" href="docs/media/image101.png"><img alt="image114" src="docs/media/image101.png" style="width: 0.17628in; height: 0.18333in;" /></a> at the right corner of
+<strong>Transactions</strong> table. Select option ‘Resend selected transactions’
+from the drop-down list. Confirm the action by pressing the Confirm
+button once more in the pop-up dialog box (you have to previously select
+the valid certificate to sign in the pop up dialog box). The message
+will be automatically sent to the Central node and the local status of
+the transaction will change to the final value ‘Sent’.</p>
+</div>
+<div class="section" id="payment-cancellation-in-rtgs">
+<h5>Payment cancellation in RTGS<a class="headerlink" href="#payment-cancellation-in-rtgs" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user, who has authority to cancel transactions.
+This option is available for payments in ‘Sent’ Local status and
+non-settled by RTGS (Reconciliation status – Queued, Suspended, Waiting
+or Inactive).</p>
+<p>Open the <strong>Transactions</strong> monitoring table, choose the necessary
+document in there and click its Reference hyperlink. Press the Cancel
+payment button at the bottom of the opened RTGS form:</p>
+<p><a class="reference internal" href="docs/media/image102.png"><img alt="image115" src="docs/media/image102.png" style="width: 6.98958in; height: 3.66250in;" /></a></p>
+<p>Confirm the action by pressing the button Confirm. To refuse
+cancellation, close the pop up dialog box.</p>
+<p>To send request for cancellation to RTGS click button ‘Approve’ for the
+appropriate request on the payment view form or ‘Decline’ to refuse
+payment cancellation:</p>
+<p><a class="reference internal" href="docs/media/image103.png"><img alt="image116" src="docs/media/image103.png" style="width: 6.98958in; height: 3.71181in;" /></a></p>
+<p>In case of successful request processing by RTGS, Reconciliation status
+of the payment will change to ‘Cancelled’.</p>
+</div>
+<div class="section" id="payment-cancellation-in-ach">
+<h5>Payment cancellation in ACH<a class="headerlink" href="#payment-cancellation-in-ach" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user, who has authority to cancel transactions.
+This option is available for payments in ‘Sent’ Local status and
+non-settled by ACH (Reconciliation status – Queued, Suspended, Waiting
+or Inactive).</p>
+<p>Open the <strong>Transactions</strong> monitoring table, choose the necessary
+document in there and click its Reference hyperlink. Press the Cancel
+batch button at the bottom of the opened ACH form:</p>
+<p><a class="reference internal" href="docs/media/image104.png"><img alt="image117" src="docs/media/image104.png" style="width: 6.98958in; height: 3.33819in;" /></a></p>
+<p>Enter cancellation reason (if any) and confirm the action by pressing
+the button OK. To refuse cancellation, close the pop up dialog box.</p>
+<p>Request for batch cancellation will be send to ACH after approval.</p>
+<p><a class="reference internal" href="docs/media/image105.png"><img alt="image118" src="docs/media/image105.png" style="width: 6.98958in; height: 2.20972in;" /></a></p>
+<p>To cancel instructions in the batch press the Cancel payment button at
+the bottom of the opened DNS form, choose instruction to cancel and
+enter cancellation reason (if any). Confirm the action by pressing the
+button Ok:</p>
+<p><a class="reference internal" href="docs/media/image106.png"><img alt="image119" src="docs/media/image106.png" style="width: 6.98958in; height: 1.38681in;" /></a></p>
+<p>Request for instructions cancellation will be send to ACH after
+approval:</p>
+<p><a class="reference internal" href="docs/media/image107.png"><img alt="image120" src="docs/media/image107.png" style="width: 6.98958in; height: 2.44722in;" /></a></p>
+<p>In case of successful request processing by ACH, Reconciliation status
+of the payments will change to ‘Cancelled’.</p>
+</div>
+<div class="section" id="changing-priority">
+<h5>Changing priority<a class="headerlink" href="#changing-priority" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user, who has authority to change priority of
+transactions. This option is available for payments in ‘Sent’ Local
+status and non-settled by Central node (Reconciliation status – Queued,
+Suspended or Inactive).</p>
+<p>Open the <strong>Transactions</strong> monitoring table, choose the necessary
+document in there and click its Reference hyperlink. Press the Change
+priority button at the bottom of the opened form:</p>
+<p><a class="reference internal" href="docs/media/image104.png"><img alt="image121" src="docs/media/image104.png" style="width: 6.98958in; height: 3.33819in;" /></a></p>
+<p>Choose new priority value from the dropping list in the pop up dialog
+box and press the button Ok:</p>
+<p><a class="reference internal" href="docs/media/image108.png"><img alt="image122" src="docs/media/image108.png" style="width: 3.27500in; height: 1.24818in;" /></a></p>
+<p>Request for changing priority of the payment will be generated and a
+task will be created. To stay payment’s priority unchanged close the pop
+up dialog box.</p>
+<p>To send request for changing priority to Central node open ‘Requests’
+tab of payment view form, click appropriate request and click button
+‘Approve’ in the pop up dialog box or ‘Decline’ to refuse changing
+priority:</p>
+<p><a class="reference internal" href="docs/media/image109.png"><img alt="image123" src="docs/media/image109.png" style="width: 2.87500in; height: 1.69757in;" /></a></p>
+<p>In case of successful request processing by Central node, priority of
+the payment will change accordingly.</p>
+</div>
+<div class="section" id="return-transaction">
+<h5>Return transaction<a class="headerlink" href="#return-transaction" title="Permalink to this headline">¶</a></h5>
+<p>Login the TMS/X as the user, who has authority to create return
+transactions. This option is available for payments in ‘Received’ Local
+status and settled by Central node.</p>
+<p>Open the <strong>Transactions</strong> monitoring table, choose the necessary
+document in there and click its Reference hyperlink. Press button Return
+batch at the bottom of the opened form:</p>
+<p><a class="reference internal" href="docs/media/image110.png"><img alt="image124" src="docs/media/image110.png" style="width: 6.72847in; height: 4.76250in;" /></a></p>
+<p>In the opened window choose the instructions to return, enter or choose
+return reason for each instruction and press button Create return. The
+new payment form will be generated and opened automatically in ‘Waiting
+for authorization’ status.</p>
+</div>
+</div>
+<div class="section" id="message-audit">
+<h4>Message audit<a class="headerlink" href="#message-audit" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Monitoring &gt; Message audit</strong> item of the TMS/X main menu to
+open a table of messages, which was sent both from the TMS/X to the RTGS
+or ACH and from the RTGS or ACH to the TMS/X, and from/to CBS:</p>
+<p><a class="reference internal" href="docs/media/image111.png"><img alt="image125" src="docs/media/image111.png" style="width: 6.98958in; height: 1.45208in;" /></a></p>
+<p>The table has a set of the following fields:</p>
+<ul class="simple">
+<li><strong>ID</strong> – system numeric identifier of the message (a hyperlink)</li>
+<li><strong>Reference</strong> – reference number of the message;</li>
+<li><dl class="first docutils">
+<dt><strong>Content type</strong> – code of the message type according to the content</dt>
+<dd>(MX as default);</dd>
+</dl>
+</li>
+<li><strong>Type</strong> – code of the message type according to the message format;</li>
+<li><dl class="first docutils">
+<dt><strong>Direction</strong> – code of the message flow direction (from/to RTGS/ACH</dt>
+<dd>or CBS);</dd>
+</dl>
+</li>
+<li><strong>State</strong> – code of the result of the message processing;</li>
+<li><dl class="first docutils">
+<dt><strong>State Description</strong> – brief textual description of the result of</dt>
+<dd>the message processing;</dd>
+</dl>
+</li>
+<li><strong>Creation date</strong> – date and time, when the message was created.</li>
+</ul>
+<p>Use the table filtering option to find quickly a particular message (see
+the section 2.4.3). Select the message in the table and click the ID
+hyperlink to get access to the message details and related objects. The
+message details form will be opened in a separate window (the message
+type, direction and reference will be put into the header of the
+window):</p>
+<p><a class="reference internal" href="docs/media/image112.png"><img alt="image126" src="docs/media/image112.png" style="width: 6.98958in; height: 3.75417in;" /></a></p>
+<p>Depending of the message type the form could have following tabs:</p>
+<ul class="simple">
+<li>The <strong>Original</strong> tab displays main attributes of the selected message
+(ID, state, date) and content of the message body in original format;</li>
+<li>The <strong>Links</strong> tab displays list of the TMS/X objects, which are
+linked to the selected message (such as, another message,
+transaction, event, etc.). Click the Type hyperlink in the list to
+view details of the selected linked object in a separate window.</li>
+</ul>
+<div class="section" id="saving-message-in-a-file">
+<h5>Saving message in a file<a class="headerlink" href="#saving-message-in-a-file" title="Permalink to this headline">¶</a></h5>
+<p>In order to export message data into a file, select the message in the
+table, open its details form and click the <a class="reference internal" href="docs/media/image113.png"><img alt="image127" src="docs/media/image113.png" style="width: 0.22388in; height: 0.20666in;" /></a> (download) icon in
+the right upper corner.</p>
+<p>The standard file saving message box will be opened. Choose the ‘Save’
+or the ‘Save As’ option (in the case of ‘Save As’, define the file
+destination and its name), and then press the Save in the pop-up
+standard file browser window. The file with the message content will be
+saved in the target folder.</p>
+</div>
+<div class="section" id="printing-a-message">
+<h5>Printing a message<a class="headerlink" href="#printing-a-message" title="Permalink to this headline">¶</a></h5>
+<p>In order to print message data, select the message in the table, open
+its details form and click the <a class="reference internal" href="docs/media/image114.png"><img alt="image128" src="docs/media/image114.png" style="width: 0.23955in; height: 0.19789in;" /></a> (print) icon in the right
+upper corner.</p>
+<p>The standard dialog box for printing option will be opened. Choose the
+printer setting and press the Print button. The printing page will be
+sent to the specified printer device.</p>
+</div>
+</div>
+<div class="section" id="reconciliation">
+<h4>Reconciliation<a class="headerlink" href="#reconciliation" title="Permalink to this headline">¶</a></h4>
+<p>Call the <strong>Monitoring &gt; Reconciliation</strong> item of the TMS/X main menu to
+open to view result of reconciliation based on statements (MT950)
+received from (RTGS and ACH):</p>
+<p><a class="reference internal" href="docs/media/image115.png"><img alt="image129" src="docs/media/image115.png" style="width: 6.98958in; height: 1.59167in;" /></a></p>
+<p>The <strong>Reconciliation</strong> menu item contains to tables:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Reports</strong> – contains the list of reconciliation reports (MT950).</dt>
+<dd>The <strong>Reports</strong> table contains the following columns:</dd>
+</dl>
+</li>
+<li><strong>Reference</strong> – the reference number of the message;</li>
+<li><strong>Type</strong> – message type;</li>
+<li><strong>Name</strong> – name of the message type;</li>
+<li><strong>Status</strong> – status of the report processing. It’s ‘Closed’ – when
+correspondent payments from the report reconciled automatically (has
+been found in TMS/X database and linked with records in the report)
+or ‘Manual reconciliation required’ – when some of correspondent
+payments from the report not linked (hasn’t been found in TMS/X
+database);</li>
+<li><strong>Subsystem</strong> – origin of the report (RTGS or ACH);</li>
+<li><strong>Creation date</strong> – date of the message creation;</li>
+<li><dl class="first docutils">
+<dt><strong>Transactions</strong> – contains the list of transactions of selected</dt>
+<dd>report. The <strong>Transactions</strong> table contains the following
+columns:</dd>
+</dl>
+</li>
+<li><strong>Reference</strong> – the reference number of the payment;</li>
+<li><strong>Value date</strong> – date of the payment creation;</li>
+<li><strong>Amount</strong> - amount of payment;</li>
+<li><strong>Currency</strong> – currency of payment;</li>
+<li><strong>Status</strong> – reconciliation status of each payment from the report.
+It’s ‘Automatically reconciled’ – when correspondent payment from the
+report reconciled automatically (has been found in TMS/X database and
+linked with records in the report) or ‘Manually reconciled’ – when
+some of correspondent payments where reconciled manually.</li>
+</ul>
+<p>For manual reconciliation choose report in ‘Manual reconciliation
+required’ status in the Reports table, mark necessary payments in the
+Transactions table and click button Reconcile. The report status will
+change into ‘Closed’ and payments status into ‘Manually reconciled’.</p>
+</div>
+<div class="section" id="send-queue">
+<h4>Send queue<a class="headerlink" href="#send-queue" title="Permalink to this headline">¶</a></h4>
+<p>Call <strong>Monitoring &gt; Send queue</strong> item of the TMS/X main menu to open a
+table of created free format messages:</p>
+<p><a class="reference internal" href="docs/media/image116.png"><img alt="image130" src="docs/media/image116.png" style="width: 6.72847in; height: 0.95139in;" /></a></p>
+<p>The table has a set of the following fields:</p>
+<ul class="simple">
+<li><strong>Reference</strong> – reference number of the message (a hyperlink);</li>
+<li><strong>Type</strong> – code of the message type according to the message format;</li>
+<li><strong>Creation date</strong> – date and time, when the message was created;</li>
+<li><dl class="first docutils">
+<dt><strong>Local status</strong> – current status of the message processing in the</dt>
+<dd>TMS/X;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Description</strong> – brief textual description of the result of the</dt>
+<dd>message processing.</dd>
+</dl>
+</li>
+</ul>
+<p>To send free format message click its click its Reference hyperlink
+(local status of the message should be ‘Created’) and press button Send
+at the bottom of the opened form:</p>
+<p><a class="reference internal" href="docs/media/image117.png"><img alt="image131" src="docs/media/image117.png" style="width: 6.98958in; height: 4.22083in;" /></a></p>
+<p>The local status of the message will change to the ‘Ready to Send’ and
+the outgoing message will be created (you can monitor it in the ‘Message
+Audit’ table, see the section 3.4.5). Then the message will be
+automatically sent to the Central node and the local status of the
+transaction will change to the final value ‘Sent’.</p>
+<p>To decline free format message, click its click its Reference hyperlink
+(local status of the message should be ‘Created’) and press button
+Decline at the bottom of the opened form.</p>
+<p>Confirm the action by entering your comment to the action and pressing
+the Decline button one more time in the pop-up dialog box:</p>
+<p><a class="reference internal" href="docs/media/image118.png"><img alt="image132" src="docs/media/image118.png" style="width: 3.58977in; height: 1.30000in;" /></a></p>
+<p>The local status of the message in the table will change to the
+‘Declined’:</p>
+<p><a class="reference internal" href="docs/media/image119.png"><img alt="image133" src="docs/media/image119.png" style="width: 6.98958in; height: 0.73056in;" /></a></p>
+<p>The toolbar on the free format message form will be updated, so that new
+buttons for further actions will appear in there:</p>
+<p><a class="reference internal" href="docs/media/image120.png"><img alt="image134" src="docs/media/image120.png" style="width: 6.98958in; height: 4.28056in;" /></a></p>
+</div>
+</div>
+<div class="section" id="custom-reports">
+<h3>Custom reports<a class="headerlink" href="#custom-reports" title="Permalink to this headline">¶</a></h3>
+<p>Call the <strong>Reports</strong> item to of the main menu to get a list of the TMS/X
+custom reports:</p>
+<p><a class="reference internal" href="docs/media/image121.png"><img alt="image135" src="docs/media/image121.png" style="width: 2.60256in; height: 3.75926in;" /></a></p>
+<p>The following reports are available in the system:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Roles audit trial</strong> - the report on roles profiles’ changes for the</dt>
+<dd>selected period. Contains the list of roles, actions and their
+dates and time;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Users audit trial</strong> – the report on user profiles’ changes for the</dt>
+<dd>selected period. Contains the list of users, actions and their
+dates and time;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>User login status report</strong> – the report on users never logged in,</dt>
+<dd>users logged in within last selected days and users disabled
+since selected days;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Periodic review</strong> – review user info report on current date.</dt>
+<dd>Contains the list of users and assigned roles;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Last password change report</strong> – the report on users didn’t change</dt>
+<dd>their password for more than selected days before selected data;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Granted user authorities report</strong> – the report on users’ roles and</dt>
+<dd>authorities on current date;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Failed login report</strong> – the report on failed login users for the</dt>
+<dd>selected period. Contains the list of users, dates and time of
+failed login and reason description;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Local user activity report</strong> – the user activity report on selected</dt>
+<dd>date;</dd>
+</dl>
+</li>
+<li><strong>Entitlements report</strong> – the report on created roles;</li>
+<li><dl class="first docutils">
+<dt><strong>Report on settled payments</strong> – the report on settled transactions</dt>
+<dd>on selected date;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Report on rejected or cancelled transactions</strong> – the report on</dt>
+<dd>transactions in rejected, cancelled or refused status on current
+date;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Internal payment report</strong> – the report on internal transactions in</dt>
+<dd>selected currency to on selected date;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Outgoing transactions</strong> <strong>report</strong> – the report on outgoing</dt>
+<dd>transactions on selected date;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Incoming transactions</strong> <strong>report</strong> – the report on incoming</dt>
+<dd>transactions on selected date.</dd>
+</dl>
+</li>
+</ul>
+<p>To view the report choose necessary menu item, set parameters of the
+report, choose the report file format and click the button <strong>Print:</strong></p>
+<p><a class="reference internal" href="docs/media/image122.png"><img alt="image136" src="docs/media/image122.png" style="width: 3.00943in; height: 1.63874in;" /></a></p>
+<p>The report will be generated in selected file format. To open or save
+the report click the correspondent button in the standard browser pop up
+dialog box. System supports following files formats of the reports –
+pdf, xls, rtf, csv, html, docx.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/logo.png" alt="Logo"/>
+            </a></p>
+<h1 class="logo"><a href="../index.html"> </a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../TMSX/index.html">Central Bank of Jordan TMS/X Router for RTGS and ACH. User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../TMSX RTGS/index.html">IIAB TMS/X Payment Gateway for RTGS and ACH CBJ. User Guide</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Vostrikov Roman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/docs/test.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

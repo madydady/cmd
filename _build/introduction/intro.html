@@ -1,0 +1,323 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Review of the TMS/X functionality &#8212; cmd 1.0.0 documentation</title>
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '1.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Summary of the TMS/X interface" href="../summary/index.html" />
+    <link rel="prev" title="Introduction" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="review-of-the-tms-x-functionality">
+<h1>Review of the TMS/X functionality<a class="headerlink" href="#review-of-the-tms-x-functionality" title="Permalink to this headline">¶</a></h1>
+<p>The TMS/X application is used in order to prepare and send cash
+operations to the RTGS and ACH for processing.</p>
+<p>The TMS/X also allows users to monitor:</p>
+<ul class="simple">
+<li>processing of transactions and requests, have been sent to the
+Central node,</li>
+<li>reports on transactions and message exchange;</li>
+<li>other information, related to the bank operations.</li>
+</ul>
+</div>
+<div class="section" id="workstation-requirements-and-settings">
+<h1>Workstation requirements and settings<a class="headerlink" href="#workstation-requirements-and-settings" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="workstation-requirements">
+<h2>Workstation requirements<a class="headerlink" href="#workstation-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Before starting to work with the Web interface system, make sure that
+your computer has been installed Microsoft Internet Explorer 10.0 or
+higher. The Java script should be enabled in web-browser settings. A
+client PC should have at least 512 MB of RAM and at least 1 GB free
+space on a hard drive.</p>
+</div>
+<div class="section" id="browser-proxy-server-settings">
+<h2>Browser proxy-server settings<a class="headerlink" href="#browser-proxy-server-settings" title="Permalink to this headline">¶</a></h2>
+<p>If you operate via a proxy-server, find out its address and the port
+number from your system administrator. Set the received information in
+the correspondent fields of the IE “Tools” - “Internet Options” window
+(“Connection” – “LAN Settings” – “Proxy server”). If the proxy server
+will not be used, then no additional settings are required.</p>
+</div>
+<div class="section" id="activex-component-installing-and-setting">
+<h2>ActiveX component installing and setting<a class="headerlink" href="#activex-component-installing-and-setting" title="Permalink to this headline">¶</a></h2>
+<p>No special installation procedures are required at the participant’s
+site, but <strong>when a user connects to the system the first time, the user
+should allow installing ActiveX component</strong> (in case user is going to
+sign and send transactions via TMS/X GUI manually). Web interface
+workplace is built on thin technologies and uses the standard browser
+for viewing its GUI.</p>
+<p>To run genuine Windows validation, you have to install an ActiveX
+control. The Internet Explorer might not be configured to download
+ActiveX controls for security reasons, or you might have declined to
+install the ActiveX control when the Internet Explorer prompted you to
+download, install, or run the control. Do the following actions:</p>
+<ul class="simple">
+<li>Open the Internet Explorer;</li>
+<li>Click the <strong>Tools</strong> menu, and then click the <strong>Internet Options</strong>;</li>
+<li>On the ‘Security’ tab (trusted sites), click the Custom level button;</li>
+<li><dl class="first docutils">
+<dt>Scroll down the Security Settings list until you see the ‘ActiveX</dt>
+<dd>controls and plug-ins’;</dd>
+</dl>
+</li>
+<li>For Automatic prompting for the ActiveX controls, click Enable;</li>
+<li><dl class="first docutils">
+<dt>Scroll down to the ‘Download signed ActiveX controls’ and click</dt>
+<dd>Enable or Prompt;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Scroll down to the ‘Run ActiveX controls and plug-ins’ and click the</dt>
+<dd>Enable or Prompt;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Scroll down to the ‘Script ActiveX controls, marked safe for</dt>
+<dd>scripting’ and click the Enable or Prompt;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Click the OK button and then click the OK again. (You may need to</dt>
+<dd>restart your computer.).</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="adding-to-trusted-sites">
+<h2>Adding to Trusted Sites<a class="headerlink" href="#adding-to-trusted-sites" title="Permalink to this headline">¶</a></h2>
+<p>Add the URL
+<a class="reference external" href="https://localhost:8743/portal/">*https://&lt;server&gt;:&lt;port&gt;/portal/*</a>
+to trusted sites, where:</p>
+<ul class="simple">
+<li><em>&lt;port&gt;</em> - TCP port for SSL connection to the TMS/X;</li>
+<li><em>&lt;server&gt;</em> - name or ip address of the TMS/X server.</li>
+</ul>
+<p>To do this, follow the steps:</p>
+<ol class="arabic simple">
+<li>In the Internet Explorer, click <strong>Tools &gt; Internet Options</strong>, and
+then click the ‘Security’ tab;</li>
+<li>In the ’Select a Web content’ zone s box, click <strong>Trusted Sites</strong> &gt;
+<strong>Sites</strong> to specify its current security setting;</li>
+<li>In the ‘Add this Web site to the zone’ box, type the URL of the TMS/X
+site, and then click the Add button</li>
+</ol>
+<p>Click the OK button two times to accept the changes and return to the
+Internet Explorer.</p>
+</div>
+<div class="section" id="using-only-tls-1-1-and-tls-1-2">
+<h2>Using only TLS 1.1 and TLS 1.2<a class="headerlink" href="#using-only-tls-1-1-and-tls-1-2" title="Permalink to this headline">¶</a></h2>
+<p>In case you have to only use the TLS 1.1 and TLS 1.2, make the following
+setting:</p>
+<ol class="arabic simple">
+<li>Left-click the gear icon;</li>
+<li>Select “Internet options” from the dropdown menu;</li>
+<li>Click the “Advanced” tab, scroll down and deselect “SSL 2.0” “SSL
+3.0” and “TLS 1.0”;</li>
+<li>Select “TLS 1.1” and “TLS 1.2”;</li>
+<li>Click the OK button to accept your changes (it should take effect
+immediately, but you may need to refresh your browser).</li>
+</ol>
+</div>
+<div class="section" id="disable-compatibility-view">
+<h2>Disable compatibility view<a class="headerlink" href="#disable-compatibility-view" title="Permalink to this headline">¶</a></h2>
+<p>In case you are using the IE 11version:</p>
+<ol class="arabic simple">
+<li>Press the ‘Alt’ key on your keyboard, this will make a menu bar
+appear;</li>
+<li>Click on the <strong>Tools</strong> menu tab;</li>
+<li>Select the <strong>Compatibility View settings</strong> option;</li>
+<li>Uncheck the “Display intranet sites in Compatibility View” option.</li>
+</ol>
+</div>
+<div class="section" id="starting-the-tms-x-application">
+<h2>Starting the TMS/X application<a class="headerlink" href="#starting-the-tms-x-application" title="Permalink to this headline">¶</a></h2>
+<p>The workplace is accessible via a standard link in a web-browser address
+line (the URL-address depends on the system’s configuration and shall be
+issued by the system administrator):</p>
+<p><strong>http://&lt;hostname&gt;:&lt;port&gt;/portal</strong></p>
+<p>where:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><em>&lt;hostname&gt;</em> - a name or IP address of the host, where the web server</dt>
+<dd>is installed;</dd>
+</dl>
+</li>
+<li><em>&lt;port&gt;</em> is a port number.</li>
+</ul>
+<p>Example&nbsp;1:
+<a class="reference external" href="https://prism-client:8080/portal">*https://prism-client:8080/portal*</a></p>
+<p>Example&nbsp;2:
+<a class="reference external" href="https://10.1.28.164:8080/portal">*https://10.1.28.164:8080/portal*</a></p>
+<p>In order to launch the TMS/X application, call up the Microsoft Internet
+Explorer, specify the URL-address of the program and then click the
+“Enter” key:</p>
+<p><a class="reference internal" href="../_images/image1.png"><img alt="image0" src="../_images/image1.png" style="width: 4.32292in; height: 0.44306in;" /></a></p>
+<p>A login form will be displayed:</p>
+<p><a class="reference internal" href="../_images/image2.png"><img alt="image1" src="../_images/image2.png" style="width: 6.98958in; height: 3.29583in;" /></a></p>
+<p>Each user shall be assigned a unique login and password for a
+registration on the TMS/X server (this is provided by the system
+administrator). Fill in fields of the form by your credentials and press
+the Sign in button. After the entered data was successfully verified,
+the user will get access to available options of the system, according
+to his(her) role, and the starting page will be opened:</p>
+<p><a class="reference internal" href="../_images/image3.png"><img alt="image2" src="../_images/image3.png" style="width: 6.97500in; height: 3.08333in;" /></a></p>
+</div>
+<div class="section" id="connect-to-the-tms-x">
+<h2>Connect to the TMS/X<a class="headerlink" href="#connect-to-the-tms-x" title="Permalink to this headline">¶</a></h2>
+<p>In order to close a communication session for the current user, click
+the username in the header of the TMS/X window and choose the ‘Logout’
+command from the drop down menu:</p>
+<p><a class="reference internal" href="../_images/image4.png"><img alt="image3" src="../_images/image4.png" style="width: 1.66875in; height: 1.51042in;" /></a></p>
+<p>A login form will pop up again, where you can enter another user’s login
+and password (e.g., to make authorization actions that were unavailable
+for the previously connected user).</p>
+<p>The TMS/X server may interrupt current user connection due to some
+situations (e.g., in the case of long period of yours inactivity). In
+such cases, the TMS/X page will be blanked and the alert will pop up:</p>
+<p><a class="reference internal" href="../_images/image5.png"><img alt="image4" src="../_images/image5.png" style="width: 3.02153in; height: 0.46944in;" /></a></p>
+<p>Try to login once more and in the case of a failure, contact to the
+system administrator or supporting team.</p>
+</div>
+<div class="section" id="user-role-hierarchy-and-allocation">
+<h2>User Role Hierarchy and Allocation<a class="headerlink" href="#user-role-hierarchy-and-allocation" title="Permalink to this headline">¶</a></h2>
+<p>The TMS/X Workplace supports the following allocation of the user roles
+(each role defines set of access rights (permissions) to monitoring data
+and making operations):</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>System Administrator – gives the permission to dictionaries,</dt>
+<dd>authorization profiles and switchover management;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Security administrator – gives the permission to create user access</dt>
+<dd>and authorities’ management tasks;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Security officer – gives the permission to approve user access and</dt>
+<dd>authorities’ management tasks;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Operator – gives the permission create, edit and make transactions</dt>
+<dd>and transaction requests;</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Controller – gives the permission to authorize transaction and</dt>
+<dd>transaction requests.</dd>
+</dl>
+</li>
+</ul>
+<p>The TMS/X administrator may assign one or several roles from the list to
+any user.</p>
+<p>Each of the TMS/X users connects to the TMS/X by using his own login and
+password. After the user is connected, the TMS/X identifies the user’s
+role(s), which are definitely associated with the user credentials in
+the system. The contents of the TMS/X pages and menus will correspond to
+the identified user role.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">cmd</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Introduction</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Review of the TMS/X functionality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#workstation-requirements-and-settings">Workstation requirements and settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../summary/index.html">Summary of the TMS/X interface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tables_and_actions/index.html">Tables and actions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">Introduction</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Introduction</a></li>
+      <li>Next: <a href="../summary/index.html" title="next chapter">Summary of the TMS/X interface</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Vostrikov Roman.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.6.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.10</a>
+      
+      |
+      <a href="../_sources/introduction/intro.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
